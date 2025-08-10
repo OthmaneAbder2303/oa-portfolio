@@ -232,7 +232,7 @@
   }
 
   .project-card {
-    @apply relative overflow-hidden rounded-xl bg-gradient-card border backdrop-blur-sm transition-all duration-500 hover:shadow-accent hover:border-primary/40;
+    @apply relative overflow-hidden rounded-xl bg-card border backdrop-blur-sm transition-all duration-500 hover:shadow-accent hover:border-primary/40;
   }
 
   .section-padding {
