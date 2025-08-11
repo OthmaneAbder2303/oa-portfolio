@@ -1,3 +1,4 @@
+
 import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -31,7 +32,8 @@ const Contact = () => {
       value: 'linkedin.com/in/oa23',
       href: 'https://www.linkedin.com/in/oa23/',
       color: 'text-blue-600',
-      bgColor: 'bg-blue-600/20'
+      bgColor: 'bg-blue-600/20',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg'
     },
     {
       icon: Github,
@@ -39,7 +41,8 @@ const Contact = () => {
       value: 'github.com/OthmaneAbder2303',
       href: 'https://github.com/OthmaneAbder2303',
       color: 'text-gray-700 dark:text-gray-300',
-      bgColor: 'bg-gray-700/20'
+      bgColor: 'bg-gray-700/20',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
     },
     {
       icon: ExternalLink,
@@ -47,7 +50,8 @@ const Contact = () => {
       value: 'leetcode.com/u/othmane232004',
       href: 'https://leetcode.com/u/othmane232004/',
       color: 'text-orange-600',
-      bgColor: 'bg-orange-600/20'
+      bgColor: 'bg-orange-600/20',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
     },
     {
       icon: ExternalLink,
@@ -55,7 +59,8 @@ const Contact = () => {
       value: 'hackerrank.com/profile/othmane232004',
       href: 'https://www.hackerrank.com/profile/othmane232004',
       color: 'text-green-600',
-      bgColor: 'bg-green-600/20'
+      bgColor: 'bg-green-600/20',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png'
     }
   ]
 
@@ -159,7 +164,16 @@ const Contact = () => {
                     className="flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
                   >
                     <div className={`w-12 h-12 ${social.bgColor} rounded-lg flex items-center justify-center`}>
-                      <social.icon className={`h-6 w-6 ${social.color}`} />
+                      <img 
+                        src={social.logo} 
+                        alt={social.label}
+                        className="w-6 h-6 object-contain"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling!.style.display = 'flex';
+                        }}
+                      />
+                      <social.icon className={`h-6 w-6 ${social.color} hidden`} />
                     </div>
                     <div className="flex-1">
                       <div className="font-semibold text-card-foreground group-hover:text-primary transition-colors">

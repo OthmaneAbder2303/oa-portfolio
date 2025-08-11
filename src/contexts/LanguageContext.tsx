@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
 
-export type Language = 'en' | 'fr' | 'ar'
+import React, { createContext, useContext, useState, ReactNode } from 'react'
+
+type Language = 'en' | 'fr' | 'ar'
 
 interface LanguageContextType {
   language: Language
@@ -11,90 +12,76 @@ interface LanguageContextType {
 const translations = {
   en: {
     // Navigation
-    'nav.home': 'Home',
     'nav.about': 'About',
-    'nav.education': 'Education', 
+    'nav.education': 'Education',
     'nav.experience': 'Experience',
     'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.certifications': 'Certifications',
     'nav.awards': 'Awards',
     'nav.contact': 'Contact',
-    
-    // Hero Section
+
+    // Hero
     'hero.greeting': 'Hi, I\'m',
     'hero.name': 'Othmane Abderrazik',
     'hero.title': 'Computer Engineering Student',
     'hero.description': 'CompEng student stoked about building full-stack apps & digging into AI + NLP. Always hyped to explore the latest tech buzz!',
-    'hero.viewWork': 'View My Work',
-    'hero.contact': 'Get In Touch',
-    
-    // About Section
+    'hero.specialization': 'Data Science & AI Specialist',
+    'hero.cta.projects': 'View Projects',
+    'hero.cta.contact': 'Get In Touch',
+
+    // About
     'about.title': 'About Me',
-    'about.description': 'Passionate Computer Engineering student at EILCO & ENSA Marrakech, specializing in AI, embedded systems, and full-stack development.',
-    
-    // Education Section
-    'education.title': 'Educational Journey',
-    'education.eilco': 'École d\'Ingénieurs du Littoral Côte d\'Opale (EILCO)',
-    'education.eilco.degree': 'Engineering Degree, Computer Engineering',
-    'education.eilco.location': 'Calais, France',
-    'education.ensa': 'National School of Applied Sciences (ENSA)',
-    'education.ensa.degree': 'Engineering Degree, Computer Engineering',
-    'education.ensa.location': 'Marrakech, Morocco',
-    'education.prep': 'Integrated Preparatory Cycle',
-    
-    // Experience Section
-    'experience.title': 'Professional Experience',
-    'experience.dell': 'Observation Internship – DELL Technologies',
-    'experience.dell.description': 'Collaborated with sales and technical teams on process digitalization.',
-    
-    // Projects Section
+    'about.description': 'Passionate computer engineering student with expertise in AI, machine learning, and full-stack development.',
+
+    // Education
+    'education.title': 'Education',
+
+    // Experience
+    'experience.title': 'Experience',
+
+    // Projects
     'projects.title': 'Featured Projects',
-    'projects.smartroute': 'SmartRoute – Intelligent Transport Planning Platform',
-    'projects.smartroute.description': 'Web application for optimized route planning based on traffic and weather with graph algorithms and ML models.',
-    'projects.hackathon': 'Smart Bureaucracy Assistant (Hackathon HackAI)',
-    'projects.hackathon.description': 'Conversational assistant in Darija to simplify access to administrative information in Morocco.',
+    'projects.smartroute': 'SmartRoute - Intelligent Transport Planning',
+    'projects.smartroute.description': 'A web application for optimized route planning based on traffic and weather conditions, integrating graph algorithms and machine learning models.',
+    'projects.hackathon': 'Smart Bureaucracy Assistant (HackAI)',
+    'projects.hackathon.description': 'Conversational assistant in Darija to simplify access to administrative information in Morocco using NLP and speech recognition.',
     'projects.chatbot': 'Moroccan Food Chatbot',
-    'projects.chatbot.description': 'Chatbot to take orders for Moroccan dishes via written messages using NLP.',
-    'projects.lis': 'Laboratory Information System (LIS)',
-    'projects.lis.description': 'Laboratory management system with wireless communication via ESP32.',
+    'projects.chatbot.description': 'Intelligent chatbot for taking orders of Moroccan dishes using natural language processing to interpret intents.',
+    'projects.lis': 'Laboratory Information System',
+    'projects.lis.description': 'Laboratory management system with wireless communication via ESP32 and real-time data synchronization.',
     'projects.puzzle': 'AI-Powered Image Puzzle Solver',
-    'projects.puzzle.description': 'Intelligent system capable of automatically reconstructing images from unordered fragments.',
-    
-    // Skills Section
+    'projects.puzzle.description': 'Intelligent system for automatically reconstructing images from unordered fragments using computer vision techniques.',
+
+    // Skills
     'skills.title': 'Technical Skills',
     'skills.languages': 'Programming Languages',
     'skills.frameworks': 'Frameworks & Libraries',
     'skills.databases': 'Databases',
     'skills.tools': 'Tools & Technologies',
-    
-    // Certifications Section
+
+    // Certifications
     'certifications.title': 'Certifications',
     'certifications.ml': 'Machine Learning Specialization',
-    'certifications.python': 'Python for Data Science, AI and Development',
+    'certifications.python': 'Python for Data Science, AI & Development',
     'certifications.algorithms': 'Algorithms for Searching, Sorting, and Indexing',
-    
-    // Awards Section
-    'awards.title': 'Awards & Honors',
-    'awards.hackathon': '7th Place – Hackathon HackAI 2025',
-    'awards.gameofcodes': '1st Place – Game Of Codes',
-    'awards.excellence': 'Excellence Award',
-    
-    // Contact Section
+
+    // Awards
+    'awards.title': 'Awards & Recognition',
+
+    // Contact
     'contact.title': 'Get In Touch',
-    'contact.description': 'I\'m always open to discussing new opportunities and interesting projects.',
+    'contact.description': 'Let\'s connect and discuss opportunities in data science, AI, and software development.',
     'contact.email': 'Email',
     'contact.location': 'Location',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
     'contact.leetcode': 'LeetCode',
-    'contact.hackerrank': 'HackerRank',
+    'contact.hackerrank': 'HackerRank'
   },
-  
   fr: {
     // Navigation
-    'nav.home': 'Accueil',
-    'nav.about': 'À propos',
+    'nav.about': 'À Propos',
     'nav.education': 'Formation',
     'nav.experience': 'Expérience',
     'nav.projects': 'Projets',
@@ -102,81 +89,68 @@ const translations = {
     'nav.certifications': 'Certifications',
     'nav.awards': 'Récompenses',
     'nav.contact': 'Contact',
-    
-    // Hero Section
+
+    // Hero
     'hero.greeting': 'Salut, je suis',
     'hero.name': 'Othmane Abderrazik',
     'hero.title': 'Étudiant en Génie Informatique',
-    'hero.description': 'Étudiant en génie informatique passionné par le développement d\'applications full-stack et l\'exploration de l\'IA et du NLP. Toujours excité d\'explorer les dernières technologies !',
-    'hero.viewWork': 'Voir Mon Travail',
-    'hero.contact': 'Me Contacter',
-    
-    // About Section
-    'about.title': 'À Propos De Moi',
-    'about.description': 'Étudiant passionné en génie informatique à l\'EILCO et l\'ENSA Marrakech, spécialisé en IA, systèmes embarqués et développement full-stack.',
-    
-    // Education Section
-    'education.title': 'Parcours Éducatif',
-    'education.eilco': 'École d\'Ingénieurs du Littoral Côte d\'Opale (EILCO)',
-    'education.eilco.degree': 'Diplôme d\'Ingénieur, Génie Informatique',
-    'education.eilco.location': 'Calais, France',
-    'education.ensa': 'École Nationale des Sciences Appliquées (ENSA)',
-    'education.ensa.degree': 'Diplôme d\'Ingénieur, Génie Informatique',
-    'education.ensa.location': 'Marrakech, Maroc',
-    'education.prep': 'Cycle Préparatoire Intégré',
-    
-    // Experience Section
-    'experience.title': 'Expérience Professionnelle',
-    'experience.dell': 'Stage d\'Observation – DELL Technologies',
-    'experience.dell.description': 'Collaboration avec les équipes commerciales et techniques sur la digitalisation des processus.',
-    
-    // Projects Section
+    'hero.description': 'Étudiant en génie informatique passionné par le développement d\'applications full-stack et l\'exploration de l\'IA et du NLP. Toujours enthousiaste d\'explorer les dernières tendances technologiques !',
+    'hero.specialization': 'Spécialiste en Science des Données et IA',
+    'hero.cta.projects': 'Voir Projets',
+    'hero.cta.contact': 'Me Contacter',
+
+    // About
+    'about.title': 'À Propos de Moi',
+    'about.description': 'Étudiant passionné en génie informatique avec une expertise en IA, apprentissage automatique et développement full-stack.',
+
+    // Education
+    'education.title': 'Formation',
+
+    // Experience
+    'experience.title': 'Expérience',
+
+    // Projects
     'projects.title': 'Projets Phares',
-    'projects.smartroute': 'SmartRoute – Plateforme de Planification de Transport Intelligente',
-    'projects.smartroute.description': 'Application web pour la planification optimisée d\'itinéraires basée sur le trafic et la météo avec des algorithmes de graphes et des modèles ML.',
-    'projects.hackathon': 'Assistant Bureaucratique Intelligent (Hackathon HackAI)',
-    'projects.hackathon.description': 'Assistant conversationnel en darija pour simplifier l\'accès aux informations administratives au Maroc.',
+    'projects.smartroute': 'SmartRoute - Planification de Transport Intelligente',
+    'projects.smartroute.description': 'Application web pour la planification d\'itinéraires optimisés basée sur le trafic et les conditions météorologiques, intégrant des algorithmes de graphe et des modèles d\'apprentissage automatique.',
+    'projects.hackathon': 'Assistant Bureaucratique Intelligent (HackAI)',
+    'projects.hackathon.description': 'Assistant conversationnel en Darija pour simplifier l\'accès aux informations administratives au Maroc utilisant le NLP et la reconnaissance vocale.',
     'projects.chatbot': 'Chatbot de Cuisine Marocaine',
-    'projects.chatbot.description': 'Chatbot pour prendre des commandes de plats marocains via des messages écrits utilisant le NLP.',
-    'projects.lis': 'Système d\'Information de Laboratoire (SIL)',
-    'projects.lis.description': 'Système de gestion de laboratoire avec communication sans fil via ESP32.',
-    'projects.puzzle': 'Résolveur de Puzzle d\'Images Alimenté par l\'IA',
-    'projects.puzzle.description': 'Système intelligent capable de reconstruire automatiquement des images à partir de fragments désordonnés.',
-    
-    // Skills Section
+    'projects.chatbot.description': 'Chatbot intelligent pour prendre des commandes de plats marocains utilisant le traitement du langage naturel pour interpréter les intentions.',
+    'projects.lis': 'Système d\'Information de Laboratoire',
+    'projects.lis.description': 'Système de gestion de laboratoire avec communication sans fil via ESP32 et synchronisation de données en temps réel.',
+    'projects.puzzle': 'Résolveur de Puzzle d\'Images par IA',
+    'projects.puzzle.description': 'Système intelligent pour reconstituer automatiquement des images à partir de fragments désordonnés utilisant des techniques de vision par ordinateur.',
+
+    // Skills
     'skills.title': 'Compétences Techniques',
     'skills.languages': 'Langages de Programmation',
     'skills.frameworks': 'Frameworks et Bibliothèques',
     'skills.databases': 'Bases de Données',
     'skills.tools': 'Outils et Technologies',
-    
-    // Certifications Section
+
+    // Certifications
     'certifications.title': 'Certifications',
     'certifications.ml': 'Spécialisation en Apprentissage Automatique',
-    'certifications.python': 'Python pour la Science des Données, l\'IA et le Développement',
+    'certifications.python': 'Python pour la Science des Données, IA et Développement',
     'certifications.algorithms': 'Algorithmes de Recherche, Tri et Indexation',
-    
-    // Awards Section
-    'awards.title': 'Récompenses et Honneurs',
-    'awards.hackathon': '7ème Place – Hackathon HackAI 2025',
-    'awards.gameofcodes': '1ère Place – Game Of Codes',
-    'awards.excellence': 'Prix d\'Excellence',
-    
-    // Contact Section
+
+    // Awards
+    'awards.title': 'Récompenses et Reconnaissance',
+
+    // Contact
     'contact.title': 'Me Contacter',
-    'contact.description': 'Je suis toujours ouvert à discuter de nouvelles opportunités et de projets intéressants.',
+    'contact.description': 'Connectons-nous et discutons des opportunités en science des données, IA et développement logiciel.',
     'contact.email': 'Email',
     'contact.location': 'Localisation',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
     'contact.leetcode': 'LeetCode',
-    'contact.hackerrank': 'HackerRank',
+    'contact.hackerrank': 'HackerRank'
   },
-  
   ar: {
     // Navigation
-    'nav.home': 'الرئيسية',
-    'nav.about': 'عني',
+    'nav.about': 'حولي',
     'nav.education': 'التعليم',
     'nav.experience': 'الخبرة',
     'nav.projects': 'المشاريع',
@@ -184,94 +158,74 @@ const translations = {
     'nav.certifications': 'الشهادات',
     'nav.awards': 'الجوائز',
     'nav.contact': 'التواصل',
-    
-    // Hero Section
+
+    // Hero
     'hero.greeting': 'مرحبا، أنا',
-    'hero.name': 'عثمان عبد الرازق',
+    'hero.name': 'عثمان عبد الرزاق',
     'hero.title': 'طالب هندسة الحاسوب',
-    'hero.description': 'طالب هندسة حاسوب متحمس لبناء تطبيقات كاملة واستكشاف الذكاء الاصطناعي ومعالجة اللغات الطبيعية. دائماً متحمس لاستكشاف أحدث التقنيات!',
-    'hero.viewWork': 'عرض أعمالي',
-    'hero.contact': 'تواصل معي',
-    
-    // About Section
-    'about.title': 'عني',
-    'about.description': 'طالب متحمس في هندسة الحاسوب في EILCO و ENSA مراكش، متخصص في الذكاء الاصطناعي والأنظمة المدمجة والتطوير الكامل.',
-    
-    // Education Section
-    'education.title': 'المسار التعليمي',
-    'education.eilco': 'مدرسة مهندسي الساحل الأوبالي (EILCO)',
-    'education.eilco.degree': 'شهادة الهندسة، هندسة الحاسوب',
-    'education.eilco.location': 'كاليه، فرنسا',
-    'education.ensa': 'المدرسة الوطنية للعلوم التطبيقية (ENSA)',
-    'education.ensa.degree': 'شهادة الهندسة، هندسة الحاسوب',
-    'education.ensa.location': 'مراكش، المغرب',
-    'education.prep': 'السلك التحضيري المدمج',
-    
-    // Experience Section
-    'experience.title': 'الخبرة المهنية',
-    'experience.dell': 'تدريب الملاحظة – DELL Technologies',
-    'experience.dell.description': 'التعاون مع فرق المبيعات والتقنية في رقمنة العمليات.',
-    
-    // Projects Section
+    'hero.description': 'طالب هندسة الحاسوب متحمس لبناء تطبيقات متكاملة واستكشاف الذكاء الاصطناعي ومعالجة اللغات الطبيعية. دائماً متحمس لاستكشاف أحدث التقنيات!',
+    'hero.specialization': 'متخصص في علوم البيانات والذكاء الاصطناعي',
+    'hero.cta.projects': 'عرض المشاريع',
+    'hero.cta.contact': 'تواصل معي',
+
+    // About
+    'about.title': 'نبذة عني',
+    'about.description': 'طالب هندسة الحاسوب شغوف بخبرة في الذكاء الاصطناعي والتعلم الآلي والتطوير الشامل.',
+
+    // Education
+    'education.title': 'التعليم',
+
+    // Experience
+    'experience.title': 'الخبرة',
+
+    // Projects
     'projects.title': 'المشاريع المميزة',
-    'projects.smartroute': 'SmartRoute – منصة التخطيط الذكي للنقل',
-    'projects.smartroute.description': 'تطبيق ويب لتخطيط المسارات المحسن بناءً على حركة المرور والطقس مع خوارزميات الرسوم البيانية ونماذج التعلم الآلي.',
-    'projects.hackathon': 'مساعد البيروقراطية الذكي (هاكاثون HackAI)',
-    'projects.hackathon.description': 'مساعد محادثة بالدارجة لتبسيط الوصول إلى المعلومات الإدارية في المغرب.',
-    'projects.chatbot': 'شات بوت الطعام المغربي',
-    'projects.chatbot.description': 'شات بوت لأخذ طلبات الأطباق المغربية عبر الرسائل المكتوبة باستخدام معالجة اللغات الطبيعية.',
-    'projects.lis': 'نظام معلومات المختبر (LIS)',
-    'projects.lis.description': 'نظام إدارة المختبر مع الاتصال اللاسلكي عبر ESP32.',
+    'projects.smartroute': 'SmartRoute - تخطيط النقل الذكي',
+    'projects.smartroute.description': 'تطبيق ويب لتخطيط المسارات المحسنة بناءً على حركة المرور والظروف الجوية، يدمج خوارزميات الرسم البياني ونماذج التعلم الآلي.',
+    'projects.hackathon': 'مساعد البيروقراطية الذكي (HackAI)',
+    'projects.hackathon.description': 'مساعد محادثة بالدارجة لتبسيط الوصول إلى المعلومات الإدارية في المغرب باستخدام معالجة اللغات الطبيعية والتعرف على الكلام.',
+    'projects.chatbot': 'روبوت الطعام المغربي',
+    'projects.chatbot.description': 'روبوت ذكي لأخذ طلبات الأطباق المغربية باستخدام معالجة اللغة الطبيعية لتفسير النوايا.',
+    'projects.lis': 'نظام معلومات المختبر',
+    'projects.lis.description': 'نظام إدارة المختبر مع الاتصال اللاسلكي عبر ESP32 ومزامنة البيانات في الوقت الفعلي.',
     'projects.puzzle': 'حلال ألغاز الصور بالذكاء الاصطناعي',
-    'projects.puzzle.description': 'نظام ذكي قادر على إعادة بناء الصور تلقائياً من القطع غير المرتبة.',
-    
-    // Skills Section
+    'projects.puzzle.description': 'نظام ذكي لإعادة تكوين الصور تلقائياً من شظايا غير مرتبة باستخدام تقنيات الرؤية الحاسوبية.',
+
+    // Skills
     'skills.title': 'المهارات التقنية',
     'skills.languages': 'لغات البرمجة',
     'skills.frameworks': 'الأطر والمكتبات',
     'skills.databases': 'قواعد البيانات',
     'skills.tools': 'الأدوات والتقنيات',
-    
-    // Certifications Section
+
+    // Certifications
     'certifications.title': 'الشهادات',
     'certifications.ml': 'تخصص التعلم الآلي',
-    'certifications.python': 'بايثون لعلوم البيانات والذكاء الاصطناعي والتطوير',
+    'certifications.python': 'Python لعلوم البيانات والذكاء الاصطناعي والتطوير',
     'certifications.algorithms': 'خوارزميات البحث والترتيب والفهرسة',
-    
-    // Awards Section
-    'awards.title': 'الجوائز والأوسمة',
-    'awards.hackathon': 'المركز السابع – هاكاثون HackAI 2025',
-    'awards.gameofcodes': 'المركز الأول – Game Of Codes',
-    'awards.excellence': 'جائزة التميز',
-    
-    // Contact Section
+
+    // Awards
+    'awards.title': 'الجوائز والتقدير',
+
+    // Contact
     'contact.title': 'تواصل معي',
-    'contact.description': 'أنا مفتوح دائماً لمناقشة الفرص الجديدة والمشاريع المثيرة للاهتمام.',
+    'contact.description': 'دعنا نتواصل ونناقش الفرص في علوم البيانات والذكاء الاصطناعي وتطوير البرمجيات.',
     'contact.email': 'البريد الإلكتروني',
     'contact.location': 'الموقع',
-    'contact.linkedin': 'لينكد إن',
-    'contact.github': 'جيت هاب',
-    'contact.leetcode': 'ليت كود',
-    'contact.hackerrank': 'هاكر رانك',
+    'contact.linkedin': 'LinkedIn',
+    'contact.github': 'GitHub',
+    'contact.leetcode': 'LeetCode',
+    'contact.hackerrank': 'HackerRank'
   }
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('portfolio-language')
-    return (saved as Language) || 'en'
-  })
-
-  useEffect(() => {
-    localStorage.setItem('portfolio-language', language)
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
-    document.documentElement.lang = language
-  }, [language])
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('en')
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key
+    return translations[language][key as keyof typeof translations['en']] || key
   }
 
   return (

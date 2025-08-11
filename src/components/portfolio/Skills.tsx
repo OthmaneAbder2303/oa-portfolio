@@ -1,3 +1,4 @@
+
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const Skills = () => {
@@ -8,58 +9,58 @@ const Skills = () => {
       title: t('skills.languages'),
       icon: '💻',
       skills: [
-        { name: 'Java', level: 90, logo: '☕' },
-        { name: 'Python', level: 95, logo: '🐍' },
-        { name: 'TypeScript', level: 85, logo: '📘' },
-        { name: 'C/C++', level: 80, logo: '⚡' },
-        { name: 'SQL', level: 85, logo: '🗃️' },
-        { name: 'JavaScript', level: 88, logo: '🟨' }
+        { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+        { name: 'C/C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+        { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
       ]
     },
     {
       title: t('skills.frameworks'),
       icon: '🚀',
       skills: [
-        { name: 'Spring Boot', level: 85, logo: '🍃' },
-        { name: 'React', level: 90, logo: '⚛️' },
-        { name: 'Angular', level: 80, logo: '🔺' },
-        { name: 'Flask', level: 85, logo: '🌶️' },
-        { name: 'FastAPI', level: 80, logo: '⚡' },
-        { name: 'Jakarta EE', level: 75, logo: '☕' }
+        { name: 'Spring Boot', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+        { name: 'Flask', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
+        { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+        { name: 'Jakarta EE', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
       ]
     },
     {
       title: 'AI & Machine Learning',
       icon: '🤖',
       skills: [
-        { name: 'TensorFlow', level: 85, logo: '🧠' },
-        { name: 'Scikit-learn', level: 90, logo: '📊' },
-        { name: 'OpenCV', level: 85, logo: '👁️' },
-        { name: 'Dialogflow', level: 80, logo: '💬' },
-        { name: 'NLP', level: 88, logo: '🗣️' },
-        { name: 'Computer Vision', level: 85, logo: '📸' }
+        { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+        { name: 'Scikit-learn', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
+        { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
+        { name: 'Dialogflow', logo: 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.min.css' },
+        { name: 'NLP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'Computer Vision', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' }
       ]
     },
     {
       title: t('skills.databases'),
       icon: '🗄️',
       skills: [
-        { name: 'MySQL', level: 90, logo: '🐬' },
-        { name: 'PostgreSQL', level: 85, logo: '🐘' },
-        { name: 'MongoDB', level: 80, logo: '🍃' },
-        { name: 'Redis', level: 75, logo: '🔴' }
+        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+        { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+        { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' }
       ]
     },
     {
       title: t('skills.tools'),
       icon: '🛠️',
       skills: [
-        { name: 'Git', level: 95, logo: '📝' },
-        { name: 'Docker', level: 80, logo: '🐳' },
-        { name: 'ESP32', level: 85, logo: '📡' },
-        { name: 'Linux', level: 85, logo: '🐧' },
-        { name: 'AWS', level: 75, logo: '☁️' },
-        { name: 'Figma', level: 70, logo: '🎨' }
+        { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        { name: 'ESP32', logo: 'https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_static/espressif-logo.svg' },
+        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+        { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
+        { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' }
       ]
     }
   ]
@@ -103,24 +104,16 @@ const Skills = () => {
                     <div key={skillIndex} className="skill-card">
                       
                       {/* Skill Header */}
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center space-x-2">
-                          <span className="text-lg">{skill.logo}</span>
-                          <span className="font-medium text-sm">{skill.name}</span>
-                        </div>
-                      </div>
-
-                      {/* Progress Bar */}
-                      <div className="relative">
-                        <div className="w-full bg-muted rounded-full h-2">
-                          <div 
-                            className="bg-gradient-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
-                        <span className="text-xs text-muted-foreground mt-1 block text-right">
-                          {skill.level}%
-                        </span>
+                      <div className="flex items-center justify-center mb-3 flex-col space-y-2">
+                        <img 
+                          src={skill.logo} 
+                          alt={skill.name}
+                          className="w-8 h-8 object-contain"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                        <span className="font-medium text-sm text-center">{skill.name}</span>
                       </div>
                     </div>
                   ))}

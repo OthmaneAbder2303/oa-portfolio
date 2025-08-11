@@ -1,3 +1,4 @@
+
 import { ExternalLink, Award, Calendar, Building } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
@@ -10,11 +11,12 @@ const Certifications = () => {
       id: 1,
       title: t('certifications.ml'),
       issuer: 'DeepLearning.AI, Stanford',
+      issuerLogo: 'https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vxAVYFV0EeemlhJgNx7Z7w_16cea20a3e0a48bcabe04b75ba2b1491_deeplearning.ai-logo.png',
       date: 'Sep 2024',
-      credentialId: 'ML-SPEC-2024-001',
+      credentialId: 'PXIYWQUNFUDX',
       description: 'Comprehensive specialization covering supervised learning, unsupervised learning, and neural networks.',
       skills: ['Machine Learning', 'Neural Networks', 'Python', 'TensorFlow', 'Deep Learning'],
-      credentialUrl: '#',
+      credentialUrl: 'https://coursera.org/verify/specialization/PXIYWQUNFUDX',
       logo: '🧠',
       color: 'primary'
     },
@@ -22,11 +24,12 @@ const Certifications = () => {
       id: 2,
       title: t('certifications.python'),
       issuer: 'IBM',
+      issuerLogo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
       date: 'Dec 2023',
-      credentialId: 'IBM-PY-DS-2023-456',
+      credentialId: '02f4094cc1adfe8f2e481f744add2ff8',
       description: 'Python programming fundamentals for data science and AI development applications.',
       skills: ['Python', 'Data Science', 'AI Development', 'Pandas', 'NumPy'],
-      credentialUrl: '#',
+      credentialUrl: 'https://coursera.org/share/02f4094cc1adfe8f2e481f744add2ff8',
       logo: '🐍',
       color: 'secondary'
     },
@@ -34,6 +37,7 @@ const Certifications = () => {
       id: 3,
       title: t('certifications.algorithms'),
       issuer: 'University of Colorado Boulder',
+      issuerLogo: 'https://upload.wikimedia.org/wikipedia/en/a/a1/University_of_Colorado_Boulder_logo.svg',
       date: 'Nov 2022',
       credentialId: 'UCB-ALG-2022-789',
       description: 'Advanced algorithms for searching, sorting, and indexing with practical implementations.',
@@ -44,10 +48,49 @@ const Certifications = () => {
     }
   ]
 
+  const learningPlatforms = [
+    {
+      name: 'DeepLearning.AI',
+      description: 'Stanford University Partnership',
+      logo: 'https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vxAVYFV0EeemlhJgNx7Z7w_16cea20a3e0a48bcabe04b75ba2b1491_deeplearning.ai-logo.png',
+      icon: '🎓'
+    },
+    {
+      name: 'IBM',
+      description: 'Professional Development',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+      icon: '💙'
+    },
+    {
+      name: 'UC Boulder',
+      description: 'Computer Science Excellence',
+      logo: 'https://upload.wikimedia.org/wikipedia/en/a/a1/University_of_Colorado_Boulder_logo.svg',
+      icon: '🏔️'
+    },
+    {
+      name: 'Google Cloud',
+      description: 'Cloud Computing Platform',
+      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
+      icon: '☁️'
+    },
+    {
+      name: 'DataCamp',
+      description: 'Data Science Learning',
+      logo: 'https://cdn.worldvectorlogo.com/logos/datacamp.svg',
+      icon: '📊'
+    },
+    {
+      name: 'GeeksforGeeks',
+      description: 'Programming Practice',
+      logo: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png',
+      icon: '💻'
+    }
+  ]
+
   const stats = [
     { label: 'Certifications', value: '3+', icon: '🏆' },
     { label: 'Total Hours', value: '200+', icon: '⏱️' },
-    { label: 'Platforms', value: '3', icon: '🌐' },
+    { label: 'Platforms', value: '6', icon: '🌐' },
     { label: 'Skills Gained', value: '15+', icon: '🎯' }
   ]
 
@@ -77,7 +120,16 @@ const Certifications = () => {
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:space-y-4 lg:text-center">
                       <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-2xl">{cert.logo}</span>
+                        <img 
+                          src={cert.issuerLogo} 
+                          alt={cert.issuer}
+                          className="w-12 h-12 object-contain filter brightness-0 invert"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling!.style.display = 'block';
+                          }}
+                        />
+                        <span className="text-2xl hidden">{cert.logo}</span>
                       </div>
                       <div className="lg:text-center">
                         <div className="text-sm text-muted-foreground flex items-center lg:justify-center">
@@ -134,6 +186,7 @@ const Certifications = () => {
                         variant="outline" 
                         size="sm" 
                         className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                        onClick={() => window.open(cert.credentialUrl, '_blank')}
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         View Credential
@@ -159,31 +212,25 @@ const Certifications = () => {
           {/* Learning Platforms */}
           <div className="text-center">
             <h3 className="text-xl font-bold mb-8">Learning Platforms</h3>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              
-              <div className="project-card p-6 text-center hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">🎓</span>
+            <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+              {learningPlatforms.map((platform, index) => (
+                <div key={index} className="project-card p-6 text-center hover-lift">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img 
+                      src={platform.logo} 
+                      alt={platform.name}
+                      className="w-8 h-8 object-contain filter brightness-0 invert"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling!.style.display = 'block';
+                      }}
+                    />
+                    <span className="text-xl hidden">{platform.icon}</span>
+                  </div>
+                  <h4 className="font-semibold mb-2 text-sm">{platform.name}</h4>
+                  <p className="text-xs text-muted-foreground">{platform.description}</p>
                 </div>
-                <h4 className="font-semibold mb-2">DeepLearning.AI</h4>
-                <p className="text-sm text-muted-foreground">Stanford University Partnership</p>
-              </div>
-
-              <div className="project-card p-6 text-center hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">💙</span>
-                </div>
-                <h4 className="font-semibold mb-2">IBM</h4>
-                <p className="text-sm text-muted-foreground">Professional Development</p>
-              </div>
-
-              <div className="project-card p-6 text-center hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl">🏔️</span>
-                </div>
-                <h4 className="font-semibold mb-2">UC Boulder</h4>
-                <p className="text-sm text-muted-foreground">Computer Science Excellence</p>
-              </div>
+              ))}
             </div>
           </div>
 
