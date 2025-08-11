@@ -170,7 +170,7 @@ const Contact = () => {
                         className="w-6 h-6 object-contain"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling!.style.display = 'flex';
+                          (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                         }}
                       />
                       <social.icon className={`h-6 w-6 ${social.color} hidden`} />

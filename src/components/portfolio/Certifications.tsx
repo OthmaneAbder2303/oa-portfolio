@@ -126,7 +126,7 @@ const Certifications = () => {
                           className="w-12 h-12 object-contain filter brightness-0 invert"
                           onError={(e) => {
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling!.style.display = 'block';
+                            (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
                           }}
                         />
                         <span className="text-2xl hidden">{cert.logo}</span>
@@ -222,7 +222,7 @@ const Certifications = () => {
                       className="w-8 h-8 object-contain filter brightness-0 invert"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling!.style.display = 'block';
+                        (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
                       }}
                     />
                     <span className="text-xl hidden">{platform.icon}</span>

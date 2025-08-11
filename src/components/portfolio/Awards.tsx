@@ -131,7 +131,7 @@ const Awards = () => {
                       className="w-8 h-8 object-contain filter brightness-0 invert"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling!.style.display = 'flex';
+                        (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                       }}
                     />
                     <Trophy className="w-6 h-6 text-white hidden" />

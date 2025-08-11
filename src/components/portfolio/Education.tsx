@@ -85,7 +85,7 @@ const Education = () => {
                             className="w-full h-full object-contain filter brightness-0 invert"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
-                              e.currentTarget.nextElementSibling!.style.display = 'flex';
+                              (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                             }}
                           />
                           <GraduationCap className="w-8 h-8 text-white hidden" />
