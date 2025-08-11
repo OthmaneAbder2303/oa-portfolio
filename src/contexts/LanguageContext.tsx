@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react'
 
 export type Language = 'en' | 'fr' | 'ar'
@@ -54,11 +53,10 @@ const translations = {
     'projects.puzzle.description': 'Intelligent system for automatically reconstructing images from unordered fragments using computer vision techniques.',
 
     // Skills
-    'skills.title': 'Technical Skills',
-    'skills.languages': 'Programming Languages',
-    'skills.frameworks': 'Frameworks & Libraries',
-    'skills.databases': 'Databases',
-    'skills.tools': 'Tools & Technologies',
+    "skills.title": "Technical Skills",
+    "skills.languages": "Programming Languages",
+    "skills.frameworks_libraries": "Frameworks & Libraries",
+    "skills.tools_platforms": "Tools & Technologies",
 
     // Certifications
     'certifications.title': 'Certifications',
@@ -68,6 +66,13 @@ const translations = {
 
     // Awards
     'awards.title': 'Awards & Recognition',
+    'awards.description': 'Recognition for excellence in academics, competitions, and community leadership',
+    'awards.hackai': '7th Place – Hackathon HackAI 2025',
+    'awards.hackai.description': 'Developed a conversational assistant in Darija for administrative information access in Morocco.',
+    'awards.gameofcodes': '1st Place – Game Of Codes',
+    'awards.gameofcodes.description': 'Won first place in competitive programming contest featuring algorithmic problem solving.',
+    'awards.excellence': 'Excellence Award',
+    'awards.excellence.description': 'Recognized for outstanding academic performance and leadership potential.',
 
     // Contact
     'contact.title': 'Get In Touch',
@@ -110,7 +115,7 @@ const translations = {
     'experience.title': 'Expérience',
 
     // Projects
-    'projects.title': 'Projets Phares',
+    'projects.title': "Projets Phares",
     'projects.smartroute': 'SmartRoute - Planification de Transport Intelligente',
     'projects.smartroute.description': 'Application web pour la planification d\'itinéraires optimisés basée sur le trafic et les conditions météorologiques, intégrant des algorithmes de graphe et des modèles d\'apprentissage automatique.',
     'projects.hackathon': 'Assistant Bureaucratique Intelligent (HackAI)',
@@ -125,9 +130,8 @@ const translations = {
     // Skills
     'skills.title': 'Compétences Techniques',
     'skills.languages': 'Langages de Programmation',
-    'skills.frameworks': 'Frameworks et Bibliothèques',
-    'skills.databases': 'Bases de Données',
-    'skills.tools': 'Outils et Technologies',
+    'skills.frameworks_libraries': 'Frameworks et Bibliothèques',
+    'skills.tools_platforms': 'Outils et Technologies',
 
     // Certifications
     'certifications.title': 'Certifications',
@@ -137,6 +141,13 @@ const translations = {
 
     // Awards
     'awards.title': 'Récompenses et Reconnaissance',
+    'awards.description': 'Reconnaissance pour l\'excellence académique, les compétitions et le leadership communautaire',
+    'awards.hackai': '7e Place – Hackathon HackAI 2025',
+    'awards.hackai.description': 'Développement d\'un assistant conversationnel en Darija pour faciliter l\'accès aux informations administratives au Maroc.',
+    'awards.gameofcodes': '1re Place – Game Of Codes',
+    'awards.gameofcodes.description': 'Remporté la première place dans un concours de programmation compétitive axé sur la résolution de problèmes algorithmiques.',
+    'awards.excellence': 'Prix d\'Excellence',
+    'awards.excellence.description': 'Reconnu pour des performances académiques exceptionnelles et un potentiel de leadership.',
 
     // Contact
     'contact.title': 'Me Contacter',
@@ -194,18 +205,24 @@ const translations = {
     // Skills
     'skills.title': 'المهارات التقنية',
     'skills.languages': 'لغات البرمجة',
-    'skills.frameworks': 'الأطر والمكتبات',
-    'skills.databases': 'قواعد البيانات',
-    'skills.tools': 'الأدوات والتقنيات',
+    'skills.frameworks_libraries': 'الأطر والمكتبات',
+    'skills.tools_platforms': 'الأدوات والتقنيات',
 
     // Certifications
     'certifications.title': 'الشهادات',
     'certifications.ml': 'تخصص التعلم الآلي',
     'certifications.python': 'Python لعلوم البيانات والذكاء الاصطناعي والتطوير',
-    'certifications.algorithms': 'خوارزميات البحث والترتيب والفهرسة',
+    'certifications.algorithms': 'خوارzmيات البحث والترتيب والفهرسة',
 
     // Awards
     'awards.title': 'الجوائز والتقدير',
+    'awards.description': 'التقدير للتميز في الأكاديميات والمسابقات وقيادة المجتمع',
+    'awards.hackai': 'المركز السابع – هاكاثون HackAI 2025',
+    'awards.hackai.description': 'تطوير مساعد محادثة بالدارجة لتسهيل الوصول إلى المعلومات الإدارية في المغرب.',
+    'awards.gameofcodes': 'المركز الأول – Game Of Codes',
+    'awards.gameofcodes.description': 'فاز بالمركز الأول في مسابقة برمجة تنافسية تركز على حل المشكلات الخوارزمية.',
+    'awards.excellence': 'جائزة التميز',
+    'awards.excellence.description': 'حصل على تقدير للأداء الأكاديمي المتميز وإمكانيات القيادة.',
 
     // Contact
     'contact.title': 'تواصل معي',

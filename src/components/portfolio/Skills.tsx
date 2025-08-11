@@ -1,13 +1,5 @@
-
+import { Code, Rocket, Wrench } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
-
-// Import logos
-import pythonLogo from '@/assets/logos/tech/python.png'
-import reactLogo from '@/assets/logos/tech/react.svg'
-import tensorflowLogo from '@/assets/logos/tech/tensorflow.svg'
-import dockerLogo from '@/assets/logos/tech/docker.png'
-import mysqlLogo from '@/assets/logos/tech/mysql.svg'
-import postgresqlLogo from '@/assets/logos/tech/postgresql.svg'
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -15,68 +7,57 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.languages'),
-      icon: '💻',
+      icon: Code,
       skills: [
-        { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-        { name: 'Python', logo: pythonLogo },
-        { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-        { name: 'C/C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
-        { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' }
+        { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
+        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+        { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+        { name: 'C/C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg' },
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
+        { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' }
       ]
     },
     {
-      title: t('skills.frameworks'),
-      icon: '🚀',
+      title: t('skills.frameworks_libraries'),
+      icon: Rocket,
       skills: [
-        { name: 'Spring Boot', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-        { name: 'React', logo: reactLogo },
-        { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
-        { name: 'Flask', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
-        { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
-        { name: 'Jakarta EE', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' }
-      ]
-    },
-    {
-      title: 'AI & Machine Learning',
-      icon: '🤖',
-      skills: [
-        { name: 'TensorFlow', logo: tensorflowLogo },
+        { name: 'Spring Boot', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+        { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularjs/angularjs-original.svg' },
+        { name: 'Flask', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg' },
+        { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
+        { name: 'Django', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg' },
+        { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
+        { name: 'PyTorch', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
         { name: 'Scikit-learn', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
-        { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
-        { name: 'Dialogflow', logo: 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.min.css' },
-        { name: 'NLP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-        { name: 'Computer Vision', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' }
+        { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg' },
+        { name: 'Hugging Face', logo: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' }
       ]
     },
     {
-      title: t('skills.databases'),
-      icon: '🗄️',
+      title: t('skills.tools_platforms'),
+      icon: Wrench,
       skills: [
-        { name: 'MySQL', logo: mysqlLogo },
-        { name: 'PostgreSQL', logo: postgresqlLogo },
-        { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-        { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' }
-      ]
-    },
-    {
-      title: t('skills.tools'),
-      icon: '🛠️',
-      skills: [
-        { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-        { name: 'Docker', logo: dockerLogo },
-        { name: 'ESP32', logo: 'https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_static/espressif-logo.svg' },
-        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
-        { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },
-        { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' }
+        { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+        { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+        { name: 'Aiven', logo: 'https://aiven.io/assets/img/aiven-logo.svg' },
+        { name: 'Visual Studio Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
+        { name: 'IntelliJ', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg' },
+        { name: 'PyCharm', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg' },
+        { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+        { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg' },
+        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@ bart/icons/linux/linux-original.svg' }
       ]
     }
   ]
 
   const languages = [
-    { name: 'Arabic', level: 100, flag: '🇲🇦', proficiency: 'Native' },
-    { name: 'French', level: 95, flag: '🇫🇷', proficiency: 'Fluent' },
-    { name: 'English', level: 90, flag: '🇺🇸', proficiency: 'Fluent' }
+    { name: 'Arabic', flag: '🇸🇦', proficiency: 'Native' },
+    { name: 'French', flag: '🇫🇷', proficiency: 'Fluent' },
+    { name: 'English', flag: '🇺🇸', proficiency: 'Fluent' }
   ]
 
   return (
@@ -101,9 +82,11 @@ const Skills = () => {
               <div key={categoryIndex} className="project-card p-6 hover-lift">
                 
                 {/* Category Header */}
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="text-2xl">{category.icon}</div>
-                  <h3 className="text-lg font-bold">{category.title}</h3>
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center">
+                    <category.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{category.title}</h3>
                 </div>
 
                 {/* Skills Grid */}
@@ -139,36 +122,6 @@ const Skills = () => {
                   <div className="text-4xl mb-4">{lang.flag}</div>
                   <h4 className="font-bold text-lg mb-2">{lang.name}</h4>
                   <p className="text-primary font-semibold mb-4">{lang.proficiency}</p>
-                  
-                  {/* Circular Progress */}
-                  <div className="relative w-20 h-20 mx-auto">
-                    <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 100 100">
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="45"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="transparent"
-                        className="text-muted"
-                      />
-                      <circle
-                        cx="50"
-                        cy="50"
-                        r="45"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        fill="transparent"
-                        strokeDasharray={`${2 * Math.PI * 45}`}
-                        strokeDashoffset={`${2 * Math.PI * 45 * (1 - lang.level / 100)}`}
-                        className="text-primary transition-all duration-1000 ease-out"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm font-bold">{lang.level}%</span>
-                    </div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -181,7 +134,7 @@ const Skills = () => {
               <div className="text-sm text-muted-foreground">Technologies</div>
             </div>
             <div className="project-card p-6">
-              <div className="text-3xl font-bold text-secondary mb-2">5+</div>
+              <div className="text-3xl font-bold text-secondary mb-2">10+</div>
               <div className="text-sm text-muted-foreground">Frameworks</div>
             </div>
             <div className="project-card p-6">

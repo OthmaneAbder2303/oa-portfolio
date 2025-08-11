@@ -80,7 +80,7 @@ const About = () => {
                   className="project-card p-6 text-center hover-lift"
                 >
                   <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-primary flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-white" />
+                    <item.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-sm mb-2">{item.title}</h3>
                   <p className="text-xs text-muted-foreground">{item.description}</p>

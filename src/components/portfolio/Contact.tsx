@@ -22,7 +22,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: t('contact.location'),
-      value: 'Marrakech, Morocco',
+      value: 'Calais, France',
       href: '#',
       color: 'text-secondary',
       bgColor: 'bg-secondary/20'

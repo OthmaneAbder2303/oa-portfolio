@@ -1,6 +1,15 @@
-
-import { Trophy, Calendar, MapPin, Medal, Award as AwardIcon, Users } from 'lucide-react'
+import { Trophy, Calendar, MapPin, Users, Linkedin } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { Button } from '@/components/ui/button'
+
+// Import university logos
+import ensaLogo from '@/assets/logos/universities/ensa.png'
+import um6pLogo from '@/assets/logos/universities/um6p.png'
+import bpLogo from '@/assets/logos/companies/bp.png'
+
+import hackaiImage from '@/assets/activities/hack-ai/HACKIA-321.jpg'
+import gameOfCodesImage from '@/assets/activities/game_of_codes/photo_groupe.jpeg'
+import bpImage from '@/assets/activities/prix_excellence/photo_groupe_bp.jpeg'
 
 const Awards = () => {
   const { t } = useLanguage()
@@ -13,11 +22,12 @@ const Awards = () => {
       location: 'Ben Guerir, Morocco',
       date: 'May 2025',
       description: 'Developed a conversational assistant in Darija for administrative information access in Morocco.',
-      category: 'Competition',
+      category: 'Hackathon',
       rank: '7th',
       participants: '100+',
-      image: 'https://images.unsplash.com/photo-1559223607-a43c990c692c?w=400&h=300&fit=crop',
-      logo: 'https://www.1337.ma/assets/images/logo-1337.png'
+      image: hackaiImage,
+      logo: um6pLogo,
+      linkedinUrl: 'https://www.linkedin.com/posts/oa23_hackaimorocco-um6p-1337school-activity-7333412995273785344-tdTe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChCizUBNzU5KO4Om3HWs1FOU-WAHxKbBR0'
     },
     {
       id: 2,
@@ -29,8 +39,9 @@ const Awards = () => {
       category: 'Programming Contest',
       rank: '1st',
       participants: '50+',
-      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop',
-      logo: 'https://www.ensa.ac.ma/sites/default/files/logo-ensa-marrakech.png'
+      image: gameOfCodesImage,
+      logo: ensaLogo,
+      linkedinUrl: 'https://www.linkedin.com/posts/oa23_codinggame-problemsolving-algorithm-activity-7197580165806256130-3Sct?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChCizUBNzU5KO4Om3HWs1FOU-WAHxKbBR0'
     },
     {
       id: 3,
@@ -42,18 +53,15 @@ const Awards = () => {
       category: 'Academic Excellence',
       rank: 'Winner',
       participants: 'Regional',
-      image: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=300&fit=crop',
-      logo: 'https://www.gbp.ma/sites/default/files/logo-gbp.png'
+      image: bpImage,
+      logo: bpLogo,
+      linkedinUrl: 'https://www.linkedin.com/in/oa23/'
     }
   ]
 
-
-  const recognitionStats = [
-    { label: 'Awards Won', value: '3', icon: '🏆' },
-    { label: 'Leadership Roles', value: '3', icon: '👨‍💼' },
-    { label: 'Communities Impacted', value: '500+', icon: '🌍' },
-    { label: 'Years Active', value: '4+', icon: '📅' }
-  ]
+  const handleLinkedInClick = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <section id="awards" className="section-padding bg-surface-muted">
@@ -78,12 +86,14 @@ const Awards = () => {
                 
                 {/* Award Image */}
                 <div className="relative overflow-hidden rounded-lg mb-6">
-                  <img 
-                    src={award.image} 
-                    alt={award.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute top-4 right-4">
+                  <a href={award.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={award.image}
+                      alt={award.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105 cursor-pointer"
+                    />
+                  </a>
+                  <div className="absolute top-4 left-4">
                     <div className="bg-warning text-warning-foreground px-3 py-1 rounded-full text-sm font-bold">
                       {award.rank}
                     </div>
@@ -92,17 +102,19 @@ const Awards = () => {
 
                 {/* Award Header */}
                 <div className="flex items-start space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <img 
-                      src={award.logo} 
+                  <div className="w-16 h-16 bg-white border rounded-lg flex items-center justify-center p-2 flex-shrink-0 shadow-sm">
+                    <img
+                      src={award.logo}
                       alt={award.organization}
-                      className="w-8 h-8 object-contain filter brightness-0 invert"
+                      className="w-full h-full object-contain"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                       }}
                     />
-                    <Trophy className="w-6 h-6 text-white hidden" />
+                    <div className="w-full h-full bg-gradient-primary rounded flex items-center justify-center hidden">
+                      <Trophy className="w-8 h-8 text-white" />
+                    </div>
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-card-foreground mb-1 line-clamp-2">
@@ -133,24 +145,43 @@ const Awards = () => {
                   {award.description}
                 </p>
 
-                {/* Category Badge */}
-                <div className="inline-flex items-center bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
-                  {award.category}
+                {/* Category Badge and LinkedIn Button */}
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-medium">
+                    {award.category}
+                  </div>
+                  
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleLinkedInClick(award.linkedinUrl)}
+                    className="hover:bg-blue-50 hover:border-blue-300 transition-colors"
+                  >
+                    <Linkedin className="h-4 w-4 mr-2 text-blue-600" />
+                    <span className="text-blue-600">See Details</span>
+                  </Button>
                 </div>
               </div>
             ))}
           </div>
 
-
-          {/* Recognition Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {recognitionStats.map((stat, index) => (
-              <div key={index} className="project-card p-6 text-center hover-lift">
-                <div className="text-3xl mb-3">{stat.icon}</div>
-                <div className="text-2xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-4 bg-gradient-card border rounded-lg p-6">
+              <div>
+                <h3 className="font-bold mb-2">Want to see more achievements?</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Visit my LinkedIn profile for a complete overview of my accomplishments
+                </p>
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  onClick={() => handleLinkedInClick('https://www.linkedin.com/in/oa23/')}
+                >
+                  <Linkedin className="h-4 w-4 mr-2" />
+                  View LinkedIn Profile
+                </Button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
