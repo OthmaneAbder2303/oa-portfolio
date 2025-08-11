@@ -1,5 +1,13 @@
-import { Briefcase, MapPin, Calendar, Users, Lightbulb } from 'lucide-react'
+import { Briefcase, MapPin, Calendar, Users, Lightbulb, Eye } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+
+// Import activity images
+import jlmSocialActionImg from '@/assets/activities/jlm-social-action.jpg'
+import enactusPartnershipImg from '@/assets/activities/enactus-partnership.jpg'
+import brainxTrainingImg from '@/assets/activities/brainx-training.jpg'
 
 const Experience = () => {
   const { t } = useLanguage()
@@ -31,7 +39,13 @@ const Experience = () => {
       period: 'Nov 2023 – May 2025',
       description: 'Lead the organization of social and solidarity actions, including humanitarian caravans and orphanage visits.',
       icon: Users,
-      color: 'text-primary'
+      color: 'text-primary',
+      images: [
+        {
+          src: jlmSocialActionImg,
+          subtitle: 'Organizing humanitarian caravans to support local communities'
+        }
+      ]
     },
     {
       id: 2,
@@ -40,7 +54,13 @@ const Experience = () => {
       period: 'Jan 2022 – Apr 2025',
       description: 'Contributed to sponsor search and partnership management for the club.',
       icon: Lightbulb,
-      color: 'text-secondary'
+      color: 'text-secondary',
+      images: [
+        {
+          src: enactusPartnershipImg,
+          subtitle: 'Presenting partnership proposals to potential sponsors'
+        }
+      ]
     },
     {
       id: 3,
@@ -49,9 +69,17 @@ const Experience = () => {
       period: 'Nov 2023 – Jun 2024',
       description: 'Conducted training sessions and practical workshops on Machine Learning.',
       icon: Briefcase,
-      color: 'text-accent'
+      color: 'text-accent',
+      images: [
+        {
+          src: brainxTrainingImg,
+          subtitle: 'Leading machine learning workshops for students'
+        }
+      ]
     }
   ]
+
+  const [selectedActivity, setSelectedActivity] = useState<typeof extracurriculars[0] | null>(null)
 
   return (
     <section id="experience" className="section-padding bg-surface-muted">
@@ -169,9 +197,43 @@ const Experience = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                       {activity.description}
                     </p>
+
+                    {/* See Details Button */}
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <Button 
+                          variant="outline" 
+                          size="sm"
+                          onClick={() => setSelectedActivity(activity)}
+                          className="w-full sm:w-auto"
+                        >
+                          <Eye className="h-4 w-4 mr-2" />
+                          See Details
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl">
+                        <DialogHeader>
+                          <DialogTitle>{activity.title}</DialogTitle>
+                        </DialogHeader>
+                        <div className="space-y-4">
+                          {activity.images.map((image, index) => (
+                            <div key={index} className="space-y-2">
+                              <img 
+                                src={image.src} 
+                                alt={image.subtitle}
+                                className="w-full h-64 object-cover rounded-lg"
+                              />
+                              <p className="text-sm text-muted-foreground text-center font-medium">
+                                {image.subtitle}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 ))}
               </div>
