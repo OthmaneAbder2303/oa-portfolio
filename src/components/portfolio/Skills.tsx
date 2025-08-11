@@ -1,6 +1,14 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 
+// Import logos
+import pythonLogo from '@/assets/logos/tech/python.png'
+import reactLogo from '@/assets/logos/tech/react.svg'
+import tensorflowLogo from '@/assets/logos/tech/tensorflow.svg'
+import dockerLogo from '@/assets/logos/tech/docker.png'
+import mysqlLogo from '@/assets/logos/tech/mysql.svg'
+import postgresqlLogo from '@/assets/logos/tech/postgresql.svg'
+
 const Skills = () => {
   const { t } = useLanguage()
 
@@ -10,7 +18,7 @@ const Skills = () => {
       icon: '💻',
       skills: [
         { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-        { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        { name: 'Python', logo: pythonLogo },
         { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
         { name: 'C/C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
         { name: 'SQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
@@ -22,7 +30,7 @@ const Skills = () => {
       icon: '🚀',
       skills: [
         { name: 'Spring Boot', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'React', logo: reactLogo },
         { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
         { name: 'Flask', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
         { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
@@ -33,7 +41,7 @@ const Skills = () => {
       title: 'AI & Machine Learning',
       icon: '🤖',
       skills: [
-        { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+        { name: 'TensorFlow', logo: tensorflowLogo },
         { name: 'Scikit-learn', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
         { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
         { name: 'Dialogflow', logo: 'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.min.css' },
@@ -45,8 +53,8 @@ const Skills = () => {
       title: t('skills.databases'),
       icon: '🗄️',
       skills: [
-        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+        { name: 'MySQL', logo: mysqlLogo },
+        { name: 'PostgreSQL', logo: postgresqlLogo },
         { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
         { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' }
       ]
@@ -56,7 +64,7 @@ const Skills = () => {
       icon: '🛠️',
       skills: [
         { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        { name: 'Docker', logo: dockerLogo },
         { name: 'ESP32', logo: 'https://docs.espressif.com/projects/esp-idf/en/latest/esp32/_static/espressif-logo.svg' },
         { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
         { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg' },

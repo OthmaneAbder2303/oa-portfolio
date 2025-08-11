@@ -3,6 +3,10 @@ import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Phone } from 'lucid
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
+// Import logos
+import leetcodeLogo from '@/assets/logos/platforms/leetcode.png'
+import hackerrankLogo from '@/assets/logos/platforms/hackerrank.png'
+
 const Contact = () => {
   const { t } = useLanguage()
 
@@ -51,7 +55,7 @@ const Contact = () => {
       href: 'https://leetcode.com/u/othmane232004/',
       color: 'text-orange-600',
       bgColor: 'bg-orange-600/20',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png'
+      logo: leetcodeLogo
     },
     {
       icon: ExternalLink,
@@ -60,7 +64,7 @@ const Contact = () => {
       href: 'https://www.hackerrank.com/profile/othmane232004',
       color: 'text-green-600',
       bgColor: 'bg-green-600/20',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png'
+      logo: hackerrankLogo
     }
   ]
 

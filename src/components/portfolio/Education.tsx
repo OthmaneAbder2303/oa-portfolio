@@ -2,6 +2,9 @@
 import { Calendar, MapPin, Award, GraduationCap } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
+// Import university logos
+import ensaLogo from '@/assets/logos/universities/ensa.png'
+
 const Education = () => {
   const { t } = useLanguage()
 
@@ -23,7 +26,7 @@ const Education = () => {
       institution: 'National School of Applied Sciences (ENSA) Marrakech',
       location: 'Marrakech, Morocco',
       period: 'Sep 2023 – Present',
-      logo: 'https://www.ensa.ac.ma/sites/default/files/logo-ensa-marrakech.png',
+      logo: ensaLogo,
       description: 'Comprehensive computer engineering curriculum covering software development, AI, and embedded systems.',
       status: 'current',
       gpa: 'Excellent'
@@ -34,7 +37,7 @@ const Education = () => {
       institution: 'National School of Applied Sciences (ENSA) Marrakech',
       location: 'Marrakech, Morocco',
       period: 'Sep 2021 – July 2023',
-      logo: 'https://www.ensa.ac.ma/sites/default/files/logo-ensa-marrakech.png',
+      logo: ensaLogo,
       description: 'Intensive preparatory program in mathematics, physics, and computer science fundamentals.',
       status: 'completed',
       gpa: 'Distinction'

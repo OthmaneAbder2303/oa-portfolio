@@ -47,38 +47,6 @@ const Awards = () => {
     }
   ]
 
-  const leadership = [
-    {
-      id: 1,
-      title: 'Head of the Social Action Cell',
-      organization: 'JLM ENSA Marrakech',
-      period: 'Nov 2023 – May 2025',
-      description: 'Lead the organization of social and solidarity actions, including humanitarian caravans and orphanage visits.',
-      image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=300&fit=crop',
-      logo: '🤝',
-      activities: ['Humanitarian Caravans', 'Orphanage Visits', 'Community Outreach']
-    },
-    {
-      id: 2,
-      title: 'Member of the Sponsorship and Partnerships Cell',
-      organization: 'Enactus ENSA Marrakech',
-      period: 'Jan 2022 – Apr 2025',
-      description: 'Contributed to sponsor search and partnership management for the club.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-      logo: 'https://enactus.org/wp-content/uploads/2020/02/Enactus-logo.png',
-      activities: ['Sponsor Relations', 'Partnership Development', 'Event Management']
-    },
-    {
-      id: 3,
-      title: 'Member of the Training and Projects Cell',
-      organization: 'BrainX - ENSA Marrakech',
-      period: 'Nov 2023 – Jun 2024',
-      description: 'Conducted training sessions and practical workshops on Machine Learning.',
-      image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop',
-      logo: '🧠',
-      activities: ['ML Workshops', 'Training Sessions', 'Technical Mentoring']
-    }
-  ]
 
   const recognitionStats = [
     { label: 'Awards Won', value: '3', icon: '🏆' },
@@ -173,72 +141,6 @@ const Awards = () => {
             ))}
           </div>
 
-          {/* Leadership & Activities */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-center mb-8">Leadership & Activities</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {leadership.map((role) => (
-                <div key={role.id} className="project-card p-6 hover-lift">
-                  
-                  {/* Activity Image */}
-                  <div className="relative overflow-hidden rounded-lg mb-6">
-                    <img 
-                      src={role.image} 
-                      alt={role.title}
-                      className="w-full h-40 object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                  </div>
-
-                  {/* Role Header */}
-                  <div className="flex items-start space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      {typeof role.logo === 'string' && role.logo.startsWith('http') ? (
-                        <img 
-                          src={role.logo} 
-                          alt={role.organization}
-                          className="w-6 h-6 object-contain filter brightness-0 invert"
-                        />
-                      ) : (
-                        <span className="text-lg">{role.logo}</span>
-                      )}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-bold text-card-foreground mb-1 line-clamp-2">
-                        {role.title}
-                      </h4>
-                      <p className="text-primary font-semibold text-sm">{role.organization}</p>
-                    </div>
-                  </div>
-
-                  {/* Period */}
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
-                    <Calendar className="h-4 w-4" />
-                    <span>{role.period}</span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    {role.description}
-                  </p>
-
-                  {/* Activities */}
-                  <div className="space-y-2">
-                    <h5 className="font-semibold text-xs">Key Activities:</h5>
-                    <div className="flex flex-wrap gap-1">
-                      {role.activities.map((activity, index) => (
-                        <span 
-                          key={index}
-                          className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded border"
-                        >
-                          {activity}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Recognition Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

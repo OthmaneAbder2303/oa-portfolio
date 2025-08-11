@@ -3,6 +3,12 @@ import { ExternalLink, Award, Calendar, Building } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
+// Import logos
+import ibmLogo from '@/assets/logos/companies/ibm.svg'
+import googleCloudLogo from '@/assets/logos/companies/google-cloud.png'
+import datacampLogo from '@/assets/logos/companies/datacamp.png'
+import geeksforgeeksLogo from '@/assets/logos/companies/geeksforgeeks.png'
+
 const Certifications = () => {
   const { t } = useLanguage()
 
@@ -24,7 +30,7 @@ const Certifications = () => {
       id: 2,
       title: t('certifications.python'),
       issuer: 'IBM',
-      issuerLogo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
+      issuerLogo: ibmLogo,
       date: 'Dec 2023',
       credentialId: '02f4094cc1adfe8f2e481f744add2ff8',
       description: 'Python programming fundamentals for data science and AI development applications.',
@@ -70,19 +76,19 @@ const Certifications = () => {
     {
       name: 'Google Cloud',
       description: 'Cloud Computing Platform',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg',
+      logo: googleCloudLogo,
       icon: '☁️'
     },
     {
       name: 'DataCamp',
       description: 'Data Science Learning',
-      logo: 'https://cdn.worldvectorlogo.com/logos/datacamp.svg',
+      logo: datacampLogo,
       icon: '📊'
     },
     {
       name: 'GeeksforGeeks',
       description: 'Programming Practice',
-      logo: 'https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200x200-min.png',
+      logo: geeksforgeeksLogo,
       icon: '💻'
     }
   ]
