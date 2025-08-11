@@ -27,6 +27,8 @@ const translations = {
     'hero.description': 'CompEng student stoked about building full-stack apps & digging into AI + NLP. Always hyped to explore the latest tech buzz!',
     'hero.specialization': 'Data Science & AI Specialist',
     'hero.cta.projects': 'View Projects',
+    'hero.contact': 'Get In Touch',
+    'hero.viewWork': 'See My Work',
     'hero.cta.contact': 'Get In Touch',
 
     // About
@@ -51,6 +53,8 @@ const translations = {
     'projects.lis.description': 'Laboratory management system with wireless communication via ESP32 and real-time data synchronization.',
     'projects.puzzle': 'AI-Powered Image Puzzle Solver',
     'projects.puzzle.description': 'Intelligent system for automatically reconstructing images from unordered fragments using computer vision techniques.',
+    'projects.log_classification': 'Log Classification System',
+    'projects.log_classification.description': 'A robust system for classifying log messages using regex patterns, BERT embeddings, and Groq-powered LLM, designed for monitoring and analytics.',
 
     // Skills
     "skills.title": "Technical Skills",
@@ -126,6 +130,8 @@ const translations = {
     'projects.lis.description': 'Système de gestion de laboratoire avec communication sans fil via ESP32 et synchronisation de données en temps réel.',
     'projects.puzzle': 'Résolveur de Puzzle d\'Images par IA',
     'projects.puzzle.description': 'Système intelligent pour reconstituer automatiquement des images à partir de fragments désordonnés utilisant des techniques de vision par ordinateur.',
+    'projects.log_classification': 'Système de Classification de Logs',
+    'projects.log_classification.description': 'Un système robuste pour classer les messages de logs en utilisant des motifs regex, des embeddings BERT et un LLM alimenté par Groq, conçu pour la surveillance et l\'analyse.',
 
     // Skills
     'skills.title': 'Compétences Techniques',
@@ -201,6 +207,8 @@ const translations = {
     'projects.lis.description': 'نظام إدارة المختبر مع الاتصال اللاسلكي عبر ESP32 ومزامنة البيانات في الوقت الفعلي.',
     'projects.puzzle': 'حلال ألغاز الصور بالذكاء الاصطناعي',
     'projects.puzzle.description': 'نظام ذكي لإعادة تكوين الصور تلقائياً من شظايا غير مرتبة باستخدام تقنيات الرؤية الحاسوبية.',
+    'projects.log_classification': 'نظام تصنيف السجلات',
+    'projects.log_classification.description': 'نظام قوي لتصنيف رسائل السجلات باستخدام أنماط regex وتضمينات BERT وLLM مدعوم من Groq، مصمم للمراقبة والتحليلات.',
 
     // Skills
     'skills.title': 'المهارات التقنية',

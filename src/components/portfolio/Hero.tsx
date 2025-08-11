@@ -143,18 +143,18 @@ const Hero = () => {
               href="https://leetcode.com/u/othmane232004/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
+              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
             >
-              <ExternalLink className="h-6 w-6" />
+              <img 
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg" 
+                alt="LeetCode Profile"
+                className="w-6 h-6 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </a>
-            <a 
-              href="https://www.hackerrank.com/profile/othmane232004" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
-            >
-              <ExternalLink className="h-6 w-6" />
-            </a>
+            
           </div>
 
           {/* Scroll Indicator */}

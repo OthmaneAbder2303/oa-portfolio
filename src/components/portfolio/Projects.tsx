@@ -63,10 +63,20 @@ const Projects = () => {
       category: 'Computer Vision',
       featured: false,
       githubUrl: 'https://github.com/NadaMaliki/puzzle-solver'
+    },
+    {
+      id: 6,
+      title: t('projects.log_classification'),
+      description: t('projects.log_classification.description'),
+      period: 'May 2025 – Jun 2025',
+      institution: 'Personal Project',
+      technologies: ['Python', 'BERT', 'Groq LLM', 'Regex', 'NLP', 'FastAPI', 'Pandas'],
+      category: 'AI & NLP',
+      featured: true,
+      githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
+      demoUrl: '#'
     }
   ]
-
-  const categories = ['All', 'Web Development & Machine Learning', 'AI & NLP', 'Embedded Systems', 'Computer Vision', 'AI & Chatbots']
 
   const handleGithubClick = (url) => {
     if (url && url !== '#') {
@@ -96,9 +106,9 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* Featured Projects Grid */}
+          {/* All Projects Grid */}
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {projects.filter(project => project.featured).map((project) => (
+            {projects.map((project) => (
               <div key={project.id} className="project-card p-6 hover-lift">
                 
                 {/* Header */}
@@ -177,69 +187,6 @@ const Projects = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Other Projects */}
-          <div>
-            <h3 className="text-2xl font-bold mb-8">Other Notable Projects</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {projects.filter(project => !project.featured).map((project) => (
-                <div key={project.id} className="project-card p-6 hover-lift">
-                  
-                  {/* Header */}
-                  <div className="flex justify-between items-start mb-3">
-                    <h4 className="text-lg font-bold text-card-foreground flex-1 line-clamp-2">
-                      {project.title}
-                    </h4>
-                    <div className="flex items-center space-x-2 ml-4">
-                      {project.githubUrl && (
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          className="h-8 w-8 hover-glow"
-                          onClick={() => handleGithubClick(project.githubUrl)}
-                        >
-                          <Github className="h-4 w-4" />
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Category and Period */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
-                    <span className="inline-flex items-center bg-secondary/20 text-secondary px-2 py-1 rounded text-xs font-medium">
-                      {project.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground flex items-center">
-                      <Calendar className="h-3 w-3 mr-1" />
-                      {project.period}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 4).map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded border"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 text-xs text-muted-foreground">
-                        +{project.technologies.length - 4} more
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Call to Action */}
