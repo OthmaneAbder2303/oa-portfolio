@@ -1,9 +1,9 @@
+// src/components/Experience.tsx
 import { Briefcase, MapPin, Calendar, Users, Lightbulb, Eye } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-
 
 // Import logos
 import dellLogo from '@/assets/logos/companies/dell.png'
@@ -134,7 +134,6 @@ const Experience = () => {
     <section id="experience" className="section-padding bg-surface-muted">
       <div className="container-responsive">
         <div className="max-w-6xl mx-auto">
-          
           {/* Section Title */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
@@ -144,18 +143,15 @@ const Experience = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            
             {/* Professional Experience */}
             <div>
               <h3 className="text-2xl font-bold mb-8 flex items-center">
                 <Briefcase className="h-6 w-6 text-primary mr-3" />
                 Professional Experience
               </h3>
-              
               <div className="space-y-8">
                 {experiences.map((exp) => (
                   <div key={exp.id} className="project-card p-6 hover-lift">
-                    
                     {/* Header with Logo */}
                     <div className="flex items-start space-x-4 mb-4">
                       <div className="w-16 h-16 rounded-lg bg-white border shadow-sm flex items-center justify-center p-2 flex-shrink-0">
@@ -229,40 +225,47 @@ const Experience = () => {
                           variant="outline" 
                           size="sm"
                           onClick={() => setSelectedActivity(exp)}
-                          className="w-full sm:w-auto"
+                          className="w-full sm:w-auto text-sm sm:text-base"
+                          aria-label={`View details for ${exp.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           See Details
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="w-full max-w-[90vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
                         <DialogHeader>
-                          <DialogTitle className="flex items-center space-x-3">
+                          <DialogTitle className="flex items-center space-x-3 text-base sm:text-lg">
                             <img 
                               src={exp.logo} 
                               alt={`${exp.company} logo`}
-                              className="w-8 h-8 object-contain"
+                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
                             />
                             <span>{exp.title}</span>
                           </DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4">
-                          <p className="text-muted-foreground">
+                          <p className="text-sm sm:text-base text-muted-foreground">
                             {exp.description}
                           </p>
-                          {exp.images && exp.images.map((image, index) => (
-                            <div key={index} className="space-y-2">
-                              <img 
-                                src={image.src} 
-                                alt={image.subtitle}
-                                className="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-                                onClick={() => setSelectedImage(image)}
-                              />
-                              <p className="text-sm text-muted-foreground text-center font-medium">
-                                {image.subtitle}
-                              </p>
-                            </div>
-                          ))}
+                          {exp.images && exp.images.length > 0 ? (
+                            exp.images.map((image, index) => (
+                              <div key={index} className="space-y-2">
+                                <img 
+                                  src={image.src} 
+                                  alt={image.subtitle}
+                                  className="w-full h-auto max-h-[40vh] sm:h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                                  onClick={() => setSelectedImage(image)}
+                                />
+                                <p className="text-sm text-muted-foreground text-center font-medium">
+                                  {image.subtitle}
+                                </p>
+                              </div>
+                            ))
+                          ) : (
+                            <p className="text-sm text-muted-foreground text-center">
+                              No images available for this experience.
+                            </p>
+                          )}
                         </div>
                       </DialogContent>
                     </Dialog>
@@ -277,11 +280,9 @@ const Experience = () => {
                 <Users className="h-6 w-6 text-secondary mr-3" />
                 Leadership & Activities
               </h3>
-              
               <div className="space-y-6">
                 {extracurriculars.map((activity) => (
                   <div key={activity.id} className="project-card p-6 hover-lift">
-                    
                     {/* Header with Logo and Icon */}
                     <div className="flex items-start space-x-4 mb-4">
                       <div className="w-12 h-12 rounded-lg bg-white border shadow-sm flex items-center justify-center p-1 flex-shrink-0">
@@ -317,40 +318,47 @@ const Experience = () => {
                           variant="outline" 
                           size="sm"
                           onClick={() => setSelectedActivity(activity)}
-                          className="w-full sm:w-auto"
+                          className="w-full sm:w-auto text-sm sm:text-base"
+                          aria-label={`View details for ${activity.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           See Details
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
+                      <DialogContent className="w-full max-w-[90vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
                         <DialogHeader>
-                          <DialogTitle className="flex items-center space-x-3">
+                          <DialogTitle className="flex items-center space-x-3 text-base sm:text-lg">
                             <img 
                               src={activity.logo} 
                               alt={`${activity.organization} logo`}
-                              className="w-8 h-8 object-contain"
+                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
                             />
                             <span>{activity.title}</span>
                           </DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4">
-                          <p className="text-muted-foreground">
+                          <p className="text-sm sm:text-base text-muted-foreground">
                             {activity.description}
                           </p>
-                          {activity.images.map((image, index) => (
-                            <div key={index} className="space-y-2">
-                              <img 
-                                src={image.src} 
-                                alt={image.subtitle}
-                                className="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
-                                onClick={() => setSelectedImage(image)}
-                              />
-                              <p className="text-sm text-muted-foreground text-center font-medium">
-                                {image.subtitle}
-                              </p>
-                            </div>
-                          ))}
+                          {activity.images && activity.images.length > 0 ? (
+                            activity.images.map((image, index) => (
+                              <div key={index} className="space-y-2">
+                                <img 
+                                  src={image.src} 
+                                  alt={image.subtitle}
+                                  className="w-full h-auto max-h-[40vh] sm:h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity"
+                                  onClick={() => setSelectedImage(image)}
+                                />
+                                <p className="text-sm text-muted-foreground text-center font-medium">
+                                  {image.subtitle}
+                                </p>
+                              </div>
+                            ))
+                          ) : (
+                            <p className="text-sm text-muted-foreground text-center">
+                              No images available for this activity.
+                            </p>
+                          )}
                         </div>
                       </DialogContent>
                     </Dialog>
@@ -363,18 +371,18 @@ const Experience = () => {
 
         {/* Image Viewer Modal */}
         <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
-            <DialogHeader className="p-6 pb-0">
-              <DialogTitle className="text-lg font-semibold">
+          <DialogContent className="w-full max-w-[95vw] max-h-[90vh] p-4 sm:p-6 overflow-hidden">
+            <DialogHeader className="p-4 sm:p-6 pb-0">
+              <DialogTitle className="text-base sm:text-lg font-semibold">
                 {selectedImage?.subtitle}
               </DialogTitle>
             </DialogHeader>
-            <div className="p-6 pt-4">
+            <div className="p-4 sm:p-6 pt-4">
               {selectedImage && (
                 <img 
                   src={selectedImage.src} 
                   alt={selectedImage.subtitle}
-                  className="w-full h-auto max-h-[70vh] object-contain rounded-lg"
+                  className="w-full h-auto max-h-[60vh] sm:max-h-[70vh] object-contain rounded-lg"
                 />
               )}
             </div>
