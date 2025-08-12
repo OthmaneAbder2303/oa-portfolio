@@ -7,7 +7,7 @@ import ensaLogo from '@/assets/logos/universities/ensa.png'
 import um6pLogo from '@/assets/logos/universities/um6p.png'
 import bpLogo from '@/assets/logos/companies/bp.png'
 
-import hackaiImage from '@/assets/activities/hack-ai/HACKIA-321.jpg'
+import hackaiImage from '@/assets/activities/hack-ai/group_pic.jpg'
 import gameOfCodesImage from '@/assets/activities/game_of_codes/photo_groupe.jpeg'
 import bpImage from '@/assets/activities/prix_excellence/photo_groupe_bp.jpeg'
 

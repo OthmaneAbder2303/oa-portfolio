@@ -148,13 +148,31 @@ const Hero = () => {
               <img 
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg" 
                 alt="LeetCode Profile"
-                className="w-6 h-6 object-contain"
+                className="w-6 h-6 object-contain filter-primary"
                 onError={(e) => {
+                  console.error('Failed to load LeetCode logo:', e);
                   e.currentTarget.style.display = 'none';
                 }}
               />
             </a>
-            
+            <a 
+              href="https://g.dev/Othmane-Abderrazik" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
+            >
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" 
+                alt="Google for Developers Profile"
+                className="w-6 h-6 object-contain filter-primary"
+                onError={(e) => {
+                  console.error('Failed to load Google for Developers logo:', e);
+                  e.currentTarget.src = 'fallback';
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement.innerHTML = '<svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>';
+                }}
+              />
+            </a>
           </div>
 
           {/* Scroll Indicator */}
