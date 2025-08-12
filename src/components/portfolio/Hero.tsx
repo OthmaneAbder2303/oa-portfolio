@@ -133,11 +133,19 @@ const Hero = () => {
             </a>
             <a 
               href="https://www.linkedin.com/in/oa23/" 
-              target="_blank" 
+                target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
+              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
             >
-              <Linkedin className="h-6 w-6" />
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                alt="LinkedIn Profile"
+                className="w-6 h-6 object-contain filter-primary"
+                onError={(e) => {
+                  console.error('Failed to load LinkedIn logo:', e);
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </a>
             <a 
               href="https://leetcode.com/u/othmane232004/" 

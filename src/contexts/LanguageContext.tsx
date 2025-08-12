@@ -11,6 +11,7 @@ interface LanguageContextType {
 const translations = {
   en: {
     // Navigation
+    'nav.home': 'Home',
     'nav.about': 'About',
     'nav.education': 'Education',
     'nav.experience': 'Experience',
@@ -24,7 +25,7 @@ const translations = {
     'hero.greeting': 'Hi, I\'m',
     'hero.name': 'Othmane Abderrazik',
     'hero.title': 'Computer Engineering Student',
-    'hero.description': 'CompEng student stoked about building full-stack apps & digging into AI + NLP. Always hyped to explore the latest tech buzz!',
+    'hero.description': 'Computer Engineering student stoked about building full-stack apps & digging into AI + NLP. Always hyped to explore the latest tech buzz!',
     'hero.specialization': 'Data Science & AI Specialist',
     'hero.cta.projects': 'View Projects',
     'hero.contact': 'Get In Touch',
@@ -90,6 +91,7 @@ const translations = {
   },
   fr: {
     // Navigation
+    'nav.home': 'Accueil',
     'nav.about': 'À Propos',
     'nav.education': 'Formation',
     'nav.experience': 'Expérience',
@@ -167,6 +169,7 @@ const translations = {
   },
   ar: {
     // Navigation
+    'nav.home': 'الرئيسية',
     'nav.about': 'حولي',
     'nav.education': 'التعليم',
     'nav.experience': 'الخبرة',

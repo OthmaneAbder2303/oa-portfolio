@@ -6,10 +6,11 @@ import stanfordLogo from '@/assets/logos/universities/stanford.avif'
 import coloradoLogo from '@/assets/logos/universities/colorado.png'
 import courserqaLogo from '@/assets/logos/platforms/coursera.png'
 import datacampLogo from '@/assets/logos/platforms/datacamp.png'
-import deepaiLogo from '@/assets/logos/platforms/deep-ai.webp'
-import geeksforgeeksLogo from '@/assets/logos/platforms/geeksforgeeks.png'
+import deepaiLogo from '@/assets/logos/platforms/deep-ai.png'
+import geeksforgeeksLogo from '@/assets/logos/platforms/GeeksForGeeks.png'
 import ibmLogo from '@/assets/logos/platforms/ibm.png'
 import googledevLogo from '@/assets/logos/platforms/google-developers.png'
+import oracleLogo from '@/assets/logos/companies/oracle.png'
 
 const Certifications = () => {
   const { t } = useLanguage()
@@ -55,30 +56,31 @@ const Certifications = () => {
 
   const learningPlatforms = [
     {
-      name: 'DeepLearning.AI',
-      description: 'Stanford University Partnership',
-      logo: deepaiLogo
-    },
-    {
-      name: 'IBM',
-      description: 'Professional Development',
-      logo: ibmLogo
-    },
-    {
       name: 'Coursera',
       description: 'Online Learning Platform',
       logo: courserqaLogo
     },
     {
-      name: 'Google Developers',
-      description: 'Developer Resources and Tools',
-      logo: googledevLogo
+      name: 'Oracle Academy',
+      description: 'Oracle Cloud and Java Training',
+      logo: oracleLogo
     },
     {
       name: 'DataCamp',
       description: 'Data Science Learning',
       logo: datacampLogo
     },
+    {
+      name: 'DeepLearning.AI',
+      description: 'Stanford University Partnership',
+      logo: deepaiLogo
+    },
+    {
+      name: 'Google Developers',
+      description: 'Developer Resources and Tools',
+      logo: googledevLogo
+    },
+
     {
       name: 'GeeksforGeeks',
       description: 'Programming Practice',

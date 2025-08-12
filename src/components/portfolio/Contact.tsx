@@ -1,5 +1,5 @@
 
-import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Phone } from 'lucide-react'
+import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Phone, Zap, Globe, Clock, CheckCircle, Globe2, Clock3, BadgeCheck, Rocket   } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -69,12 +69,13 @@ const Contact = () => {
     }
   ]
 
-  const quickStats = [
-    { label: 'Response Time', value: '< 24h', icon: '⚡' },
-    { label: 'Languages', value: '3', icon: '🌐' },
-    { label: 'Time Zone', value: 'GMT+1', icon: '🕐' },
-    { label: 'Available', value: 'Yes', icon: '✅' }
-  ]
+
+const quickStats = [
+  { label: 'Response Time', value: '< 24h', icon: Rocket },
+  { label: 'Languages', value: '3', icon: Globe2 },
+  { label: 'Time Zone', value: 'GMT+1', icon: Clock3 },
+  { label: 'Available', value: 'Yes', icon: BadgeCheck }
+];
 
   return (
     <section id="contact" className="section-padding">
@@ -123,7 +124,7 @@ const Contact = () => {
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {quickStats.map((stat, index) => (
                   <div key={index} className="project-card p-4 text-center">
-                    <div className="text-2xl mb-2">{stat.icon}</div>
+                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
                     <div className="font-bold text-primary">{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
