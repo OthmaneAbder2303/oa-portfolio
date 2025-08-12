@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import ensaLogo from '@/assets/logos/universities/ensa.png'
 import um6pLogo from '@/assets/logos/universities/um6p.png'
 import bpLogo from '@/assets/logos/companies/bp.png'
+import hackaiLogo from '@/assets/logos/universities/um6p&1337.png'
 
 import hackaiImage from '@/assets/activities/hack-ai/group_pic.jpg'
 import gameOfCodesImage from '@/assets/activities/game_of_codes/photo_groupe.jpeg'
@@ -26,7 +27,7 @@ const Awards = () => {
       rank: '7th',
       participants: '100+',
       image: hackaiImage,
-      logo: um6pLogo,
+      logo: hackaiLogo,
       linkedinUrl: 'https://www.linkedin.com/posts/oa23_hackaimorocco-um6p-1337school-activity-7333412995273785344-tdTe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChCizUBNzU5KO4Om3HWs1FOU-WAHxKbBR0'
     },
     {

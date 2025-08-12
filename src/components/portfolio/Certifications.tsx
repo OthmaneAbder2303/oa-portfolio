@@ -1,13 +1,15 @@
-
 import { ExternalLink, Award, Calendar, Building } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
-// Import logos
-import ibmLogo from '@/assets/logos/companies/ibm.svg'
-import googleCloudLogo from '@/assets/logos/companies/google-cloud.png'
-import datacampLogo from '@/assets/logos/companies/datacamp.png'
-import geeksforgeeksLogo from '@/assets/logos/companies/geeksforgeeks.png'
+import stanfordLogo from '@/assets/logos/universities/stanford.avif'
+import coloradoLogo from '@/assets/logos/universities/colorado.png'
+import courserqaLogo from '@/assets/logos/platforms/coursera.png'
+import datacampLogo from '@/assets/logos/platforms/datacamp.png'
+import deepaiLogo from '@/assets/logos/platforms/deep-ai.webp'
+import geeksforgeeksLogo from '@/assets/logos/platforms/geeksforgeeks.png'
+import ibmLogo from '@/assets/logos/platforms/ibm.png'
+import googledevLogo from '@/assets/logos/platforms/google-developers.png'
 
 const Certifications = () => {
   const { t } = useLanguage()
@@ -17,13 +19,12 @@ const Certifications = () => {
       id: 1,
       title: t('certifications.ml'),
       issuer: 'DeepLearning.AI, Stanford',
-      issuerLogo: 'https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vxAVYFV0EeemlhJgNx7Z7w_16cea20a3e0a48bcabe04b75ba2b1491_deeplearning.ai-logo.png',
+      issuerLogo: stanfordLogo,
       date: 'Sep 2024',
       credentialId: 'PXIYWQUNFUDX',
       description: 'Comprehensive specialization covering supervised learning, unsupervised learning, and neural networks.',
       skills: ['Machine Learning', 'Neural Networks', 'Python', 'TensorFlow', 'Deep Learning'],
       credentialUrl: 'https://coursera.org/verify/specialization/PXIYWQUNFUDX',
-      logo: '🧠',
       color: 'primary'
     },
     {
@@ -32,24 +33,22 @@ const Certifications = () => {
       issuer: 'IBM',
       issuerLogo: ibmLogo,
       date: 'Dec 2023',
-      credentialId: '02f4094cc1adfe8f2e481f744add2ff8',
+      credentialId: 'KGCAWCQ8R2BW',
       description: 'Python programming fundamentals for data science and AI development applications.',
       skills: ['Python', 'Data Science', 'AI Development', 'Pandas', 'NumPy'],
       credentialUrl: 'https://coursera.org/share/02f4094cc1adfe8f2e481f744add2ff8',
-      logo: '🐍',
       color: 'secondary'
     },
     {
       id: 3,
       title: t('certifications.algorithms'),
       issuer: 'University of Colorado Boulder',
-      issuerLogo: 'https://upload.wikimedia.org/wikipedia/en/a/a1/University_of_Colorado_Boulder_logo.svg',
+      issuerLogo: coloradoLogo,
       date: 'Nov 2022',
-      credentialId: 'UCB-ALG-2022-789',
+      credentialId: 'R5A4ZNVAXDJY',
       description: 'Advanced algorithms for searching, sorting, and indexing with practical implementations.',
       skills: ['Algorithms', 'Data Structures', 'Sorting', 'Searching', 'Complexity Analysis'],
-      credentialUrl: '#',
-      logo: '⚡',
+      credentialUrl: 'https://coursera.org/share/707783a18068a5c6f024d35c64bce449',
       color: 'accent'
     }
   ]
@@ -58,46 +57,33 @@ const Certifications = () => {
     {
       name: 'DeepLearning.AI',
       description: 'Stanford University Partnership',
-      logo: 'https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vxAVYFV0EeemlhJgNx7Z7w_16cea20a3e0a48bcabe04b75ba2b1491_deeplearning.ai-logo.png',
-      icon: '🎓'
+      logo: deepaiLogo
     },
     {
       name: 'IBM',
       description: 'Professional Development',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg',
-      icon: '💙'
+      logo: ibmLogo
     },
     {
-      name: 'UC Boulder',
-      description: 'Computer Science Excellence',
-      logo: 'https://upload.wikimedia.org/wikipedia/en/a/a1/University_of_Colorado_Boulder_logo.svg',
-      icon: '🏔️'
+      name: 'Coursera',
+      description: 'Online Learning Platform',
+      logo: courserqaLogo
     },
     {
-      name: 'Google Cloud',
-      description: 'Cloud Computing Platform',
-      logo: googleCloudLogo,
-      icon: '☁️'
+      name: 'Google Developers',
+      description: 'Developer Resources and Tools',
+      logo: googledevLogo
     },
     {
       name: 'DataCamp',
       description: 'Data Science Learning',
-      logo: datacampLogo,
-      icon: '📊'
+      logo: datacampLogo
     },
     {
       name: 'GeeksforGeeks',
       description: 'Programming Practice',
-      logo: geeksforgeeksLogo,
-      icon: '💻'
+      logo: geeksforgeeksLogo
     }
-  ]
-
-  const stats = [
-    { label: 'Certifications', value: '3+', icon: '🏆' },
-    { label: 'Total Hours', value: '200+', icon: '⏱️' },
-    { label: 'Platforms', value: '6', icon: '🌐' },
-    { label: 'Skills Gained', value: '15+', icon: '🎯' }
   ]
 
   return (
@@ -125,17 +111,18 @@ const Certifications = () => {
                   {/* Certificate Icon & Basic Info */}
                   <div className="lg:col-span-1">
                     <div className="flex items-center space-x-4 lg:flex-col lg:space-x-0 lg:space-y-4 lg:text-center">
-                      <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
                         <img 
                           src={cert.issuerLogo} 
                           alt={cert.issuer}
-                          className="w-12 h-12 object-contain filter brightness-0 invert"
+                          className="w-20 h-20 md:w-28 md:h-28 object-contain filter-primary"
                           onError={(e) => {
+                            console.error(`Failed to load ${cert.issuer} logo:`, e);
+                            e.currentTarget.src = 'fallback';
                             e.currentTarget.style.display = 'none';
-                            (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
+                            e.currentTarget.parentElement.innerHTML = '<svg class="h-20 md:h-28 w-20 md:w-28 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>';
                           }}
                         />
-                        <span className="text-2xl hidden">{cert.logo}</span>
                       </div>
                       <div className="lg:text-center">
                         <div className="text-sm text-muted-foreground flex items-center lg:justify-center">
@@ -204,34 +191,24 @@ const Certifications = () => {
             ))}
           </div>
 
-          {/* Certification Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="project-card p-6 text-center hover-lift">
-                <div className="text-3xl mb-3">{stat.icon}</div>
-                <div className="text-2xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
           {/* Learning Platforms */}
           <div className="text-center">
             <h3 className="text-xl font-bold mb-8">Learning Platforms</h3>
             <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {learningPlatforms.map((platform, index) => (
                 <div key={index} className="project-card p-6 text-center hover-lift">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <img 
                       src={platform.logo} 
                       alt={platform.name}
-                      className="w-8 h-8 object-contain filter brightness-0 invert"
+                      className="w-12 h-12 md:w-16 md:h-16 object-contain filter-primary"
                       onError={(e) => {
+                        console.error(`Failed to load ${platform.name} logo:`, e);
+                        e.currentTarget.src = 'fallback';
                         e.currentTarget.style.display = 'none';
-                        (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'block';
+                        e.currentTarget.parentElement.innerHTML = '<svg class="h-12 md:h-16 w-12 md:w-16 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>';
                       }}
                     />
-                    <span className="text-xl hidden">{platform.icon}</span>
                   </div>
                   <h4 className="font-semibold mb-2 text-sm">{platform.name}</h4>
                   <p className="text-xs text-muted-foreground">{platform.description}</p>

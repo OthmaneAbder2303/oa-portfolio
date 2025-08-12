@@ -130,19 +130,23 @@ const Skills = () => {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="project-card p-6">
-              <div className="text-3xl font-bold text-primary mb-2">25+</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
+              25+</div>
               <div className="text-sm text-muted-foreground">Technologies</div>
             </div>
             <div className="project-card p-6">
-              <div className="text-3xl font-bold text-secondary mb-2">10+</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
+              10+</div>
               <div className="text-sm text-muted-foreground">Frameworks</div>
             </div>
             <div className="project-card p-6">
-              <div className="text-3xl font-bold text-accent mb-2">15+</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
+              15+</div>
               <div className="text-sm text-muted-foreground">Projects</div>
             </div>
             <div className="project-card p-6">
-              <div className="text-3xl font-bold text-emerald mb-2">3</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-green-500 to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
+              3</div>
               <div className="text-sm text-muted-foreground">Languages</div>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 // Import logos
 import leetcodeLogo from '@/assets/logos/platforms/leetcode.png'
 import hackerrankLogo from '@/assets/logos/platforms/hackerrank.png'
+import githubLogo from '@/assets/logos/platforms/github.png'
 
 const Contact = () => {
   const { t } = useLanguage()
@@ -45,8 +46,8 @@ const Contact = () => {
       value: 'github.com/OthmaneAbder2303',
       href: 'https://github.com/OthmaneAbder2303',
       color: 'text-gray-700 dark:text-gray-300',
-      bgColor: 'bg-gray-700/20',
-      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+      bgColor: 'bg-pink-700/20',
+      logo: githubLogo
     },
     {
       icon: ExternalLink,
