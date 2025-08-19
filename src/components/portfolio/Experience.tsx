@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 
 // Import logos
+import superprofLogo from '@/assets/logos/companies/superprof_2.png'
 import dellLogo from '@/assets/logos/companies/dell.png'
 import jlmLogo from '@/assets/logos/organizations/jlm.jpg'
 import enactusLogo from '@/assets/logos/organizations/enactus.png'
@@ -27,6 +28,24 @@ const Experience = () => {
   const { t } = useLanguage()
 
   const experiences = [
+    {
+      id: 2,
+      title: 'Private Tutor',
+      company: 'Superprof',
+      location: 'Online & France',
+      period: 'Aug 2025 – Present',
+      type: 'Freelance',
+      description: 'Provided personalized tutoring in Mathematics, Algorithmics, Programming (Python, Java, C), and Databases, combining clear explanations, practical exercises, and tailored methods to strengthen logic, autonomy, and confidence.',
+      logo: superprofLogo, // tu peux remplacer par une image locale si tu en as
+      achievements: [
+        'Delivered tailored lessons to students of different levels',
+        'Helped learners strengthen logical reasoning and autonomy',
+        'Supported academic projects and exam preparation',
+        'Adapted teaching methods to individual learning styles'
+      ],
+      skills: ['Teaching', 'Communication', 'Problem Solving', 'Programming', 'Mathematics'],
+      images: [] // si tu veux ajouter des captures d’écran ou images illustratives
+    },
     {
       id: 1,
       title: 'Software Engineering Intern',
@@ -59,6 +78,7 @@ const Experience = () => {
       ]
     }
   ]
+
 
   const extracurriculars = [
     {
