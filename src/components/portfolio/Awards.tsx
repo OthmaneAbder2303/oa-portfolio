@@ -18,7 +18,7 @@ const Awards = () => {
   const awards = [
     {
       id: 1,
-      title: '7th Place – Hackathon HackAI 2025',
+      title: '7th Place – HackAI 2025',
       organization: 'UM6P - 1337',
       location: 'Ben Guerir, Morocco',
       date: 'May 2025',
