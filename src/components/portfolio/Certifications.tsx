@@ -23,7 +23,7 @@ const Certifications = () => {
       issuerLogo: stanfordLogo,
       date: 'Sep 2024',
       credentialId: 'PXIYWQUNFUDX',
-      description: 'Comprehensive specialization covering supervised learning, unsupervised learning, and neural networks.',
+      description: t('certifications.ml.description'),
       skills: ['Machine Learning', 'Neural Networks', 'Python', 'TensorFlow', 'Deep Learning'],
       credentialUrl: 'https://coursera.org/verify/specialization/PXIYWQUNFUDX',
       color: 'primary'
@@ -35,7 +35,7 @@ const Certifications = () => {
       issuerLogo: ibmLogo,
       date: 'Dec 2023',
       credentialId: 'KGCAWCQ8R2BW',
-      description: 'Python programming fundamentals for data science and AI development applications.',
+      description: t('certifications.python.description'),
       skills: ['Python', 'Data Science', 'AI Development', 'Pandas', 'NumPy'],
       credentialUrl: 'https://coursera.org/share/02f4094cc1adfe8f2e481f744add2ff8',
       color: 'secondary'
@@ -47,7 +47,7 @@ const Certifications = () => {
       issuerLogo: coloradoLogo,
       date: 'Nov 2022',
       credentialId: 'R5A4ZNVAXDJY',
-      description: 'Advanced algorithms for searching, sorting, and indexing with practical implementations.',
+      description: t('certifications.algorithms.description'),
       skills: ['Algorithms', 'Data Structures', 'Sorting', 'Searching', 'Complexity Analysis'],
       credentialUrl: 'https://coursera.org/share/707783a18068a5c6f024d35c64bce449',
       color: 'accent'
@@ -57,36 +57,42 @@ const Certifications = () => {
   const learningPlatforms = [
     {
       name: 'Coursera',
-      description: 'Online Learning Platform',
-      logo: courserqaLogo
+      description: t('certifications.platforms.coursera'),
+      logo: courserqaLogo,
+      url: 'https://www.coursera.org'
     },
     {
       name: 'Oracle Academy',
-      description: 'Oracle Cloud and Java Training',
-      logo: oracleLogo
+      description: t('certifications.platforms.oracle'),
+      logo: oracleLogo,
+      url: 'https://academy.oracle.com'
     },
     {
       name: 'DataCamp',
-      description: 'Data Science Learning',
-      logo: datacampLogo
+      description: t('certifications.platforms.datacamp'),
+      logo: datacampLogo,
+      url: 'https://www.datacamp.com'
     },
     {
       name: 'DeepLearning.AI',
-      description: 'Stanford University Partnership',
-      logo: deepaiLogo
+      description: t('certifications.platforms.deepai'),
+      logo: deepaiLogo,
+      url: 'https://www.deeplearning.ai'
     },
     {
       name: 'Google Developers',
-      description: 'Developer Resources and Tools',
-      logo: googledevLogo
+      description: t('certifications.platforms.google'),
+      logo: googledevLogo,
+      url: 'https://developers.google.com'
     },
-
     {
       name: 'GeeksforGeeks',
-      description: 'Programming Practice',
-      logo: geeksforgeeksLogo
+      description: t('certifications.platforms.geeksforgeeks'),
+      logo: geeksforgeeksLogo,
+      url: 'https://www.geeksforgeeks.org'
     }
   ]
+
 
   return (
     <section id="certifications" className="section-padding">
@@ -100,7 +106,7 @@ const Certifications = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Professional certifications demonstrating expertise in AI, machine learning, and software development
+              {t('certifications.subtitle')}
             </p>
           </div>
 
@@ -152,7 +158,7 @@ const Certifications = () => {
 
                     {/* Skills Tags */}
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-sm">Skills Covered:</h4>
+                      <h4 className="font-semibold text-sm">{t('certifications.skillsCovered')}</h4>
                       <div className="flex flex-wrap gap-2">
                         {cert.skills.map((skill, index) => (
                           <span 
@@ -172,7 +178,7 @@ const Certifications = () => {
                       
                       {/* Credential ID */}
                       <div className="p-3 bg-muted rounded-lg">
-                        <div className="text-xs text-muted-foreground mb-1">Credential ID</div>
+                        <div className="text-xs text-muted-foreground mb-1">{t('certifications.credentialId')}</div>
                         <div className="font-mono text-sm break-all">{cert.credentialId}</div>
                       </div>
 
@@ -184,7 +190,7 @@ const Certifications = () => {
                         onClick={() => window.open(cert.credentialUrl, '_blank')}
                       >
                         <ExternalLink className="h-4 w-4 mr-2" />
-                        View Credential
+                        {t('certifications.viewCredential')}
                       </Button>
                     </div>
                   </div>
@@ -195,10 +201,14 @@ const Certifications = () => {
 
           {/* Learning Platforms */}
           <div className="text-center">
-            <h3 className="text-xl font-bold mb-8">Learning Platforms</h3>
+            <h3 className="text-xl font-bold mb-8">{t('certifications.learningPlatforms')}</h3>
             <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {learningPlatforms.map((platform, index) => (
-                <div key={index} className="project-card p-6 text-center hover-lift">
+                <div
+                  key={index}
+                  className="project-card p-6 text-center hover-lift cursor-pointer"
+                  onClick={() => window.open(platform.url, '_blank')}
+                >
                   <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <img 
                       src={platform.logo} 
@@ -216,6 +226,7 @@ const Certifications = () => {
                   <p className="text-xs text-muted-foreground">{platform.description}</p>
                 </div>
               ))}
+
             </div>
           </div>
 
@@ -223,13 +234,13 @@ const Certifications = () => {
           <div className="text-center mt-16">
             <div className="inline-flex items-center space-x-4 bg-gradient-card border rounded-lg p-6">
               <div>
-                <h3 className="font-bold mb-2">Continuous Learning</h3>
+                <h3 className="font-bold mb-2">{t('certifications.continuousLearning')}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Always expanding my knowledge through new certifications and courses
+                  {t('certifications.continuousLearningDesc')}
                 </p>
                 <Button className="gradient-primary text-white">
                   <Award className="h-4 w-4 mr-2" />
-                  View All Credentials
+                  {t('certifications.viewAllCredentials')}
                 </Button>
               </div>
             </div>

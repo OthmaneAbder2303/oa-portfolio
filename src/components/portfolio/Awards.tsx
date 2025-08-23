@@ -18,49 +18,49 @@ const Awards = () => {
   const awards = [
     {
       id: 1,
-      title: '7th Place – HackAI 2025',
-      organization: 'UM6P - 1337',
-      location: 'Ben Guerir, Morocco',
-      date: 'May 2025',
-      description: 'Developed a conversational assistant in Darija for administrative information access in Morocco.',
-      category: 'Hackathon',
-      rank: '7th',
-      participants: '100+',
+      title: t('awards.hackai.title'),
+      organization: t('awards.hackai.organization'),
+      location: t('awards.hackai.location'),
+      date: t('awards.hackai.date'),
+      description: t('awards.hackai.description'),
+      category: t('awards.hackai.category'),
+      rank: t('awards.hackai.rank'),
+      participants: t('awards.hackai.participants'),
       image: hackaiImage,
       logo: hackaiLogo,
       linkedinUrl: 'https://www.linkedin.com/posts/oa23_hackaimorocco-um6p-1337school-activity-7333412995273785344-tdTe?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChCizUBNzU5KO4Om3HWs1FOU-WAHxKbBR0'
     },
     {
       id: 2,
-      title: '1st Place – Game Of Codes',
-      organization: 'ENSA Marrakech',
-      location: 'Marrakech, Morocco',
-      date: 'May 2024',
-      description: 'Won first place in competitive programming contest featuring algorithmic problem solving.',
-      category: 'Programming Contest',
-      rank: '1st',
-      participants: '50+',
+      title: t('awards.gameofcodes.title'),
+      organization: t('awards.gameofcodes.organization'),
+      location: t('awards.gameofcodes.location'),
+      date: t('awards.gameofcodes.date'),
+      description: t('awards.gameofcodes.description'),
+      category: t('awards.gameofcodes.category'),
+      rank: t('awards.gameofcodes.rank'),
+      participants: t('awards.gameofcodes.participants'),
       image: gameOfCodesImage,
       logo: ensaLogo,
       linkedinUrl: 'https://www.linkedin.com/posts/oa23_codinggame-problemsolving-algorithm-activity-7197580165806256130-3Sct?utm_source=share&utm_medium=member_desktop&rcm=ACoAAChCizUBNzU5KO4Om3HWs1FOU-WAHxKbBR0'
     },
     {
       id: 3,
-      title: 'Excellence Award',
-      organization: 'Banque Populaire Marrakech-Safi',
-      location: 'Marrakech, Morocco',
-      date: 'Dec 2021',
-      description: 'Recognized for outstanding academic performance and leadership potential.',
-      category: 'Academic Excellence',
-      rank: 'Winner',
-      participants: 'Regional',
+      title: t('awards.excellence.title'),
+      organization: t('awards.excellence.organization'),
+      location: t('awards.excellence.location'),
+      date: t('awards.excellence.date'),
+      description: t('awards.excellence.description'),
+      category: t('awards.excellence.category'),
+      rank: t('awards.excellence.rank'),
+      participants: t('awards.excellence.participants'),
       image: bpImage,
       logo: bpLogo,
       linkedinUrl: 'https://www.linkedin.com/in/oa23/'
     }
   ]
 
-  const handleLinkedInClick = (url) => {
+  const handleLinkedInClick = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
 
@@ -76,7 +76,7 @@ const Awards = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Recognition for excellence in academics, competitions, and community leadership
+              {t('awards.description')}
             </p>
           </div>
 
@@ -137,7 +137,7 @@ const Awards = () => {
                   </div>
                   <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                     <Users className="h-4 w-4" />
-                    <span>{award.participants} participants</span>
+                    <span>{award.participants} {t('awards.participants')}</span>
                   </div>
                 </div>
 
@@ -159,7 +159,7 @@ const Awards = () => {
                     className="hover:bg-blue-50 hover:border-blue-300 transition-colors"
                   >
                     <Linkedin className="h-4 w-4 mr-2 text-blue-600" />
-                    <span className="text-blue-600">See Details</span>
+                    <span className="text-blue-600">{t('awards.seeDetails')}</span>
                   </Button>
                 </div>
               </div>
@@ -170,16 +170,16 @@ const Awards = () => {
           <div className="text-center">
             <div className="inline-flex items-center space-x-4 bg-gradient-card border rounded-lg p-6">
               <div>
-                <h3 className="font-bold mb-2">Want to see more achievements?</h3>
+                <h3 className="font-bold mb-2">{t('awards.moreAchievements')}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Visit my LinkedIn profile for a complete overview of my accomplishments
+                  {t('awards.linkedinCta')}
                 </p>
                 <Button
                   className="bg-blue-600 hover:bg-blue-700 text-white"
                   onClick={() => handleLinkedInClick('https://www.linkedin.com/in/oa23/')}
                 >
                   <Linkedin className="h-4 w-4 mr-2" />
-                  View LinkedIn Profile
+                  {t('awards.viewLinkedin')}
                 </Button>
               </div>
             </div>
