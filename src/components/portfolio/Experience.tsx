@@ -30,118 +30,117 @@ const Experience = () => {
   const experiences = [
     {
       id: 2,
-      title: 'Private Tutor',
-      company: 'Superprof',
-      location: 'Online & France',
-      period: 'Aug 2025 – Present',
-      type: 'Freelance',
-      description: 'Provided personalized tutoring in Mathematics, Algorithmics, Programming (Python, Java, C), and Databases, combining clear explanations, practical exercises, and tailored methods to strengthen logic, autonomy, and confidence.',
-      logo: superprofLogo, // tu peux remplacer par une image locale si tu en as
+      title: t('experience.superprof.title'),
+      company: t('experience.superprof.company'),
+      location: t('experience.superprof.location'),
+      period: t('experience.superprof.period'),
+      type: t('experience.superprof.type'),
+      description: t('experience.superprof.description'),
+      logo: superprofLogo,
       achievements: [
-        'Delivered tailored lessons to students of different levels',
-        'Helped learners strengthen logical reasoning and autonomy',
-        'Supported academic projects and exam preparation',
-        'Adapted teaching methods to individual learning styles'
+        t('experience.superprof.achievement1'),
+        t('experience.superprof.achievement2'),
+        t('experience.superprof.achievement3'),
+        t('experience.superprof.achievement4')
       ],
       skills: ['Teaching', 'Communication', 'Problem Solving', 'Programming', 'Mathematics'],
-      images: [] // si tu veux ajouter des captures d’écran ou images illustratives
+      images: []
     },
     {
       id: 1,
-      title: 'Software Engineering Intern',
-      company: 'DELL Technologies',
-      location: 'Casablanca, Morocco',
-      period: 'Mid Jul 2024 – Mid Aug 2024',
-      type: 'Internship',
-      description: 'Participated in a 4-week internship program focused on software engineering and digital transformation at DELL Technologies.',
+      title: t('experience.dell.title'),
+      company: t('experience.dell.company'),
+      location: t('experience.dell.location'),
+      period: t('experience.dell.period'),
+      type: t('experience.dell.type'),
+      description: t('experience.dell.description'),
       logo: dellLogo,
       achievements: [
-        'Collaborated with cross-functional teams',
-        'Gained insights into enterprise technology solutions',
-        'Observed digital transformation processes',
-        'Enhanced understanding of corporate workflows'
+        t('experience.dell.achievement1'),
+        t('experience.dell.achievement2'),
+        t('experience.dell.achievement3'),
+        t('experience.dell.achievement4')
       ],
       skills: ['Process Analysis', 'Digital Transformation', 'Team Collaboration', 'Business Technology'],
       images: [
         {
           src: dellInternship,
-          subtitle: 'Working at DELL Technologies office in Casablanca'
+          subtitle: t('experience.dell.image1')
         },
         {
           src: dellSite,
-          subtitle: 'DELL Technologies facility and workspace'
+          subtitle: t('experience.dell.image2')
         },
         {
           src: dellPageDeGardeRapport,
-          subtitle: 'Internship report cover page - comprehensive project documentation'
+          subtitle: t('experience.dell.image3')
         }
       ]
     }
   ]
 
-
   const extracurriculars = [
     {
       id: 1,
-      title: 'Head of the Social Action Cell',
-      organization: 'JLM ENSA Marrakech',
-      period: 'Nov 2023 – May 2025',
-      description: 'Lead the organization of social and solidarity actions, including humanitarian caravans and orphanage visits.',
+      title: t('experience.jlm.title'),
+      organization: t('experience.jlm.organization'),
+      period: t('experience.jlm.period'),
+      description: t('experience.jlm.description'),
       icon: Users,
       color: 'text-primary',
       logo: jlmLogo,
       images: [
         {
           src: jlmDarBouidar,
-          subtitle: 'Visit to Dar Bouidar orphanage - spreading joy and support'
+          subtitle: t('experience.jlm.image1')
         },
         {
           src: jlmDarTifl,
-          subtitle: 'Community outreach at Dar Tifl center'
+          subtitle: t('experience.jlm.image2')
         },
         {
           src: jlmDouarTamatiylt,
-          subtitle: 'Humanitarian caravan to Douar Tamatiylt village'
+          subtitle: t('experience.jlm.image3')
         }
       ]
     },
     {
       id: 2,
-      title: 'Member of the Sponsorship and Partnerships Cell',
-      organization: 'Enactus ENSA Marrakech',
-      period: 'Jan 2022 – Apr 2025',
-      description: 'Contributed to sponsor search and partnership management for the club.',
+      title: t('experience.enactus.title'),
+      organization: t('experience.enactus.organization'),
+      period: t('experience.enactus.period'),
+      description: t('experience.enactus.description'),
       icon: Lightbulb,
       color: 'text-secondary',
       logo: enactusLogo,
       images: [
         {
           src: enactusHackathon,
-          subtitle: 'Organizing hackathons and innovation events'
+          subtitle: t('experience.enactus.image1')
         },
         {
           src: enactusVisiteTraiteur,
-          subtitle: 'Partnership visit with local entrepreneurs'
+          subtitle: t('experience.enactus.image2')
         }
       ]
     },
     {
       id: 3,
-      title: 'Member of the Training and Projects Cell',
-      organization: 'BrainX - ENSA Marrakech',
-      period: 'Nov 2023 – Jun 2024',
-      description: 'Conducted training sessions and practical workshops on Machine Learning.',
+      title: t('experience.brainx.title'),
+      organization: t('experience.brainx.organization'),
+      period: t('experience.brainx.period'),
+      description: t('experience.brainx.description'),
       icon: Briefcase,
       color: 'text-accent',
       logo: brainxLogo,
       images: [
         {
           src: brainxFormation1,
-          subtitle: 'Leading machine learning workshops for students'
+          subtitle: t('experience.brainx.image1')
         },
         {
           src: brainxFormation2,
-          subtitle: 'Hands-on training in AI and data science'
+          subtitle: t('experience.brainx.image2')
         }
       ]
     }
@@ -167,7 +166,7 @@ const Experience = () => {
             <div>
               <h3 className="text-2xl font-bold mb-8 flex items-center">
                 <Briefcase className="h-6 w-6 text-primary mr-3" />
-                Professional Experience
+                {t('experience.professional')}
               </h3>
               <div className="space-y-8">
                 {experiences.map((exp) => (
@@ -215,7 +214,7 @@ const Experience = () => {
 
                     {/* Achievements */}
                     <div className="mb-4">
-                      <h5 className="font-semibold mb-2">Key Achievements:</h5>
+                      <h5 className="font-semibold mb-2">{t('experience.achievements')}</h5>
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         {exp.achievements.map((achievement, index) => (
                           <li key={index} className="flex items-start space-x-2">
@@ -249,7 +248,7 @@ const Experience = () => {
                           aria-label={`View details for ${exp.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
-                          See Details
+                          {t('experience.seeDetails')}
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="w-full max-w-[90vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
@@ -283,7 +282,7 @@ const Experience = () => {
                             ))
                           ) : (
                             <p className="text-sm text-muted-foreground text-center">
-                              No images available for this experience.
+                              {t('experience.noImages')}
                             </p>
                           )}
                         </div>
@@ -298,7 +297,7 @@ const Experience = () => {
             <div>
               <h3 className="text-2xl font-bold mb-8 flex items-center">
                 <Users className="h-6 w-6 text-secondary mr-3" />
-                Leadership & Activities
+                {t('experience.leadership')}
               </h3>
               <div className="space-y-6">
                 {extracurriculars.map((activity) => (
@@ -342,7 +341,7 @@ const Experience = () => {
                           aria-label={`View details for ${activity.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
-                          See Details
+                          {t('experience.seeDetails')}
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="w-full max-w-[90vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
@@ -376,7 +375,7 @@ const Experience = () => {
                             ))
                           ) : (
                             <p className="text-sm text-muted-foreground text-center">
-                              No images available for this activity.
+                              {t('experience.noImages')}
                             </p>
                           )}
                         </div>

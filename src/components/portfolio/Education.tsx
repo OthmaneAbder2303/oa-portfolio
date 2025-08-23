@@ -11,36 +11,36 @@ const Education = () => {
   const education = [
     {
       id: 1,
-      degree: 'Engineering Degree, Computer Engineering',
-      institution: 'École d\'Ingénieurs du Littoral Côte d\'Opale (EILCO)',
-      location: 'Calais, France',
-      period: '2025 – Present',
+      degree: t('education.eilco.degree'),
+      institution: t('education.eilco.institution'),
+      location: t('education.eilco.location'),
+      period: t('education.eilco.period'),
       logo: eilcoLogo,
-      description: 'Advanced computer engineering program with focus on software development and artificial intelligence.',
+      description: t('education.eilco.description'),
       status: 'current',
-      gpa: 'In Progress'
+      gpa: t('education.status.current')
     },
     {
       id: 2,
-      degree: 'Engineering Degree, Computer Engineering',
-      institution: 'National School of Applied Sciences (ENSA) Marrakech',
-      location: 'Marrakech, Morocco',
-      period: '2023 – Present',
+      degree: t('education.ensa.degree'),
+      institution: t('education.ensa.institution'),
+      location: t('education.ensa.location'),
+      period: t('education.ensa.period'),
       logo: ensaLogo,
-      description: 'Comprehensive computer engineering curriculum covering software development, AI, and embedded systems.',
+      description: t('education.ensa.description'),
       status: 'current',
-      gpa: 'Excellent'
+      gpa: t('education.status.current')
     },
     {
       id: 3,
-      degree: 'Integrated Preparatory Cycle',
-      institution: 'National School of Applied Sciences (ENSA) Marrakech',
-      location: 'Marrakech, Morocco',
-      period: '2021 – July 2023',
+      degree: t('education.ensa.prep.degree'),
+      institution: t('education.ensa.prep.institution'),
+      location: t('education.ensa.prep.location'),
+      period: t('education.ensa.prep.period'),
       logo: ensaLogo,
-      description: 'Intensive preparatory program in mathematics, physics, and computer science fundamentals.',
+      description: t('education.ensa.prep.description'),
       status: 'completed',
-      gpa: 'Distinction'
+      gpa: t('education.status.completed')
     }
   ]
 
