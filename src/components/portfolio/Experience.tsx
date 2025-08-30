@@ -37,6 +37,12 @@ const Experience = () => {
       type: t('experience.superprof.type'),
       description: t('experience.superprof.description'),
       logo: superprofLogo,
+      brandColors: {
+        primary: '#FF6363', // Superprof bittersweet red
+        background: 'linear-gradient(135deg, rgba(255, 99, 99, 0.05) 0%, rgba(255, 99, 99, 0.02) 100%)',
+        accent: 'rgba(255, 99, 99, 0.1)',
+        border: 'rgba(255, 99, 99, 0.2)'
+      },
       achievements: [
         t('experience.superprof.achievement1'),
         t('experience.superprof.achievement2'),
@@ -55,6 +61,12 @@ const Experience = () => {
       type: t('experience.dell.type'),
       description: t('experience.dell.description'),
       logo: dellLogo,
+      brandColors: {
+        primary: '#007DB8', // Dell blue
+        background: 'linear-gradient(135deg, rgba(0, 125, 184, 0.05) 0%, rgba(0, 125, 184, 0.02) 100%)',
+        accent: 'rgba(0, 125, 184, 0.1)',
+        border: 'rgba(0, 125, 184, 0.2)'
+      },
       achievements: [
         t('experience.dell.achievement1'),
         t('experience.dell.achievement2'),
@@ -89,6 +101,12 @@ const Experience = () => {
       icon: Users,
       color: 'text-primary',
       logo: jlmLogo,
+      brandColors: {
+        primary: '#E74C3C', // JLM red
+        background: 'linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0.02) 100%)',
+        accent: 'rgba(231, 76, 60, 0.1)',
+        border: 'rgba(231, 76, 60, 0.2)'
+      },
       images: [
         {
           src: jlmDarBouidar,
@@ -113,6 +131,12 @@ const Experience = () => {
       icon: Lightbulb,
       color: 'text-secondary',
       logo: enactusLogo,
+      brandColors: {
+        primary: '#FFD700', // Enactus gold/yellow
+        background: 'linear-gradient(135deg, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.03) 100%)',
+        accent: 'rgba(255, 215, 0, 0.15)',
+        border: 'rgba(255, 215, 0, 0.3)'
+      },
       images: [
         {
           src: enactusHackathon,
@@ -133,6 +157,12 @@ const Experience = () => {
       icon: Briefcase,
       color: 'text-accent',
       logo: brainxLogo,
+      brandColors: {
+        primary: '#8B5CF6', // BrainX purple
+        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(139, 92, 246, 0.02) 100%)',
+        accent: 'rgba(139, 92, 246, 0.1)',
+        border: 'rgba(139, 92, 246, 0.2)'
+      },
       images: [
         {
           src: brainxFormation1,
@@ -170,10 +200,29 @@ const Experience = () => {
               </h3>
               <div className="space-y-8">
                 {experiences.map((exp) => (
-                  <div key={exp.id} className="project-card p-6 hover-lift">
+                  <div 
+                    key={exp.id} 
+                    className="project-card p-6 hover-lift relative overflow-hidden"
+                    style={{ 
+                      background: exp.brandColors.background,
+                      borderLeft: `4px solid ${exp.brandColors.primary}`
+                    }}
+                  >
+                    {/* Subtle pattern overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-5 pointer-events-none"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 20% 50%, ${exp.brandColors.primary} 2px, transparent 2px), radial-gradient(circle at 80% 50%, ${exp.brandColors.primary} 1px, transparent 1px)`,
+                        backgroundSize: '30px 30px, 20px 20px'
+                      }}
+                    />
+                    
                     {/* Header with Logo */}
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="w-16 h-16 rounded-lg bg-white border shadow-sm flex items-center justify-center p-2 flex-shrink-0">
+                    <div className="flex items-start space-x-4 mb-4 relative z-10">
+                      <div 
+                        className="w-16 h-16 rounded-lg bg-white border shadow-sm flex items-center justify-center p-2 flex-shrink-0"
+                        style={{ borderColor: exp.brandColors.border }}
+                      >
                         <img 
                           src={exp.logo} 
                           alt={`${exp.company} logo`}
@@ -186,9 +235,20 @@ const Experience = () => {
                             <h4 className="text-lg font-bold text-card-foreground">
                               {exp.title}
                             </h4>
-                            <p className="text-primary font-semibold">{exp.company}</p>
+                            <p 
+                              className="font-semibold"
+                              style={{ color: exp.brandColors.primary }}
+                            >
+                              {exp.company}
+                            </p>
                           </div>
-                          <div className="inline-flex items-center space-x-1 bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                          <div 
+                            className="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium"
+                            style={{ 
+                              backgroundColor: exp.brandColors.accent,
+                              color: exp.brandColors.primary
+                            }}
+                          >
                             <span>{exp.type}</span>
                           </div>
                         </div>
@@ -196,7 +256,7 @@ const Experience = () => {
                     </div>
 
                     {/* Details */}
-                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-4 text-sm text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 mb-4 text-sm text-muted-foreground relative z-10">
                       <div className="flex items-center space-x-2">
                         <MapPin className="h-4 w-4" />
                         <span>{exp.location}</span>
@@ -208,17 +268,20 @@ const Experience = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-muted-foreground mb-4 leading-relaxed relative z-10">
                       {exp.description}
                     </p>
 
                     {/* Achievements */}
-                    <div className="mb-4">
+                    <div className="mb-4 relative z-10">
                       <h5 className="font-semibold mb-2">{t('experience.achievements')}</h5>
                       <ul className="space-y-1 text-sm text-muted-foreground">
                         {exp.achievements.map((achievement, index) => (
                           <li key={index} className="flex items-start space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                            <div 
+                              className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" 
+                              style={{ backgroundColor: exp.brandColors.primary }}
+                            />
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -226,11 +289,15 @@ const Experience = () => {
                     </div>
 
                     {/* Skills */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                       {exp.skills.map((skill, index) => (
                         <span 
                           key={index}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                          className="px-3 py-1 text-xs rounded-full font-medium"
+                          style={{ 
+                            backgroundColor: exp.brandColors.accent,
+                            color: exp.brandColors.primary
+                          }}
                         >
                           {skill}
                         </span>
@@ -244,7 +311,11 @@ const Experience = () => {
                           variant="outline" 
                           size="sm"
                           onClick={() => setSelectedActivity(exp)}
-                          className="w-full sm:w-auto text-sm sm:text-base"
+                          className="w-full sm:w-auto text-sm sm:text-base relative z-10 hover:opacity-90"
+                          style={{ 
+                            borderColor: exp.brandColors.primary,
+                            color: exp.brandColors.primary
+                          }}
                           aria-label={`View details for ${exp.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
@@ -301,10 +372,29 @@ const Experience = () => {
               </h3>
               <div className="space-y-6">
                 {extracurriculars.map((activity) => (
-                  <div key={activity.id} className="project-card p-6 hover-lift">
+                  <div 
+                    key={activity.id} 
+                    className="project-card p-6 hover-lift relative overflow-hidden"
+                    style={{ 
+                      background: activity.brandColors.background,
+                      borderLeft: `4px solid ${activity.brandColors.primary}`
+                    }}
+                  >
+                    {/* Subtle pattern overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-5 pointer-events-none"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 20% 50%, ${activity.brandColors.primary} 2px, transparent 2px), radial-gradient(circle at 80% 50%, ${activity.brandColors.primary} 1px, transparent 1px)`,
+                        backgroundSize: '30px 30px, 20px 20px'
+                      }}
+                    />
+
                     {/* Header with Logo and Icon */}
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-white border shadow-sm flex items-center justify-center p-1 flex-shrink-0">
+                    <div className="flex items-start space-x-4 mb-4 relative z-10">
+                      <div 
+                        className="w-12 h-12 rounded-lg bg-white border shadow-sm flex items-center justify-center p-1 flex-shrink-0"
+                        style={{ borderColor: activity.brandColors.border }}
+                      >
                         <img 
                           src={activity.logo} 
                           alt={`${activity.organization} logo`}
@@ -315,7 +405,10 @@ const Experience = () => {
                         <h4 className="font-bold text-card-foreground mb-1">
                           {activity.title}
                         </h4>
-                        <p className="text-primary font-semibold text-sm">
+                        <p 
+                          className="font-semibold text-sm"
+                          style={{ color: activity.brandColors.primary }}
+                        >
                           {activity.organization}
                         </p>
                         <p className="text-muted-foreground text-sm flex items-center mt-1">
@@ -326,7 +419,7 @@ const Experience = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 relative z-10">
                       {activity.description}
                     </p>
 
@@ -337,7 +430,11 @@ const Experience = () => {
                           variant="outline" 
                           size="sm"
                           onClick={() => setSelectedActivity(activity)}
-                          className="w-full sm:w-auto text-sm sm:text-base"
+                          className="w-full sm:w-auto text-sm sm:text-base relative z-10 hover:opacity-90"
+                          style={{ 
+                            borderColor: activity.brandColors.primary,
+                            color: activity.brandColors.primary
+                          }}
                           aria-label={`View details for ${activity.title}`}
                         >
                           <Eye className="h-4 w-4 mr-2" />
