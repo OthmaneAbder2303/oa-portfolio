@@ -1,5 +1,4 @@
-
-import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Phone, Zap, Globe, Clock, CheckCircle, Globe2, Clock3, BadgeCheck, Rocket   } from 'lucide-react'
+import { Mail, MapPin, Github, Linkedin, ExternalLink, Send, Rocket, Globe2, Clock3, BadgeCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -17,16 +16,16 @@ const Contact = () => {
       label: t('contact.email'),
       value: 'othmane232004@gmail.com',
       href: 'mailto:othmane232004@gmail.com',
-      color: 'text-primary',
-      bgColor: 'bg-primary/20'
+      bgColor: 'bg-orange-200 dark:bg-orange-900',
+      textColor: 'text-orange-800 dark:text-orange-200'
     },
     {
       icon: MapPin,
       label: t('contact.location'),
       value: 'Calais, France',
       href: '#',
-      color: 'text-secondary',
-      bgColor: 'bg-secondary/20'
+      bgColor: 'bg-blue-200 dark:bg-blue-900',
+      textColor: 'text-blue-800 dark:text-blue-200'
     }
   ]
 
@@ -36,8 +35,8 @@ const Contact = () => {
       label: t('contact.linkedin'),
       value: 'linkedin.com/in/oa23',
       href: 'https://www.linkedin.com/in/oa23/',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-600/20',
+      bgColor: 'bg-blue-600/20 dark:bg-blue-600/30',
+      textColor: 'text-blue-600 dark:text-blue-300',
       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg'
     },
     {
@@ -45,8 +44,8 @@ const Contact = () => {
       label: t('contact.github'),
       value: 'github.com/OthmaneAbder2303',
       href: 'https://github.com/OthmaneAbder2303',
-      color: 'text-gray-700 dark:text-gray-300',
-      bgColor: 'bg-pink-700/20',
+      bgColor: 'bg-gray-700/20 dark:bg-gray-700/30',
+      textColor: 'text-gray-700 dark:text-gray-300',
       logo: githubLogo
     },
     {
@@ -54,8 +53,8 @@ const Contact = () => {
       label: t('contact.leetcode'),
       value: 'leetcode.com/u/othmane232004',
       href: 'https://leetcode.com/u/othmane232004/',
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-600/20',
+      bgColor: 'bg-orange-600/20 dark:bg-orange-600/30',
+      textColor: 'text-orange-600 dark:text-orange-300',
       logo: leetcodeLogo
     },
     {
@@ -63,25 +62,24 @@ const Contact = () => {
       label: t('contact.hackerrank'),
       value: 'hackerrank.com/profile/othmane232004',
       href: 'https://www.hackerrank.com/profile/othmane232004',
-      color: 'text-green-600',
-      bgColor: 'bg-green-600/20',
+      bgColor: 'bg-green-600/20 dark:bg-green-600/30',
+      textColor: 'text-green-600 dark:text-green-300',
       logo: hackerrankLogo
     }
   ]
 
-
-const quickStats = [
-  { label: 'Response Time', value: '< 24h', icon: Rocket },
-  { label: 'Languages', value: '3', icon: Globe2 },
-  { label: 'Time Zone', value: 'GMT+1', icon: Clock3 },
-  { label: 'Available', value: 'Yes', icon: BadgeCheck }
-];
+  const quickStats = [
+    { label: 'Response Time', value: '< 24h', icon: Rocket, bgColor: 'bg-purple-200 dark:bg-purple-900', textColor: 'text-purple-800 dark:text-purple-200' },
+    { label: 'Languages', value: '3', icon: Globe2, bgColor: 'bg-yellow-200 dark:bg-yellow-900', textColor: 'text-yellow-800 dark:text-yellow-200' },
+    { label: 'Time Zone', value: 'GMT+1', icon: Clock3, bgColor: 'bg-teal-200 dark:bg-teal-900', textColor: 'text-teal-800 dark:text-teal-200' },
+    { label: 'Available', value: 'Yes', icon: BadgeCheck, bgColor: 'bg-green-200 dark:bg-green-900', textColor: 'text-green-800 dark:text-green-200' }
+  ]
 
   return (
     <section id="contact" className="section-padding">
       <div className="container-responsive">
         <div className="max-w-6xl mx-auto">
-          
+
           {/* Section Title */}
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
@@ -94,24 +92,24 @@ const quickStats = [
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            
+
             {/* Contact Information */}
             <div>
               <h3 className="text-2xl font-bold mb-8">Let's Connect</h3>
-              
+
               {/* Contact Methods */}
               <div className="space-y-6 mb-8">
-                {contactInfo.map((contact, index) => (
+                {contactInfo.map((contact, idx) => (
                   <a
-                    key={index}
+                    key={idx}
                     href={contact.href}
-                    className="flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+                    className={`flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group ${contact.bgColor}`}
                   >
-                    <div className={`w-12 h-12 ${contact.bgColor} rounded-lg flex items-center justify-center`}>
-                      <contact.icon className={`h-6 w-6 ${contact.color}`} />
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${contact.bgColor}`}>
+                      <contact.icon className={`h-6 w-6 ${contact.textColor}`} />
                     </div>
                     <div>
-                      <div className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                      <div className={`font-semibold text-card-foreground group-hover:text-primary transition-colors ${contact.textColor}`}>
                         {contact.label}
                       </div>
                       <div className="text-muted-foreground">{contact.value}</div>
@@ -122,17 +120,17 @@ const quickStats = [
 
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-4 mb-8">
-                {quickStats.map((stat, index) => (
-                  <div key={index} className="project-card p-4 text-center">
-                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-                    <div className="font-bold text-primary">{stat.value}</div>
+                {quickStats.map((stat, idx) => (
+                  <div key={idx} className={`project-card p-4 text-center ${stat.bgColor}`}>
+                    <stat.icon className={`w-6 h-6 mx-auto mb-2 ${stat.textColor}`} />
+                    <div className={`font-bold ${stat.textColor}`}>{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Available for */}
-              <div className="project-card p-6 bg-gradient-card">
+              <div className="project-card p-6 bg-green-50 dark:bg-green-900">
                 <h4 className="font-bold mb-4">Available for:</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -158,18 +156,18 @@ const quickStats = [
             {/* Social Links & Quick Contact */}
             <div>
               <h3 className="text-2xl font-bold mb-8">Find Me Online</h3>
-              
+
               {/* Social Links Grid */}
               <div className="space-y-6 mb-8">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social, idx) => (
                   <a
-                    key={index}
+                    key={idx}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+                    className={`flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group ${social.bgColor}`}
                   >
-                    <div className={`w-12 h-12 ${social.bgColor} rounded-lg flex items-center justify-center`}>
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${social.bgColor}`}>
                       <img 
                         src={social.logo} 
                         alt={social.label}
@@ -179,10 +177,10 @@ const quickStats = [
                           (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                         }}
                       />
-                      <social.icon className={`h-6 w-6 ${social.color} hidden`} />
+                      <social.icon className={`h-6 w-6 ${social.textColor} hidden`} />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                      <div className={`font-semibold text-card-foreground group-hover:text-primary transition-colors ${social.textColor}`}>
                         {social.label}
                       </div>
                       <div className="text-muted-foreground text-sm">{social.value}</div>
@@ -193,12 +191,12 @@ const quickStats = [
               </div>
 
               {/* Quick Contact Card */}
-              <div className="project-card p-6 text-center">
+              <div className="project-card p-6 bg-gradient-to-r from-green-100 to-green-200 da dark:to-green-100 text-center">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="h-8 w-8 text-white" />
+                  <Send className="h-8 w-8 text-black" />
                 </div>
-                <h4 className="font-bold text-lg mb-2">Ready to Connect?</h4>
-                <p className="text-muted-foreground mb-6 text-sm">
+                <h4 className="font-bold text-black mb-2">Ready to Connect?</h4>
+                <p className="text-black mb-6 text-sm">
                   Send me an email and let's discuss how we can work together on exciting projects.
                 </p>
                 <Button 
@@ -210,6 +208,7 @@ const quickStats = [
                 </Button>
               </div>
             </div>
+
           </div>
 
           {/* Footer Note */}
@@ -218,6 +217,7 @@ const quickStats = [
               © 2025 Othmane Abderrazik. Built with React, TypeScript, and Tailwind CSS.
             </p>
           </div>
+
         </div>
       </div>
     </section>
