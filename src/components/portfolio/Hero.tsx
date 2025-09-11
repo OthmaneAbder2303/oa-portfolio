@@ -7,9 +7,9 @@ const Hero = () => {
   const [displayedText, setDisplayedText] = useState('')
   const { t } = useLanguage()
   const roles = [
-    'Computer Engineering Student',
+    'Computer Science Student',
     'Full-Stack Developer',
-    'AI & ML Enthusiast',
+    'AI & NLP Enthusiast',
     'Problem Solver'
   ]
   const [currentRole, setCurrentRole] = useState(0)

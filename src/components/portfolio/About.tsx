@@ -55,7 +55,7 @@ const About = () => {
                 <span className="font-medium text-primary"> Full-Stack Development</span>.  
                 I also enjoy exploring <span className="font-medium text-primary">Natural Language Processing</span>, 
                 and sharpening my abilities in <span className="font-medium text-primary">Problem Solving</span> and 
-                <span className="font-medium text-primary">Algorithmics</span>.  
+                <span className="font-medium text-primary"> Algorithmics</span>.  
                 My goal is to design impactful, innovative solutions that connect cutting-edge research with real-world applications.
               </p>
 

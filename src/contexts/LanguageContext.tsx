@@ -24,8 +24,8 @@ const translations = {
     // Hero
     'hero.greeting': 'Hi, I\'m',
     'hero.name': 'Othmane Abderrazik',
-    'hero.title': 'Computer Engineering Student',
-    'hero.description': 'Computer Engineering student stoked about building full-stack apps & digging into AI + NLP. Always hyped to explore the latest tech buzz!',
+    'hero.title': 'Computer Science Student',
+    'hero.description': 'Computer Science student stoked about building full-stack apps & digging into AI & NLP. Always hyped to explore the latest tech buzz!',
     'hero.specialization': 'Data Science & AI Specialist',
     'hero.cta.projects': 'View Projects',
     'hero.contact': 'Get In Touch',
@@ -38,17 +38,17 @@ const translations = {
 
     // Education
     'education.title': 'Education',
-    'education.eilco.degree': 'Engineering Degree, Computer Engineering',
+    'education.eilco.degree': 'Engineering Degree, Computer Science',
     'education.eilco.institution': "École d'Ingénieurs du Littoral Côte d'Opale (EILCO)",
     'education.eilco.location': 'Calais, France',
     'education.eilco.period': '2025 – Present',
-    'education.eilco.description': 'Advanced computer engineering program with focus on software development and artificial intelligence.',
+    'education.eilco.description': 'Advanced computer engineering program with focus on software development, AI and embedded systems.',
 
-    'education.ensa.degree': 'Engineering Degree, Computer Engineering',
+    'education.ensa.degree': 'Engineering Degree, Computer Science',
     'education.ensa.institution': 'National School of Applied Sciences (ENSA) Marrakech',
     'education.ensa.location': 'Marrakech, Morocco',
     'education.ensa.period': '2023 – Present',
-    'education.ensa.description': 'Comprehensive computer engineering curriculum covering software development, AI, and embedded systems.',
+    'education.ensa.description': 'Comprehensive computer science curriculum covering software development and AI.',
 
     'education.ensa.prep.degree': 'Integrated Preparatory Cycle',
     'education.ensa.prep.institution': 'National School of Applied Sciences (ENSA) Marrakech',
@@ -213,6 +213,10 @@ const translations = {
     'contact.leetcode': 'LeetCode',
     'contact.hackerrank': 'HackerRank'
   },
+
+
+
+
   fr: {
     // Navigation
     'nav.home': 'Accueil',
@@ -246,13 +250,13 @@ const translations = {
     'education.eilco.institution': "École d'Ingénieurs du Littoral Côte d'Opale (EILCO)",
     'education.eilco.location': 'Calais, France',
     'education.eilco.period': '2025 – En cours',
-    'education.eilco.description': 'Formation avancée en génie informatique axée sur le développement logiciel et l\'intelligence artificielle.',
+    'education.eilco.description': 'Formation avancée en génie informatique axée sur le développement logiciel, l\'intelligence artificielle et les systèmes embarqués.',
 
     'education.ensa.degree': 'Diplôme d\'Ingénieur en Informatique',
     'education.ensa.institution': 'École Nationale des Sciences Appliquées (ENSA) Marrakech',
     'education.ensa.location': 'Marrakech, Maroc',
     'education.ensa.period': '2023 – En cours',
-    'education.ensa.description': 'Cursus complet en génie informatique couvrant le développement logiciel, l\'IA et les systèmes embarqués.',
+    'education.ensa.description': 'Cursus complet en génie informatique couvrant le développement logiciel et l\'IA.',
 
     'education.ensa.prep.degree': 'Classes Préparatoires Intégrées',
     'education.ensa.prep.institution': 'École Nationale des Sciences Appliquées (ENSA) Marrakech',
@@ -418,6 +422,10 @@ const translations = {
     'contact.leetcode': 'LeetCode',
     'contact.hackerrank': 'HackerRank'
   },
+
+
+
+
   ar: {
     // Navigation
     'nav.home': 'الرئيسية',
@@ -451,13 +459,13 @@ const translations = {
     'education.eilco.institution': "مدرسة مهندسي الساحل كوت دوبال (EILCO)",
     'education.eilco.location': 'كاليه، فرنسا',
     'education.eilco.period': '2025 – جاري',
-    'education.eilco.description': 'برنامج متقدم في هندسة المعلوميات يركز على تطوير البرمجيات والذكاء الاصطناعي.',
+    'education.eilco.description': 'برنامج متقدم في هندسة المعلوميات يركز على تطوير البرمجيات ,الذكاء الاصطناعي والأنظمة المدمجة.',
 
     'education.ensa.degree': 'شهادة مهندس في المعلوميات',
     'education.ensa.institution': 'المدرسة الوطنية للعلوم التطبيقية (ENSA) مراكش',
     'education.ensa.location': 'مراكش، المغرب',
     'education.ensa.period': '2023 – جاري',
-    'education.ensa.description': 'مسار شامل في هندسة المعلوميات يغطي تطوير البرمجيات والذكاء الاصطناعي والأنظمة المدمجة.',
+    'education.ensa.description': 'مسار شامل في هندسة المعلوميات يغطي تطوير البرمجيات والذكاء الاصطناعي',
 
     'education.ensa.prep.degree': 'الأقسام التحضيرية المدمجة',
     'education.ensa.prep.institution': 'المدرسة الوطنية للعلوم التطبيقية (ENSA) مراكش',
