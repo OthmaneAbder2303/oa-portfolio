@@ -1,36 +1,35 @@
-import { Code, Brain, Zap, Target } from 'lucide-react'
+import { Code, Brain, Target } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { motion } from 'framer-motion'
 
 const About = () => {
   const { t } = useLanguage()
 
   const highlights = [
     {
-      icon: Code,
-      title: 'Full-Stack Development',
-      description: 'Building end-to-end applications with modern technologies'
-    },
-    {
       icon: Brain,
       title: 'AI & Machine Learning',
-      description: 'Exploring intelligent systems and neural networks'
+      description: 'Exploring intelligent systems and neural networks',
+      image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop&crop=center'
     },
     {
-      icon: Zap,
-      title: 'Embedded Systems',
-      description: 'Creating efficient solutions for hardware integration'
+      icon: Code,
+      title: 'Full-Stack Development',
+      description: 'Building end-to-end applications with modern technologies',
+      image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Target,
       title: 'Problem Solving',
-      description: 'Tackling complex challenges with innovative approaches'
+      description: 'Tackling complex challenges with innovative approaches',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&crop=center'
     }
   ]
 
   return (
     <section id="about" className="section-padding bg-surface-muted">
       <div className="container-responsive">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           
           {/* Section Title */}
           <div className="text-center mb-16">
@@ -43,48 +42,63 @@ const About = () => {
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left Column - Description */}
+            {/* Left Column */}
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {t('about.description')}
               </p>
               
               <p className="text-muted-foreground leading-relaxed">
-                Currently pursuing my engineering degree at two prestigious institutions, 
-                I'm passionate about leveraging technology to solve real-world problems. 
-                My journey spans from developing intelligent transport systems to creating 
-                conversational AI assistants.
+                Passionate computer science student driven by a strong interest in 
+                <span className="font-medium text-primary"> Artificial Intelligence</span>, 
+                <span className="font-medium text-primary"> Data Science</span>, and 
+                <span className="font-medium text-primary"> Full-Stack Development</span>.  
+                I also enjoy exploring <span className="font-medium text-primary">Natural Language Processing</span>, 
+                and sharpening my abilities in <span className="font-medium text-primary">Problem Solving</span> and 
+                <span className="font-medium text-primary">Algorithmics</span>.  
+                My goal is to design impactful, innovative solutions that connect cutting-edge research with real-world applications.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">15+</div>
+
+              <div className="flex flex-wrap gap-6 pt-6">
+                <div className="text-center flex-1">
+                  <div className="text-3xl font-bold text-primary">15+</div>
                   <div className="text-sm text-muted-foreground">Projects</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">3</div>
+                <div className="text-center flex-1">
+                  <div className="text-3xl font-bold text-primary">3</div>
                   <div className="text-sm text-muted-foreground">Awards</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                <div className="text-center flex-1">
+                  <div className="text-3xl font-bold text-primary">5+</div>
                   <div className="text-sm text-muted-foreground">Certifications</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Highlights Grid */}
+            {/* Right Column - Creative Highlights Grid */}
             <div className="grid grid-cols-2 gap-6">
               {highlights.map((item, index) => (
-                <div 
+                <motion.div
                   key={index}
-                  className="project-card p-6 text-center hover-lift"
+                  whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? -1 : 1 }}
+                  className={`relative rounded-2xl overflow-hidden shadow-lg group 
+                  ${index === 0 ? "col-span-2 h-48" : "h-40"}`}
+                  style={{
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
                 >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-gradient-primary flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-primary" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent group-hover:from-primary/80 group-hover:via-black/40 transition-all duration-500"></div>
+                  <div className="relative z-10 p-6 flex flex-col justify-end h-full">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-white/20 mb-3">
+                      <item.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-base text-white mb-1">{item.title}</h3>
+                    <p className="text-xs text-white/80">{item.description}</p>
                   </div>
-                  <h3 className="font-semibold text-sm mb-2">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground">{item.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

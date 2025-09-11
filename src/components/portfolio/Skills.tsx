@@ -1,4 +1,4 @@
-import { Code, Rocket, Wrench } from 'lucide-react'
+import { Code, Rocket, Database, Wrench } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const Skills = () => {
@@ -38,18 +38,18 @@ const Skills = () => {
       title: t('skills.tools_platforms'),
       icon: Wrench,
       skills: [
-        { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
         { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
         { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-        { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
         { name: 'Aiven', logo: 'https://aiven.io/assets/img/aiven-logo.svg' },
+        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+        { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+        { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+        { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
         { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
         { name: 'IntelliJ', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg' },
         { name: 'PyCharm', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg' },
-        { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
         { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
-        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' }
+        { name: 'Jira', logo: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg' }
       ]
     }
   ]
@@ -79,7 +79,7 @@ const Skills = () => {
           {/* Technical Skills Grid */}
           <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
             {skillCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="project-card p-6 hover-lift">
+              <div key={categoryIndex} className="project-card p-4 h-auto hover-lift">
                 
                 {/* Category Header */}
                 <div className="flex items-center space-x-4 mb-6">
@@ -93,16 +93,12 @@ const Skills = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div key={skillIndex} className="skill-card">
-                      
-                      {/* Skill Header */}
                       <div className="flex items-center justify-center mb-3 flex-col space-y-2">
                         <img 
                           src={skill.logo} 
                           alt={skill.name}
                           className="w-8 h-8 object-contain"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                          }}
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
                         />
                         <span className="font-medium text-sm text-center">{skill.name}</span>
                       </div>

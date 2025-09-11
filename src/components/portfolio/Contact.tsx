@@ -69,10 +69,10 @@ const Contact = () => {
   ]
 
   const quickStats = [
-    { label: 'Response Time', value: '< 24h', icon: Rocket, bgColor: 'bg-purple-200 dark:bg-purple-900', textColor: 'text-purple-800 dark:text-purple-200' },
-    { label: 'Languages', value: '3', icon: Globe2, bgColor: 'bg-yellow-200 dark:bg-yellow-900', textColor: 'text-yellow-800 dark:text-yellow-200' },
-    { label: 'Time Zone', value: 'GMT+1', icon: Clock3, bgColor: 'bg-teal-200 dark:bg-teal-900', textColor: 'text-teal-800 dark:text-teal-200' },
-    { label: 'Available', value: 'Yes', icon: BadgeCheck, bgColor: 'bg-green-200 dark:bg-green-900', textColor: 'text-green-800 dark:text-green-200' }
+    { label: 'Response Time', value: '< 24h', icon: Rocket },
+    { label: 'Languages', value: '3', icon: Globe2 },
+    { label: 'Time Zone', value: 'GMT+1', icon: Clock3 },
+    { label: 'Available', value: 'Yes', icon: BadgeCheck }
   ]
 
   return (
@@ -121,32 +121,32 @@ const Contact = () => {
               {/* Quick Stats */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {quickStats.map((stat, idx) => (
-                  <div key={idx} className={`project-card p-4 text-center ${stat.bgColor}`}>
-                    <stat.icon className={`w-6 h-6 mx-auto mb-2 ${stat.textColor}`} />
-                    <div className={`font-bold ${stat.textColor}`}>{stat.value}</div>
+                  <div key={idx} className="project-card p-4 text-center">
+                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
+                    <div className="font-bold text-card-foreground">{stat.value}</div>
                     <div className="text-sm text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Available for */}
-              <div className="project-card p-6 bg-green-50 dark:bg-green-900">
+              <div className="project-card p-6">
                 <h4 className="font-bold mb-4">Available for:</h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full" />
+                    <div className="w-2 h-2 bg-primary rounded-full" />
                     <span>Full-time opportunities</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full" />
+                    <div className="w-2 h-2 bg-primary rounded-full" />
                     <span>Internship programs</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full" />
+                    <div className="w-2 h-2 bg-primary rounded-full" />
                     <span>Freelance projects</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-success rounded-full" />
+                    <div className="w-2 h-2 bg-primary rounded-full" />
                     <span>Collaboration opportunities</span>
                   </li>
                 </ul>
@@ -191,12 +191,12 @@ const Contact = () => {
               </div>
 
               {/* Quick Contact Card */}
-              <div className="project-card p-6 bg-gradient-to-r from-green-100 to-green-200 da dark:to-green-100 text-center">
+              <div className="project-card p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="h-8 w-8 text-black" />
+                  <Send className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-bold text-black mb-2">Ready to Connect?</h4>
-                <p className="text-black mb-6 text-sm">
+                <h4 className="font-bold text-card-foreground mb-2">Ready to Connect?</h4>
+                <p className="text-muted-foreground mb-6 text-sm">
                   Send me an email and let's discuss how we can work together on exciting projects.
                 </p>
                 <Button 
