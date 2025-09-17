@@ -15,7 +15,7 @@ const Projects = () => {
       description: t('projects.smartroute.description'),
       period: 'Mar 2025 – May 2025',
       institution: 'ENSA Marrakech',
-      technologies: ['Spring Boot', 'Angular', 'Python', 'Machine Learning', 'Graph Algorithms', 'Weather API', 'Flask', 'PostgreSQL'],
+      technologies: ['Spring Boot', 'Angular', 'Python', 'Machine Learning', 'Graph Algorithms', 'XgBoost', 'Random Forest', 'Weather API', 'Flask', 'PostgreSQL'],
       category: 'Web Development & Machine Learning',
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/SmartRoute',
@@ -62,6 +62,31 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: t('projects.log_classification'),
+      description: t('projects.log_classification.description'),
+      period: 'May 2025 – Jun 2025',
+      institution: 'Personal Project',
+      technologies: ['Python', 'BERT', 'Groq LLM', 'Regex', 'NLP', 'FastAPI', 'Pandas'],
+      category: 'AI & NLP',
+      featured: true,
+      githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
+      demoUrl: '#',
+      theme: 'log-classification',
+      brandColors: {
+        primary: '#efcf1a',
+        background: 'linear-gradient(135deg, rgba(239, 207, 26, 0.05) 0%, rgba(239, 207, 26, 0.02) 100%)',
+        accent: 'rgba(239, 207, 26, 0.1)',
+        border: 'rgba(239, 207, 26, 0.2)'
+      },
+      achievements: [
+        'Developed intelligent log classification system using BERT',
+        'Integrated Groq LLM for advanced text analysis',
+        'Implemented efficient regex patterns for log parsing',
+        'Built scalable FastAPI service for production use'
+      ]
+    },
+    {
+      id: 4,
       title: t('projects.chatbot'),
       description: t('projects.chatbot.description'),
       period: 'Apr 2025 – May 2025',
@@ -85,13 +110,13 @@ const Projects = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: t('projects.lis'),
       description: t('projects.lis.description'),
       period: 'Nov 2024 – Jan 2025',
       institution: 'ENSA Marrakech',
       technologies: ['Java', 'JavaFX', 'ESP32', 'Real-time Systems', 'MySQL'],
-      category: 'Embedded Systems',
+      category: 'Web Development',
       featured: true,
       githubUrl: 'https://github.com/Elamghar/LIS',
       theme: 'embedded',
@@ -109,7 +134,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: t('projects.puzzle'),
       description: t('projects.puzzle.description'),
       period: 'Mar 2024 – Jun 2024',
@@ -130,31 +155,6 @@ const Projects = () => {
         'Utilized OpenCV for sophisticated image processing',
         'Applied transformer models for pattern recognition',
         'Achieved high accuracy in automated puzzle assembly'
-      ]
-    },
-    {
-      id: 6,
-      title: t('projects.log_classification'),
-      description: t('projects.log_classification.description'),
-      period: 'May 2025 – Jun 2025',
-      institution: 'Personal Project',
-      technologies: ['Python', 'BERT', 'Groq LLM', 'Regex', 'NLP', 'FastAPI', 'Pandas'],
-      category: 'AI & NLP',
-      featured: true,
-      githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
-      demoUrl: '#',
-      theme: 'log-classification',
-      brandColors: {
-        primary: '#efcf1a',
-        background: 'linear-gradient(135deg, rgba(239, 207, 26, 0.05) 0%, rgba(239, 207, 26, 0.02) 100%)',
-        accent: 'rgba(239, 207, 26, 0.1)',
-        border: 'rgba(239, 207, 26, 0.2)'
-      },
-      achievements: [
-        'Developed intelligent log classification system using BERT',
-        'Integrated Groq LLM for advanced text analysis',
-        'Implemented efficient regex patterns for log parsing',
-        'Built scalable FastAPI service for production use'
       ]
     }
   ]

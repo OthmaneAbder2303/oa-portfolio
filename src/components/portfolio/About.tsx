@@ -62,7 +62,7 @@ const About = () => {
 
               <div className="flex flex-wrap gap-6 pt-6">
                 <div className="text-center flex-1">
-                  <div className="text-3xl font-bold text-primary">15+</div>
+                  <div className="text-3xl font-bold text-primary">5+</div>
                   <div className="text-sm text-muted-foreground">Projects</div>
                 </div>
                 <div className="text-center flex-1">
