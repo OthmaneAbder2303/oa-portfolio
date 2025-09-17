@@ -62,6 +62,31 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: 'E-Banking Management System',
+      description: 'A web-based banking platform for managing customers, accounts, and financial transactions with secure authentication.',
+      period: 'May 2025 – Jun 2025',
+      institution: 'ENSA Marrakech',
+      technologies: ['JEE', 'Spring', 'Angular', 'REST API', 'PostgreSQL', 'Dialogflow'],
+      category: 'Web Development',
+      featured: true,
+      githubUrl: 'https://github.com/Elamghar/e-banking.git',
+      //demoUrl: '#',
+      theme: 'banking-app',
+      brandColors: {
+        primary: '#3a41caff', // dark blue
+        background: 'linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(128, 128, 128, 0.02) 100%)', // blue to grey
+        accent: 'rgba(0, 51, 102, 0.1)', // dark blue accent
+        border: 'rgba(128, 128, 128, 0.2)' // grey border
+      },
+      achievements: [
+        'Implemented customer and account management with CRUD operations',
+        'Enabled viewing accounts and transaction history',
+        'Developed secure financial transactions using JWT authentication',
+        'Designed a modular architecture with RESTful services'
+      ]
+    },
+    {
+      id: 4,
       title: t('projects.log_classification'),
       description: t('projects.log_classification.description'),
       period: 'May 2025 – Jun 2025',
@@ -86,7 +111,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: t('projects.chatbot'),
       description: t('projects.chatbot.description'),
       period: 'Apr 2025 – May 2025',
@@ -110,7 +135,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: t('projects.lis'),
       description: t('projects.lis.description'),
       period: 'Nov 2024 – Jan 2025',
@@ -134,7 +159,7 @@ const Projects = () => {
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: t('projects.puzzle'),
       description: t('projects.puzzle.description'),
       period: 'Mar 2024 – Jun 2024',
