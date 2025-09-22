@@ -1,4 +1,4 @@
-import { Code, Rocket, Database, Wrench } from 'lucide-react'
+import { Code, Rocket, Wrench, Monitor } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const Skills = () => {
@@ -31,30 +31,38 @@ const Skills = () => {
         { name: 'PyTorch', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
         { name: 'Scikit-learn', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
         { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg' },
-        { name: 'Hugging Face', logo: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' }
       ]
     },
     {
       title: t('skills.tools_platforms'),
       icon: Wrench,
       skills: [
-        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
-        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-        { name: 'Aiven', logo: 'https://aiven.io/assets/img/aiven-logo.svg' },
-        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
         { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
         { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
         { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg' },
+        { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
+        { name: 'Jira', logo: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg' },
+        { name: 'Linux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+        { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+        { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+        { name: 'Aiven', logo: 'https://aiven.io/assets/img/aiven-logo.svg' },
+        { name: 'Hugging Face', logo: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' }
+
+      ]
+    },
+    {
+      title: t('skills.environments'),
+      icon: Monitor,
+      skills: [
         { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
         { name: 'IntelliJ', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg' },
         { name: 'PyCharm', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg' },
-        { name: 'AWS', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg' },
-        { name: 'Jira', logo: 'https://cdn.worldvectorlogo.com/logos/jira-1.svg' },
-        //{ name: 'Vercel', logo: 'https://cdn.worldvectorlogo.com/logos/vercel.svg' }
-
+        { name: 'Jupyter Notebook', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg' },
+        { name: 'Anaconda', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg' }
       ]
     }
   ]
+
 
   const languages = [
     { name: 'Arabic', flag: '🇸🇦', proficiency: 'Native' },
@@ -79,7 +87,7 @@ const Skills = () => {
           </div>
 
           {/* Technical Skills Grid */}
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
             {skillCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="project-card p-4 h-auto hover-lift">
                 

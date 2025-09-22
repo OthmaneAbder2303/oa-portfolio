@@ -138,7 +138,9 @@ const translations = {
     "skills.title": "Technical Skills",
     "skills.languages": "Programming Languages",
     "skills.frameworks_libraries": "Frameworks & Libraries",
-    "skills.tools_platforms": "Tools & Technologies",
+    "skills.tools_platforms": "Tools & Platforms",
+    "skills.environments": "Development Environments",
+
 
     // Certifications
     'certifications.title': 'Certifications',
@@ -342,11 +344,13 @@ const translations = {
     'projects.log_classification': 'Système de Classification de Logs',
     'projects.log_classification.description': 'Système robuste de classification de messages de logs utilisant des expressions régulières, des embeddings BERT et un LLM alimenté par Groq, conçu pour la surveillance et l\'analyse.',
 
-    // Skills
-    'skills.title': 'Compétences techniques',
-    'skills.languages': 'Langages de programmation',
-    'skills.frameworks_libraries': 'Frameworks et bibliothèques',
-    'skills.tools_platforms': 'Outils et technologies',
+    // Compétences
+    "skills.title": "Compétences Techniques",
+    "skills.languages": "Langages de Programmation",
+    "skills.frameworks_libraries": "Frameworks & Bibliothèques",
+    "skills.tools_platforms": "Outils & Plateformes",
+    "skills.environments": "Environnements de Développement",
+
 
     // Certifications
     'certifications.title': 'Certifications',
@@ -551,11 +555,13 @@ const translations = {
     'projects.log_classification': 'نظام تصنيف السجلات',
     'projects.log_classification.description': 'نظام قوي لتصنيف رسائل السجلات باستخدام التعبيرات النمطية وتضمينات BERT ونموذج لغوي مدعوم من Groq، مُصمم للمراقبة والتحليل.',
 
-    // Skills
-    'skills.title': 'المهارات التقنية',
-    'skills.languages': 'لغات البرمجة',
-    'skills.frameworks_libraries': 'الإطارات والمكتبات',
-    'skills.tools_platforms': 'الأدوات والتقنيات',
+    // المهارات
+    "skills.title": "المهارات التقنية",
+    "skills.languages": "لغات البرمجة",
+    "skills.frameworks_libraries": "الأطر والمكتبات",
+    "skills.tools_platforms": "الأدوات والمنصات",
+    "skills.environments": "بيئات التطوير",
+
 
     // Certifications
     'certifications.title': 'الشهادات',
