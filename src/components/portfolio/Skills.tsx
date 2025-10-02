@@ -58,7 +58,8 @@ const Skills = () => {
         { name: 'IntelliJ', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg' },
         { name: 'PyCharm', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg' },
         { name: 'Jupyter Notebook', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg' },
-        { name: 'Anaconda', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg' }
+        { name: 'Anaconda', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/anaconda/anaconda-original.svg' },
+        { name: 'Kaggle', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png' }
       ]
     }
   ]
