@@ -7,7 +7,7 @@ import { useState } from 'react'
 import smartrouteDiagram from '@/assets/projects/info_itin.jpg'
 import hackathonDiagram from '@/assets/projects/lm9dem-platform.png'
 import ebankingDiagram from '@/assets/projects/client-chatbot.jpg'
-import chatbotDiagram from '@/assets/projects/flowchart-chatbot-food.png'
+import chatbotDiagram from '@/assets/projects/chatfood-business.png'
 import lisDiagram from '@/assets/projects/medfile.jpg'
 import puzzleDiagram from '@/assets/projects/puzzle-game.png'
 
@@ -149,6 +149,31 @@ const Projects = () => {
     },
     {
       id: 6,
+      title: t('projects.puzzle'),
+      description: t('projects.puzzle.description'),
+      period: 'Mar 2024 – Jun 2024',
+      institution: 'ENSA Marrakech',
+      technologies: ['Computer Vision', 'OpenCV', 'Python', 'Image Processing', 'AI', 'Transformers'],
+      category: 'Computer Vision',
+      featured: false,
+      githubUrl: 'https://github.com/NadaMaliki/puzzle-solver',
+      imageSrc: puzzleDiagram,
+      theme: 'computer-vision',
+      brandColors: {
+        primary: '#9c27b0',
+        background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.05) 0%, rgba(156, 39, 176, 0.02) 100%)',
+        accent: 'rgba(156, 39, 176, 0.1)',
+        border: 'rgba(156, 39, 176, 0.2)'
+      },
+      achievements: [
+        'Implemented advanced computer vision algorithms for puzzle solving',
+        'Utilized OpenCV for sophisticated image processing',
+        'Applied transformer models for pattern recognition',
+        'Achieved high accuracy in automated puzzle assembly'
+      ]
+    },
+    {
+      id: 7,
       title: t('projects.lis'),
       description: t('projects.lis.description'),
       period: 'Nov 2024 – Jan 2025',
@@ -172,31 +197,6 @@ const Projects = () => {
         'Created intuitive JavaFX user interface'
       ]
     },
-    {
-      id: 7,
-      title: t('projects.puzzle'),
-      description: t('projects.puzzle.description'),
-      period: 'Mar 2024 – Jun 2024',
-      institution: 'ENSA Marrakech',
-      technologies: ['Computer Vision', 'OpenCV', 'Python', 'Image Processing', 'AI', 'Transformers'],
-      category: 'Computer Vision',
-      featured: false,
-      githubUrl: 'https://github.com/NadaMaliki/puzzle-solver',
-      imageSrc: puzzleDiagram,
-      theme: 'computer-vision',
-      brandColors: {
-        primary: '#9c27b0',
-        background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.05) 0%, rgba(156, 39, 176, 0.02) 100%)',
-        accent: 'rgba(156, 39, 176, 0.1)',
-        border: 'rgba(156, 39, 176, 0.2)'
-      },
-      achievements: [
-        'Implemented advanced computer vision algorithms for puzzle solving',
-        'Utilized OpenCV for sophisticated image processing',
-        'Applied transformer models for pattern recognition',
-        'Achieved high accuracy in automated puzzle assembly'
-      ]
-    }
   ]
 
   const handleGithubClick = (url) => {
