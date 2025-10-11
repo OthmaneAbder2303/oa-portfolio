@@ -1,12 +1,21 @@
-import { ExternalLink, Github, Calendar, Award, Code, Eye } from 'lucide-react'
+import { ExternalLink, Github, Calendar, Award, Code, Eye, Image as ImageIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useState } from 'react'
 
+import smartrouteDiagram from '@/assets/projects/info_itin.jpg'
+import hackathonDiagram from '@/assets/projects/lm9dem-platform.png'
+import ebankingDiagram from '@/assets/projects/client-chatbot.jpg'
+import chatbotDiagram from '@/assets/projects/flowchart-chatbot-food.png'
+import lisDiagram from '@/assets/projects/medfile.jpg'
+import puzzleDiagram from '@/assets/projects/puzzle-game.png'
+
 const Projects = () => {
   const { t } = useLanguage()
   const [selectedProject, setSelectedProject] = useState<any>(null)
+  const [imageLoaded, setImageLoaded] = useState<{[key: number]: boolean}>({})
+  const [imageError, setImageError] = useState<{[key: number]: boolean}>({})
   
   const projects = [
     {
@@ -20,6 +29,7 @@ const Projects = () => {
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/SmartRoute',
       demoUrl: '#',
+      imageSrc: smartrouteDiagram,
       theme: 'smart-route',
       brandColors: {
         primary: '#FF8000',
@@ -46,6 +56,7 @@ const Projects = () => {
       achievement: '7th Place',
       githubUrl: 'https://github.com/zakariaayl/HackAi_ZHO_logs',
       demoUrl: '#',
+      imageSrc: hackathonDiagram,
       theme: 'ai-hackathon',
       brandColors: {
         primary: '#8F00FF',
@@ -70,13 +81,13 @@ const Projects = () => {
       category: 'Web Development',
       featured: true,
       githubUrl: 'https://github.com/Elamghar/e-banking.git',
-      //demoUrl: '#',
+      imageSrc: ebankingDiagram,
       theme: 'banking-app',
       brandColors: {
-        primary: '#3a41caff', // dark blue
-        background: 'linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(128, 128, 128, 0.02) 100%)', // blue to grey
-        accent: 'rgba(0, 51, 102, 0.1)', // dark blue accent
-        border: 'rgba(128, 128, 128, 0.2)' // grey border
+        primary: '#3a41caff',
+        background: 'linear-gradient(135deg, rgba(0, 51, 102, 0.05) 0%, rgba(128, 128, 128, 0.02) 100%)',
+        accent: 'rgba(0, 51, 102, 0.1)',
+        border: 'rgba(128, 128, 128, 0.2)'
       },
       achievements: [
         'Implemented customer and account management with CRUD operations',
@@ -96,6 +107,7 @@ const Projects = () => {
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
       demoUrl: '#',
+      imageSrc: null,
       theme: 'log-classification',
       brandColors: {
         primary: '#efcf1a',
@@ -120,6 +132,7 @@ const Projects = () => {
       category: 'AI & Chatbots',
       featured: false,
       githubUrl: 'https://github.com/OthmaneAbder2303/chatbot_food_business',
+      imageSrc: chatbotDiagram,
       theme: 'chatbot',
       brandColors: {
         primary: '#C44536',
@@ -144,6 +157,7 @@ const Projects = () => {
       category: 'Web Development',
       featured: true,
       githubUrl: 'https://github.com/Elamghar/LIS',
+      imageSrc: lisDiagram,
       theme: 'embedded',
       brandColors: {
         primary: '#2196f3',
@@ -168,6 +182,7 @@ const Projects = () => {
       category: 'Computer Vision',
       featured: false,
       githubUrl: 'https://github.com/NadaMaliki/puzzle-solver',
+      imageSrc: puzzleDiagram,
       theme: 'computer-vision',
       brandColors: {
         primary: '#9c27b0',
@@ -196,6 +211,14 @@ const Projects = () => {
     }
   }
 
+  const handleImageLoad = (projectId: number) => {
+    setImageLoaded(prev => ({ ...prev, [projectId]: true }))
+  }
+
+  const handleImageError = (projectId: number) => {
+    setImageError(prev => ({ ...prev, [projectId]: true }))
+  }
+
   return (
     <section id="projects" className="section-padding bg-surface-muted">
       <div className="container-responsive">
@@ -217,13 +240,55 @@ const Projects = () => {
             {projects.map((project) => (
               <div 
                 key={project.id} 
-                className="project-card p-6 hover-lift relative overflow-hidden"
+                className="project-card p-6 hover-lift relative overflow-hidden group"
                 style={{ 
                   background: project.brandColors.background,
                   borderLeft: `4px solid ${project.brandColors.primary}`
                 }}
               >
                 <div className="relative z-10">
+                  {/* Project Image Preview */}
+                  {project.imageSrc && (
+                    <div className="mb-6 rounded-lg overflow-hidden relative bg-black/5">
+                      {!imageLoaded[project.id] && !imageError[project.id] && (
+                        <div 
+                          className="w-full h-48 flex items-center justify-center"
+                          style={{ backgroundColor: project.brandColors.accent }}
+                        >
+                          <div className="animate-pulse flex flex-col items-center space-y-2">
+                            <ImageIcon className="h-8 w-8" style={{ color: project.brandColors.primary }} />
+                            <span className="text-sm" style={{ color: project.brandColors.primary }}>Loading preview...</span>
+                          </div>
+                        </div>
+                      )}
+                      {imageError[project.id] ? (
+                        <div 
+                          className="w-full h-48 flex items-center justify-center"
+                          style={{ backgroundColor: project.brandColors.accent }}
+                        >
+                          <div className="flex flex-col items-center space-y-2 text-muted-foreground">
+                            <ImageIcon className="h-8 w-8" />
+                            <span className="text-sm">Diagram preview</span>
+                          </div>
+                        </div>
+                      ) : (
+                        <img
+                          src={project.imageSrc}
+                          alt={`${project.title} workflow diagram`}
+                          className={`w-full h-48 object-cover transition-all duration-700 ease-out ${
+                            imageLoaded[project.id] 
+                              ? 'opacity-100 scale-100' 
+                              : 'opacity-0 scale-95'
+                          } group-hover:scale-105`}
+                          onLoad={() => handleImageLoad(project.id)}
+                          onError={() => handleImageError(project.id)}
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  )}
+
                   {/* Header */}
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="flex-1">
@@ -331,7 +396,7 @@ const Projects = () => {
                         View Details
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="w-full max-w-[90vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+                    <DialogContent className="w-full max-w-[90vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
                       <DialogHeader>
                         <DialogTitle className="flex items-center space-x-3 text-base sm:text-lg">
                           <Code className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: project.brandColors.primary }} />
@@ -339,6 +404,18 @@ const Projects = () => {
                         </DialogTitle>
                       </DialogHeader>
                       <div className="space-y-4">
+                        {/* Full Image in Dialog */}
+                        {project.imageSrc && !imageError[project.id] && (
+                          <div className="rounded-lg overflow-hidden border-2" style={{ borderColor: project.brandColors.border }}>
+                            <img
+                              src={project.imageSrc}
+                              alt={`${project.title} workflow diagram`}
+                              className="w-full h-auto object-contain max-h-96"
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+
                         <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-1">
                             <Calendar className="h-4 w-4" />
