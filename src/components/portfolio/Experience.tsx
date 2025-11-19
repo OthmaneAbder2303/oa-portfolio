@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 
 // Import logos
-import superprofLogo from '@/assets/logos/companies/superprof_2.png'
+import ucamLogo from '@/assets/logos/universities/uca_logo.png.avif'
 import dellLogo from '@/assets/logos/companies/dell.png'
 import jlmLogo from '@/assets/logos/organizations/jlm.jpg'
 import enactusLogo from '@/assets/logos/organizations/enactus.png'
@@ -30,26 +30,24 @@ const Experience = () => {
   const experiences = [
     {
       id: 2,
-      title: t('experience.superprof.title'),
-      company: t('experience.superprof.company'),
-      location: t('experience.superprof.location'),
-      period: t('experience.superprof.period'),
-      type: t('experience.superprof.type'),
-      description: t('experience.superprof.description'),
-      logo: superprofLogo,
+      title: t('experience.ucam.title'),
+      company: t('experience.ucam.company'),
+      location: t('experience.ucam.location'),
+      period: t('experience.ucam.period'),
+      type: t('experience.ucam.type'),
+      description: t('experience.ucam.description'),
+      logo: ucamLogo,
       brandColors: {
-        primary: '#FF6363', // Superprof bittersweet red
-        background: 'linear-gradient(135deg, rgba(255, 99, 99, 0.05) 0%, rgba(255, 99, 99, 0.02) 100%)',
-        accent: 'rgba(255, 99, 99, 0.1)',
-        border: 'rgba(255, 99, 99, 0.2)'
+        primary: '#D35400',     // Orange cuivré / marron-orange foncé (très proche du logo UCAM)
+        background: 'linear-gradient(135deg, rgba(211, 84, 0, 0.06) 0%, rgba(211, 84, 0, 0.02) 100%)',
+        accent: 'rgba(211, 84, 0, 0.12)',
+        border: 'rgba(211, 84, 0, 0.35)'
       },
       achievements: [
-        t('experience.superprof.achievement1'),
-        t('experience.superprof.achievement2'),
-        t('experience.superprof.achievement3'),
-        t('experience.superprof.achievement4')
+        t('experience.ucam.achievement1'),
+        t('experience.ucam.achievement2')
       ],
-      skills: ['Teaching', 'Communication', 'Problem Solving', 'Programming', 'Mathematics'],
+      skills: ['Django', 'Python', 'PostgreSQL', 'API REST', 'Web Security', 'Git', 'Docker'],
       images: []
     },
     {
