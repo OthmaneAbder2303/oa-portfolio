@@ -10,6 +10,7 @@ import ebankingDiagram from '@/assets/projects/client-chatbot.jpg'
 import chatbotDiagram from '@/assets/projects/chatfood-business.png'
 import lisDiagram from '@/assets/projects/medfile.jpg'
 import puzzleDiagram from '@/assets/projects/puzzle-game.png'
+import logClassificationDiagram from '@/assets/projects/log_class-docker.png'
 
 const Projects = () => {
   const { t } = useLanguage()
@@ -98,16 +99,17 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: t('projects.log_classification'),
+      title: "LogPulse: Hybrid Log Analytics", // Updated name for more "brand" feel
       description: t('projects.log_classification.description'),
       period: 'May 2025 – Jun 2025',
       institution: 'Personal Project',
-      technologies: ['Python', 'BERT', 'Groq LLM', 'Regex', 'NLP', 'FastAPI', 'Pandas'],
+      // Added Docker and Sentence-Transformers to technologies
+      technologies: ['Python', 'BERT', 'Groq LLM', 'FastAPI', 'Docker', 'NLP', 'Regex'],
       category: 'AI & NLP',
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
       demoUrl: '#',
-      imageSrc: null,
+      imageSrc: logClassificationDiagram,
       theme: 'log-classification',
       brandColors: {
         primary: '#efcf1a',
@@ -116,10 +118,10 @@ const Projects = () => {
         border: 'rgba(239, 207, 26, 0.2)'
       },
       achievements: [
-        'Developed intelligent log classification system using BERT',
-        'Integrated Groq LLM for advanced text analysis',
-        'Implemented efficient regex patterns for log parsing',
-        'Built scalable FastAPI service for production use'
+        'Engineered a 3-tier hybrid escalation pipeline (Regex, BERT, LLM) achieving 98% classification accuracy.',
+        'Integrated Groq LPU™ for ultra-low latency inference using Llama 3 & DeepSeek models.',
+        'Developed source-aware classification logic to adapt processing based on log origin.',
+        'Containerized the entire ecosystem with Docker for seamless production-ready deployment.'
       ]
     },
     {

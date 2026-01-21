@@ -131,9 +131,9 @@ const translations = {
     'projects.lis.description': 'Laboratory management system with wireless communication via ESP32 and real-time data synchronization.',
     'projects.puzzle': 'AI-Powered Image Puzzle Solver',
     'projects.puzzle.description': 'Intelligent system for automatically reconstructing images from unordered fragments using computer vision techniques.',
-    'projects.log_classification': 'Log Classification System',
-    'projects.log_classification.description': 'A robust system for classifying log messages using regex patterns, BERT embeddings, and Groq-powered LLM, designed for monitoring and analytics.',
-
+    'projects.log_classification': 'LogPulse: Hybrid Intelligence Classification',
+    'projects.log_classification.description': 'A multi-layered log analysis engine combining Regex patterns, BERT embeddings, and Groq-powered LLMs. Features a source-aware escalation pipeline designed for high-precision monitoring and real-time system analytics.',
+    
     // Skills
     "skills.title": "Technical Skills",
     "skills.languages": "Programming Languages",
@@ -341,9 +341,9 @@ const translations = {
     'projects.lis.description': 'Système de gestion de laboratoire avec communication sans fil via ESP32 et synchronisation de données en temps réel.',
     'projects.puzzle': 'Reconstructeur de Puzzles d\'Images par IA',
     'projects.puzzle.description': 'Système intelligent de reconstitution automatique d\'images à partir de fragments désordonnés, utilisant des techniques de vision par ordinateur.',
-    'projects.log_classification': 'Système de Classification de Logs',
-    'projects.log_classification.description': 'Système robuste de classification de messages de logs utilisant des expressions régulières, des embeddings BERT et un LLM alimenté par Groq, conçu pour la surveillance et l\'analyse.',
-
+    'projects.log_classification': 'LogPulse : Système de Classification Hybride',
+    'projects.log_classification.description': 'Un moteur d\'analyse de logs multicouche combinant patterns Regex, embeddings BERT et raisonnement LLM (Groq). Doté d\'un pipeline d\'escalade intelligent basé sur la source pour une précision de 98% en monitoring et analytique.',
+    
     // Compétences
     "skills.title": "Compétences Techniques",
     "skills.languages": "Langages de Programmation",
@@ -552,9 +552,9 @@ const translations = {
     'projects.lis.description': 'نظام إدارة المختبر مع تواصل لاسلكي عبر ESP32 ومزامنة البيانات في الوقت الفعلي.',
     'projects.puzzle': 'مُعيد تركيب الألغاز المصورة بالذكاء الاصطناعي',
     'projects.puzzle.description': 'نظام ذكي لإعادة تركيب الصور تلقائياً من قطع مبعثرة، باستخدام تقنيات الرؤية الحاسوبية.',
-    'projects.log_classification': 'نظام تصنيف السجلات',
-    'projects.log_classification.description': 'نظام قوي لتصنيف رسائل السجلات باستخدام التعبيرات النمطية وتضمينات BERT ونموذج لغوي مدعوم من Groq، مُصمم للمراقبة والتحليل.',
-
+    'projects.log_classification': 'LogPulse: نظام تصنيف السجلات الهجين',
+    'projects.log_classification.description': 'محرك تحليل سجلات متعدد الطبقات يجمع بين الأنماط المنتظمة (Regex)، وتقنيات BERT، ونماذج اللغة الكبيرة (Groq). يتميز بمسار تصعيد ذكي يعتمد على مصدر البيانات لضمان دقة عالية في المراقبة والتحليل.',
+    
     // المهارات
     "skills.title": "المهارات التقنية",
     "skills.languages": "لغات البرمجة",
