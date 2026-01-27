@@ -16,32 +16,21 @@ const Education = () => {
       location: t('education.eilco.location'),
       period: t('education.eilco.period'),
       logo: eilcoLogo,
-      description: t('education.eilco.description'),
+      description: `${t('education.eilco.description')} — ${t('education.eilco.note')}`,
       status: 'current',
       gpa: t('education.status.current')
     },
     {
       id: 2,
-      degree: t('education.ensa.degree'),
+      degree: t('education.ensa.combined.degree'),
       institution: t('education.ensa.institution'),
       location: t('education.ensa.location'),
-      period: t('education.ensa.period'),
+      period: t('education.ensa.combined.period'),
       logo: ensaLogo,
-      description: t('education.ensa.description'),
-      status: 'current',
-      gpa: t('education.status.current')
-    },
-    {
-      id: 3,
-      degree: t('education.ensa.prep.degree'),
-      institution: t('education.ensa.prep.institution'),
-      location: t('education.ensa.prep.location'),
-      period: t('education.ensa.prep.period'),
-      logo: ensaLogo,
-      description: t('education.ensa.prep.description'),
+      description: t('education.ensa.combined.description'),
       status: 'completed',
       gpa: t('education.status.completed')
-    }
+    },
   ]
 
   return (
