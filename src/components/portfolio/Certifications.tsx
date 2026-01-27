@@ -11,6 +11,7 @@ import geeksforgeeksLogo from '@/assets/logos/platforms/GeeksForGeeks.png'
 import ibmLogo from '@/assets/logos/platforms/ibm.png'
 import googledevLogo from '@/assets/logos/platforms/google-developers.png'
 import oracleLogo from '@/assets/logos/companies/oracle.png'
+import toeicLogo from '@/assets/logos/organizations/ets_toeic.png'
 
 const Certifications = () => {
   const { t } = useLanguage()
@@ -18,6 +19,18 @@ const Certifications = () => {
   const certifications = [
     {
       id: 1,
+      title: t('certifications.toeic'),
+      issuer: 'ETS Global',
+      issuerLogo: toeicLogo,
+      date: 'Dec 2025',
+      credentialId: '6219429222',
+      description: t('certifications.toeic.description'),
+      skills: ['English Language Assessment', 'Score Report'],
+      credentialUrl: 'https://www.etsglobal.org/fr/en/digital-score-report/2F3A4E2EF1AA7E000A2F1CF2094B1D1FA672F88CC671E119D9764E7FF277D4BBb01Wd3pUZ0xIWS9VYnBXc3ZiY1VHQ204NDdPa2g5OVpWUDFvTlUwYXN5eVpGN0Uy',
+      color: 'emerald'
+    },
+    {
+      id: 2,
       title: t('certifications.ml'),
       issuer: 'DeepLearning.AI, Stanford',
       issuerLogo: stanfordLogo,
@@ -29,7 +42,7 @@ const Certifications = () => {
       color: 'primary'
     },
     {
-      id: 2,
+      id: 3,
       title: t('certifications.python'),
       issuer: 'IBM',
       issuerLogo: ibmLogo,
@@ -41,7 +54,7 @@ const Certifications = () => {
       color: 'secondary'
     },
     {
-      id: 3,
+      id: 4,
       title: t('certifications.algorithms'),
       issuer: 'University of Colorado Boulder',
       issuerLogo: coloradoLogo,

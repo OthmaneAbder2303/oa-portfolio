@@ -155,13 +155,8 @@ const translations = {
     'certifications.continuousLearningDesc': 'Always expanding my knowledge through new certifications and courses',
     'certifications.viewAllCredentials': 'View All Credentials',
 
-    'certifications.platforms.coursera': 'Online courses from top universities and companies.',
-    'certifications.platforms.oracle': 'Oracle Academy provides learning paths for developers and IT professionals.',
-    'certifications.platforms.datacamp': 'Interactive learning platform focused on data science and analytics.',
-    'certifications.platforms.deepai': 'DeepLearning.AI courses specializing in AI and machine learning.',
-    'certifications.platforms.google': 'Resources and courses from Google Developers.',
-    'certifications.platforms.geeksforgeeks': 'Coding tutorials and computer science resources for all levels.',
-
+    'certifications.toeic': 'TOEIC (ETS Digital Score Report)',
+    'certifications.toeic.description': 'TOEIC Digital Score Report issued by ETS Global. Validated English proficiency certificate.',
 
     // Awards
     'awards.title': 'Awards & Recognition',
@@ -360,14 +355,8 @@ const translations = {
     'certifications.continuousLearningDesc': 'J\'enrichis constamment mes connaissances par de nouvelles certifications et formations',
     'certifications.viewAllCredentials': 'Voir toutes les certifications',
 
-    'certifications.platforms.coursera': 'Cours en ligne provenant des meilleures universités et entreprises.',
-    'certifications.platforms.oracle': 'Oracle Academy propose des parcours d’apprentissage pour développeurs et professionnels IT.',
-    'certifications.platforms.datacamp': 'Plateforme d’apprentissage interactive axée sur la data science et l’analyse de données.',
-    'certifications.platforms.deepai': 'Cours DeepLearning.AI spécialisés en intelligence artificielle et apprentissage automatique.',
-    'certifications.platforms.google': 'Ressources et cours proposés par Google Developers.',
-    'certifications.platforms.geeksforgeeks': 'Tutoriels de codage et ressources en informatique pour tous les niveaux.',
-
-
+    'certifications.toeic': "TOEIC (Rapport de score numérique ETS)",
+    'certifications.toeic.description': "Rapport de score numérique TOEIC délivré par ETS Global. Certificat de compétence en anglais.",
 
     // Awards
     'awards.title': 'Prix et reconnaissances',
@@ -566,12 +555,8 @@ const translations = {
     'certifications.continuousLearningDesc': 'أعمل دائماً على توسيع معرفتي من خلال شهادات ودورات جديدة',
     'certifications.viewAllCredentials': 'عرض جميع الشهادات',
 
-    'certifications.platforms.coursera': 'دورات عبر الإنترنت من أفضل الجامعات والشركات.',
-    'certifications.platforms.oracle': 'توفر Oracle Academy مسارات تعلم للمطورين والمحترفين في تكنولوجيا المعلومات.',
-    'certifications.platforms.datacamp': 'منصة تعلم تفاعلية تركز على علوم البيانات والتحليلات.',
-    'certifications.platforms.deepai': 'دورات DeepLearning.AI المتخصصة في الذكاء الاصطناعي والتعلم الآلي.',
-    'certifications.platforms.google': 'موارد ودورات من Google Developers.',
-    'certifications.platforms.geeksforgeeks': 'دروس برمجية وموارد في علوم الحاسوب لجميع المستويات.',
+    'certifications.toeic': 'TOEIC (تقرير الدرجات الرقمي - ETS)',
+    'certifications.toeic.description': 'تقرير الدرجات الرقمي لـ TOEIC صادر عن ETS Global. شهادة إثبات مهارات اللغة الإنجليزية.',
 
     // Awards
     'awards.title': 'الجوائز والتقديرات',
