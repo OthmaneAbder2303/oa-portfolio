@@ -221,6 +221,7 @@ const Projects = () => {
     setImageError(prev => ({ ...prev, [projectId]: true }))
   }
 
+
   return (
     <section id="projects" className="section-padding bg-surface-muted">
       <div className="container-responsive">
@@ -238,7 +239,7 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {projects.map((project) => (
               <div 
                 key={project.id} 
@@ -287,7 +288,6 @@ const Projects = () => {
                           loading="lazy"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   )}
 
@@ -303,28 +303,6 @@ const Projects = () => {
                             {project.institution}
                           </p>
                         </div>
-                        <div className="flex items-center space-x-2 ml-4">
-                          {project.githubUrl && (
-                            <Button 
-                              variant="ghost" 
-                              size="icon"
-                              className="hover-glow backdrop-blur-sm bg-white/10 h-8 w-8"
-                              onClick={() => handleGithubClick(project.githubUrl)}
-                            >
-                              <Github className="h-4 w-4" />
-                            </Button>
-                          )}
-                          {project.demoUrl && (
-                            <Button 
-                              variant="ghost" 
-                              size="icon"
-                              className="hover-glow backdrop-blur-sm bg-white/10 h-8 w-8"
-                              onClick={() => handleDemoClick(project.demoUrl)}
-                            >
-                              <ExternalLink className="h-4 w-4" />
-                            </Button>
-                          )}
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -335,12 +313,6 @@ const Projects = () => {
                       <Calendar className="h-4 w-4" />
                       <span>{project.period}</span>
                     </div>
-                    {project.achievement && (
-                      <div className="flex items-center space-x-2 text-warning">
-                        <Award className="h-4 w-4" />
-                        <span className="font-medium">{project.achievement}</span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Category Badge */}
@@ -351,34 +323,21 @@ const Projects = () => {
                     <span>{project.category}</span>
                   </div>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {/* Description - GARDÉ ICI */}
+                  <p className="text-muted-foreground mb-4 leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
 
-                  {/* Key Achievements */}
-                  <div className="mb-4">
-                    <h5 className="font-semibold mb-2">Key Achievements:</h5>
-                    <ul className="space-y-1 text-sm text-muted-foreground">
-                      {project.achievements.slice(0, 3).map((achievement, index) => (
-                        <li key={index} className="flex items-start space-x-2">
-                          <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: project.brandColors.primary }} />
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 6).map((tech, index) => (
+                  {/* Technologies - GARDÉ ICI */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.slice(0, 5).map((tech, index) => (
                       <span key={index} className="px-3 py-1 text-xs rounded-full font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 6 && (
-                      <span className="px-3 py-1 text-xs rounded-full font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
-                        +{project.technologies.length - 6} more
+                    {project.technologies.length > 5 && (
+                      <span className="px-2 py-1 text-xs text-muted-foreground">
+                        +{project.technologies.length - 5}
                       </span>
                     )}
                   </div>
@@ -390,14 +349,14 @@ const Projects = () => {
                         variant="outline" 
                         size="sm"
                         onClick={() => setSelectedProject(project)}
-                        className="w-full sm:w-auto text-sm sm:text-base hover:opacity-90"
+                        className="w-full text-sm hover:opacity-90"
                         style={{ borderColor: project.brandColors.primary, color: project.brandColors.primary }}
-                        aria-label={`View details for ${project.title}`}
                       >
                         <Eye className="h-4 w-4 mr-2" />
                         View Details
                       </Button>
                     </DialogTrigger>
+                    
                     <DialogContent className="w-full max-w-[90vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
                       <DialogHeader>
                         <DialogTitle className="flex items-center space-x-3 text-base sm:text-lg">
@@ -406,38 +365,15 @@ const Projects = () => {
                         </DialogTitle>
                       </DialogHeader>
                       <div className="space-y-4">
-                        {/* Full Image in Dialog */}
                         {project.imageSrc && !imageError[project.id] && (
                           <div className="rounded-lg overflow-hidden border-2" style={{ borderColor: project.brandColors.border }}>
-                            <img
-                              src={project.imageSrc}
-                              alt={`${project.title} workflow diagram`}
-                              className="w-full h-auto object-contain max-h-96"
-                              loading="lazy"
-                            />
+                            <img src={project.imageSrc} alt={project.title} className="w-full h-auto object-contain max-h-96" />
                           </div>
                         )}
 
-                        <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                          <div className="flex items-center space-x-1">
-                            <Calendar className="h-4 w-4" />
-                            <span>{project.period}</span>
-                          </div>
-                          <div>
-                            <span className="font-medium">Institution:</span> {project.institution}
-                          </div>
-                        </div>
-                        
-                        <div className="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
-                          <span>{project.category}</span>
-                        </div>
-
-                        <p className="text-sm sm:text-base text-muted-foreground">
-                          {project.description}
-                        </p>
-
+                        {/* Achievements - AFFICHÉS UNIQUEMENT ICI */}
                         <div>
-                          <h4 className="font-semibold mb-2">All Achievements:</h4>
+                          <h4 className="font-semibold mb-2">Key Achievements:</h4>
                           <ul className="space-y-1 text-sm text-muted-foreground">
                             {project.achievements.map((achievement, index) => (
                               <li key={index} className="flex items-start space-x-2">
@@ -449,7 +385,7 @@ const Projects = () => {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold mb-2">Technologies Used:</h4>
+                          <h4 className="font-semibold mb-2">Full Tech Stack:</h4>
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, index) => (
                               <span key={index} className="px-3 py-1 text-xs rounded-full font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
@@ -464,12 +400,6 @@ const Projects = () => {
                             <Button onClick={() => handleGithubClick(project.githubUrl)} className="flex-1" style={{ backgroundColor: project.brandColors.primary, color: 'white' }}>
                               <Github className="h-4 w-4 mr-2" />
                               View Code
-                            </Button>
-                          )}
-                          {project.demoUrl && (
-                            <Button variant="outline" onClick={() => handleDemoClick(project.demoUrl)} className="flex-1" style={{ borderColor: project.brandColors.primary, color: project.brandColors.primary }}>
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              Live Demo
                             </Button>
                           )}
                         </div>

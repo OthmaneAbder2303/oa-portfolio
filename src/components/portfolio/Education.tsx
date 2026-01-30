@@ -236,27 +236,6 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Education Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16">
-            <div className="project-card p-6 text-center hover-lift group">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
-                4+
-              </div>
-              <div className="text-sm text-muted-foreground">Years of Study</div>
-            </div>
-            <div className="project-card p-6 text-center hover-lift group">
-              <div className="text-3xl font-bold bg-gradient-to-r from-green-500 to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
-                2
-              </div>
-              <div className="text-sm text-muted-foreground">Institutions</div>
-            </div>
-            <div className="project-card p-6 text-center hover-lift group col-span-2 md:col-span-1">
-              <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform">
-                50+
-              </div>
-              <div className="text-sm text-muted-foreground">Courses Completed</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
