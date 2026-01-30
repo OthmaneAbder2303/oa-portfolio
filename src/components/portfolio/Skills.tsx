@@ -165,8 +165,10 @@ const Skills = () => {
                     {category.skills.map((skill, skillIndex) => (
                       <div 
                         key={skillIndex} 
-                        className="flex-shrink-0 w-32 h-32 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-indigo-400 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center p-4"
-                      >
+                        className="flex-shrink-0 w-32 h-32 bg-gradient-primary border border-primary dark:border-gray-700 rounded-xl 
+                                transition-all duration-300 flex flex-col items-center justify-center p-4
+                                hover:border-primary hover:-translate-y-1 
+                                hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.3)] dark:hover:shadow-primary/5">                   
                         <img 
                           src={skill.logo} 
                           alt={skill.name}
