@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -50,60 +50,64 @@ const Hero = () => {
   }
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden">
+    // Ajout de max-w-full et overflow-x-hidden pour bloquer le scroll horizontal
+    <section id="home" className="min-h-screen relative overflow-x-hidden max-w-full flex flex-col bg-background">
+      
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
       
-      {/* Animated Background Circles */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
+      {/* Animated Background Circles - On s'assure qu'ils ne dépassent pas à droite */}
+      <div className="absolute top-20 -left-10 w-64 h-64 md:w-72 md:h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 -right-20 w-80 h-80 md:w-96 md:h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
 
-      <div className="container-responsive relative z-10">
-        <div className="flex flex-col items-center justify-center min-h-screen text-center pt-20">
+      {/* Remplacement de container-responsive par des classes Tailwind explicites pour éviter l'overflow */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
+        
+        {/* Contenu principal : justify-start sur mobile pour supprimer le vide en haut */}
+        <div className="flex flex-col items-center justify-start md:justify-center min-h-[calc(100vh-60px)] text-center pt-28 md:pt-0">
           
-          {/* Profile Image Placeholder */}
-          <div className="relative mb-8">
-            <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-primary animate-pulse mb-6 mx-auto" />
-            <div className="absolute -inset-4 bg-gradient-primary rounded-full blur-xl opacity-30 animate-pulse" />
+          {/* Profile Image : Taille réduite sur mobile */}
+          <div className="relative mb-6">
+            <div className="w-24 h-24 md:w-32 lg:w-40 lg:h-40 rounded-full bg-gradient-primary animate-pulse mx-auto" />
+            <div className="absolute -inset-4 bg-gradient-primary rounded-full blur-xl opacity-20 animate-pulse" />
           </div>
 
           {/* Greeting */}
-          <div className="animate-fade-in mb-4">
-            <p className="text-lg lg:text-xl text-muted-foreground">
+          <div className="animate-fade-in mb-2">
+            <p className="text-base md:text-xl text-muted-foreground">
               {t('hero.greeting')} 👋
             </p>
           </div>
 
-          {/* Name */}
-          <div className="animate-slide-up mb-6">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-4">
+          {/* Name : Taille responsive */}
+          <div className="animate-slide-up mb-3">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold gradient-text tracking-tight">
               {t('hero.name')}
             </h1>
           </div>
 
           {/* Dynamic Role */}
-          <div className="animate-scale-in mb-8">
-            <div className="h-16 flex items-center justify-center">
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary">
+          <div className="animate-scale-in mb-6">
+            <div className="h-10 md:h-16 flex items-center justify-center">
+              <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-primary">
                 {displayedText}
                 <span className="animate-pulse ml-1">|</span>
               </h2>
             </div>
           </div>
 
-          {/* Description */}
-          <div className="animate-fade-in mb-12 max-w-2xl">
-            <p className="text-lg text-muted-foreground leading-relaxed">
+          {/* Description : max-w-sm sur mobile pour forcer le texte à rester centré sans déborder */}
+          <div className="animate-fade-in mb-8 max-w-sm md:max-w-2xl px-2">
+            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
               {t('hero.description')}
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="animate-slide-up flex flex-col sm:flex-row gap-4 mb-16">
+          {/* CTA Buttons : Gap réduit */}
+          <div className="animate-slide-up flex flex-col sm:flex-row gap-3 md:gap-4 mb-10">
             <Button 
               size="lg" 
-              className="gradient-primary text-white font-semibold px-8 py-3 hover:scale-105 transition-transform duration-200"
+              className="gradient-primary text-white font-semibold px-8 py-6 md:py-3 hover:scale-105 transition-all duration-200"
               onClick={() => scrollToSection('projects')}
             >
               {t('hero.viewWork')}
@@ -113,7 +117,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-white font-semibold px-8 py-3 hover:scale-105 transition-all duration-200"
+              className="border-primary text-primary hover:bg-primary/10 font-semibold px-8 py-6 md:py-3 hover:scale-105 transition-all duration-200"
               onClick={() => scrollToSection('contact')}
             >
               {t('hero.contact')}
@@ -121,73 +125,28 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="animate-fade-in flex items-center gap-6">
-            <a 
-              href="https://github.com/OthmaneAbder2303" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors duration-200 hover-lift"
-            >
-              <Github className="h-6 w-6" />
+          {/* Social Links : Taille ajustée */}
+          <div className="animate-fade-in flex items-center gap-6 mb-12">
+            <a href="https://github.com/OthmaneAbder2303" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover-lift">
+              <Github className="h-7 w-7 md:h-8 md:w-8" />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/oa23/" 
-                target="_blank"
-              rel="noopener noreferrer"
-              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
-            >
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
-                alt="LinkedIn Profile"
-                className="w-6 h-6 object-contain filter-primary"
-                onError={(e) => {
-                  console.error('Failed to load LinkedIn logo:', e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
+            <a href="https://www.linkedin.com/in/oa23/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-7 h-7 md:w-8 md:h-8" />
             </a>
-            <a 
-              href="https://leetcode.com/u/othmane232004/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
-            >
-              <img 
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg" 
-                alt="LeetCode Profile"
-                className="w-6 h-6 object-contain filter-primary"
-                onError={(e) => {
-                  console.error('Failed to load LeetCode logo:', e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
+            <a href="https://leetcode.com/u/othmane232004/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg" alt="LeetCode" className="w-7 h-7 md:w-8 md:h-8" />
             </a>
-            <a 
-              href="https://g.dev/Othmane-Abderrazik" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="opacity-50 hover:brightness-110 transition-all duration-200 hover-lift"
-            >
-              <img 
-                src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" 
-                alt="Google for Developers Profile"
-                className="w-6 h-6 object-contain filter-primary"
-                onError={(e) => {
-                  console.error('Failed to load Google for Developers logo:', e);
-                  e.currentTarget.src = 'fallback';
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement.innerHTML = '<svg class="h-6 w-6 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zM12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" /></svg>';
-                }}
-              />
+            <a href="https://g.dev/Othmane-Abderrazik" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
+              <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Dev" className="w-7 h-7 md:w-8 md:h-8" />
             </a>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown className="h-6 w-6 text-muted-foreground" />
-          </div>
         </div>
+      </div>
+
+      {/* Scroll Indicator - Caché sur très petits écrans si besoin */}
+      <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <ArrowDown className="h-6 w-6 text-muted-foreground/50" />
       </div>
     </section>
   )
