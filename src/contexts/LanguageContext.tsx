@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react'
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react'
 
 export type Language = 'en' | 'fr' | 'ar'
 
@@ -155,8 +155,20 @@ const translations = {
     'certifications.continuousLearningDesc': 'Always expanding my knowledge through new certifications and courses',
     'certifications.viewAllCredentials': 'View All Credentials',
 
+    // Learning platforms descriptions
+    'certifications.platforms.coursera': 'Online learning platform offering university-led courses and professional certificates.',
+    'certifications.platforms.oracle': 'Vendor-led training and academic programs for database and cloud technologies.',
+    'certifications.platforms.datacamp': 'Interactive data science and analytics courses with hands-on coding exercises.',
+    'certifications.platforms.deepai': 'AI-focused courses and specializations from industry experts.',
+    'certifications.platforms.google': 'Training and documentation for Google technologies and cloud services.',
+    'certifications.platforms.geeksforgeeks': 'Programming tutorials and practice resources for algorithms and interviews.',
+
     'certifications.toeic': 'TOEIC (ETS Digital Score Report)',
     'certifications.toeic.description': 'TOEIC Digital Score Report issued by ETS Global. Validated English proficiency certificate.',
+
+    // Anthropic MCP certification
+    'certifications.mcp': 'Introduction to Model Context Protocol (MCP)',
+    'certifications.mcp.description': 'Completed Introduction to the Model Context Protocol course offered by Anthropic Education. Verification available via Skilljar.',
 
     // Awards
     'awards.title': 'Awards & Recognition',
@@ -355,9 +367,21 @@ const translations = {
     'certifications.continuousLearningDesc': 'J\'enrichis constamment mes connaissances par de nouvelles certifications et formations',
     'certifications.viewAllCredentials': 'Voir toutes les certifications',
 
-    'certifications.toeic': "TOEIC (Rapport de score numérique ETS)",
+    // Descriptions des plateformes d'apprentissage
+    'certifications.platforms.coursera': 'Plateforme d\'apprentissage en ligne proposant des cours universitaires et des certificats professionnels.',
+    'certifications.platforms.oracle': 'Formations orientées produit et programmes académiques sur bases de données et cloud.',
+    'certifications.platforms.datacamp': 'Cours interactifs en science des données avec exercices pratiques.',
+    'certifications.platforms.deepai': 'Cours spécialisés en IA dispensés par des experts du secteur.',
+    'certifications.platforms.google': 'Documentation et formations sur les technologies et services cloud de Google.',
+    'certifications.platforms.geeksforgeeks': 'Tutoriels de programmation et ressources pour algorithmes et entretiens.',
+
+    'certifications.toeic': "TOEIC (Rapport de score numérique - ETS)",
     'certifications.toeic.description': "Rapport de score numérique TOEIC délivré par ETS Global. Certificat de compétence en anglais.",
 
+    // Anthropic MCP certification
+    'certifications.mcp': 'Introduction au Model Context Protocol (MCP)',
+    'certifications.mcp.description': 'Certification obtenue suite au cours "Introduction to the Model Context Protocol" proposé par Anthropic Education. Vérification disponible via Skilljar.',
+    
     // Awards
     'awards.title': 'Prix et reconnaissances',
     'awards.description': 'Reconnaissance de l\'excellence académique, en compétition et dans le leadership communautaire',
@@ -555,8 +579,20 @@ const translations = {
     'certifications.continuousLearningDesc': 'أعمل دائماً على توسيع معرفتي من خلال شهادات ودورات جديدة',
     'certifications.viewAllCredentials': 'عرض جميع الشهادات',
 
+    // وصف منصات التعلم
+    'certifications.platforms.coursera': 'منصة تعليمية عبر الإنترنت تقدم دورات جامعية وشهادات مهنية.',
+    'certifications.platforms.oracle': 'برامج تدريبية رسمية ومناهج أكاديمية حول قواعد البيانات والحوسبة السحابية.',
+    'certifications.platforms.datacamp': 'دورات تفاعلية في علم البيانات مع تمارين ترميز عملية.',
+    'certifications.platforms.deepai': 'دورات متخصصة في الذكاء الاصطناعي يقدمها خبراء الصناعة.',
+    'certifications.platforms.google': 'وثائق وتدريبات حول تقنيات وخدمات جوجل السحابية.',
+    'certifications.platforms.geeksforgeeks': 'دروس برمجة وموارد للتدرب على الخوارزميات والمقابلات.',
+
     'certifications.toeic': 'TOEIC (تقرير الدرجات الرقمي - ETS)',
     'certifications.toeic.description': 'تقرير الدرجات الرقمي لـ TOEIC صادر عن ETS Global. شهادة إثبات مهارات اللغة الإنجليزية.',
+
+    // Anthropic MCP certification
+    'certifications.mcp': 'مقدمة في بروتوكول سياق النموذج (MCP)',
+    'certifications.mcp.description': 'أكملت دورة مقدمة في بروتوكول سياق النموذج المُقدَّمة من Anthropic Education. يمكن التحقق من الشهادة عبر Skilljar.',
 
     // Awards
     'awards.title': 'الجوائز والتقديرات',
@@ -611,6 +647,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en')
+
+  // sync document direction and html lang for RTL support
+  useEffect(() => {
+    try {
+      document.body.dir = language === 'ar' ? 'rtl' : 'ltr'
+      document.documentElement.lang = language
+    } catch (e) {
+      // noop for non-browser environments
+    }
+  }, [language])
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['en']] || key

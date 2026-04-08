@@ -1,0 +1,8 @@
+/* Minimal RTL helpers for logical properties */
+:root {
+  --content-gap: 1rem;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+}

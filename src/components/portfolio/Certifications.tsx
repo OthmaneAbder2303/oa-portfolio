@@ -1,6 +1,7 @@
 import { ExternalLink, Award, Calendar, Building } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/LanguageContext'
+import DirText from '@/components/ui/DirText'
 
 import stanfordLogo from '@/assets/logos/universities/stanford.avif'
 import coloradoLogo from '@/assets/logos/universities/colorado.png'
@@ -12,6 +13,7 @@ import ibmLogo from '@/assets/logos/platforms/ibm.png'
 import googledevLogo from '@/assets/logos/platforms/google-developers.png'
 import oracleLogo from '@/assets/logos/companies/oracle.png'
 import toeicLogo from '@/assets/logos/organizations/ets_toeic.png'
+// import anthropicLogo from '@/assets/logos/companies/anthropic.png'
 
 const Certifications = () => {
   const { t } = useLanguage()
@@ -19,6 +21,18 @@ const Certifications = () => {
   const certifications = [
     {
       id: 1,
+      title: t('certifications.mcp'),
+      issuer: 'Anthropic Education',
+      issuerLogo: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg',
+      date: 'Apr 8, 2026',
+      credentialId: 'y6iw7ofpc77o',
+      description: t('certifications.mcp.description'),
+      skills: ['Model Context Protocol', 'MCP', 'LLM Integration'],
+      credentialUrl: 'https://verify.skilljar.com/c/y6iw7ofpc77o',
+      color: 'violet'
+    },
+    {
+      id: 2,
       title: t('certifications.toeic'),
       issuer: 'ETS Global',
       issuerLogo: toeicLogo,
@@ -30,7 +44,7 @@ const Certifications = () => {
       color: 'emerald'
     },
     {
-      id: 2,
+      id: 3,
       title: t('certifications.ml'),
       issuer: 'DeepLearning.AI, Stanford',
       issuerLogo: stanfordLogo,
@@ -42,7 +56,7 @@ const Certifications = () => {
       color: 'primary'
     },
     {
-      id: 3,
+      id: 4,
       title: t('certifications.python'),
       issuer: 'IBM',
       issuerLogo: ibmLogo,
@@ -54,7 +68,7 @@ const Certifications = () => {
       color: 'secondary'
     },
     {
-      id: 4,
+      id: 5,
       title: t('certifications.algorithms'),
       issuer: 'University of Colorado Boulder',
       issuerLogo: coloradoLogo,
@@ -165,18 +179,18 @@ const Certifications = () => {
                       <span className="font-semibold text-primary">{cert.issuer}</span>
                     </div>
 
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                    <DirText className="text-muted-foreground mb-4 leading-relaxed">
                       {cert.description}
-                    </p>
+                    </DirText>
 
                     {/* Skills Tags */}
                     <div className="space-y-2">
                       <h4 className="font-semibold text-sm">{t('certifications.skillsCovered')}</h4>
                       <div className="flex flex-wrap gap-2">
                         {cert.skills.map((skill, index) => (
-                          <span 
+                          <span
                             key={index}
-                            className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
+                            className="ps-3 pe-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium"
                           >
                             {skill}
                           </span>
@@ -235,8 +249,8 @@ const Certifications = () => {
                       }}
                     />
                   </div>
-                  <h4 className="font-semibold mb-2 text-sm">{platform.name}</h4>
-                  <p className="text-xs text-muted-foreground">{platform.description}</p>
+                  <h4 className="font-semibold mb-2 text-sm"><DirText>{platform.name}</DirText></h4>
+                  <DirText className="text-xs text-muted-foreground">{platform.description}</DirText>
                 </div>
               ))}
 
