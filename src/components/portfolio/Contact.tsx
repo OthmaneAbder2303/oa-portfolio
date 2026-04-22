@@ -214,7 +214,7 @@ const Contact = () => {
           {/* Footer Note */}
           <div className="text-center mt-16 pt-8 border-t border-border">
             <p className="text-muted-foreground">
-              © 2025 Othmane Abderrazik. Built with React, TypeScript, and Tailwind CSS.
+              © {new Date().getFullYear()} Othmane Abderrazik. Built with React, TypeScript, and Tailwind CSS.
             </p>
           </div>
 
