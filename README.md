@@ -1,6 +1,6 @@
-# 🚀 Othmane Abderrazik - AI & ML Portfolio
+# 🚀 Othmane Abderrazik - AI, ML & Generative AI Portfolio
 
-A modern, responsive portfolio website showcasing my journey as an AI & Machine Learning enthusiast, built with cutting-edge web technologies and featuring smooth animations, multi-language support, and an elegant dark/light theme system.
+A modern, responsive portfolio website showcasing my journey as an AI, Machine Learning and Generative AI practitioner and enthusiast. Built with modern web technologies, the site features smooth animations, multi-language (including RTL) support, and an elegant dark/light theme system.
 
 ## ✨ Features
 
