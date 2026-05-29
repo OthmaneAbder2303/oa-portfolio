@@ -316,3 +316,18 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary;
 }
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200%;
+  animation: gradientMove 5s linear infinite;
+}

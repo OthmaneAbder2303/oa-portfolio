@@ -1,155 +1,211 @@
-import { useState, useEffect } from 'react'
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { useLanguage } from '@/contexts/LanguageContext'
+import { useState, useEffect } from 'react';
+import { ArrowDown, Github, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+import profilePicture from '@/assets/profile_picture.jpeg';
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState('')
-  const { t } = useLanguage()
+  const [currentRole, setCurrentRole] = useState(0);
+  const { t } = useLanguage();
+
   const roles = [
     'Computer Science Student',
     'Full-Stack Developer',
     'AI & NLP Enthusiast',
     'Problem Solver'
-  ]
-  const [currentRole, setCurrentRole] = useState(0)
+  ];
 
   useEffect(() => {
-    const currentText = roles[currentRole]
-    let index = 0
-    
-    const typeWriter = () => {
-      if (index < currentText.length) {
-        setDisplayedText(currentText.slice(0, index + 1))
-        index++
-        setTimeout(typeWriter, 100)
-      } else {
-        setTimeout(() => {
-          const deleteText = () => {
-            if (index > 0) {
-              setDisplayedText(currentText.slice(0, index - 1))
-              index--
-              setTimeout(deleteText, 50)
-            } else {
-              setCurrentRole((prev) => (prev + 1) % roles.length)
-            }
-          }
-          setTimeout(deleteText, 2000)
-        }, 1000)
-      }
-    }
-    
-    typeWriter()
-  }, [currentRole])
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length);
+    }, 2600); // Légèrement plus rapide
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
   return (
-    // Ajout de max-w-full et overflow-x-hidden pour bloquer le scroll horizontal
-    <section id="home" className="min-h-screen relative overflow-x-hidden max-w-full flex flex-col bg-background">
-      
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
-      
-      {/* Animated Background Circles - On s'assure qu'ils ne dépassent pas à droite */}
-      <div className="absolute top-20 -left-10 w-64 h-64 md:w-72 md:h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-20 -right-20 w-80 h-80 md:w-96 md:h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden bg-background pt-50 flex items-center justify-center"
+    >
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-background to-teal-500/10" />
 
-      {/* Remplacement de container-responsive par des classes Tailwind explicites pour éviter l'overflow */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
-        
-        {/* Contenu principal : justify-start sur mobile pour supprimer le vide en haut */}
-        <div className="flex flex-col items-center justify-start md:justify-center min-h-[calc(100vh-60px)] text-center pt-28 md:pt-0">
-          
-          {/* Profile Image : Taille réduite sur mobile */}
-          <div className="relative mb-6">
-            <div className="w-24 h-24 md:w-32 lg:w-40 lg:h-40 rounded-full bg-gradient-primary animate-pulse mx-auto" />
-            <div className="absolute -inset-4 bg-gradient-primary rounded-full blur-xl opacity-20 animate-pulse" />
-          </div>
+      {/* Glow Effects */}
+      <motion.div
+        animate={{ x: [0, 50, 0], y: [0, -40, 0] }}
+        transition={{ duration: 14, repeat: Infinity }}
+        className="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl"
+      />
+
+      <motion.div
+        animate={{ x: [0, -50, 0], y: [0, 40, 0] }}
+        transition={{ duration: 16, repeat: Infinity }}
+        className="absolute bottom-10 right-10 w-[26rem] h-[26rem] bg-teal-500/20 rounded-full blur-3xl"
+      />
+
+      {/* Grid Background */}
+      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:44px_44px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+
+          {/* Photo de profil - plus petite */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="relative mb-6"
+          >
+            <div className="relative mx-auto w-32 h-32 md:w-40 md:h-40">
+              <img
+                src={profilePicture}
+                alt="Othmane Abder"
+                className="w-full h-full rounded-full object-cover shadow-2xl shadow-emerald-500/40 border-[5px] border-background"
+              />
+              <div className="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-ping" />
+            </div>
+          </motion.div>
 
           {/* Greeting */}
-          <div className="animate-fade-in mb-2">
-            <p className="text-base md:text-xl text-muted-foreground">
-              {t('hero.greeting')} 👋
-            </p>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base md:text-lg text-muted-foreground mb-2"
+          >
+            {t('hero.greeting')} 👋
+          </motion.p>
 
-          {/* Name : Taille responsive */}
-          <div className="animate-slide-up mb-3">
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold gradient-text tracking-tight">
+          {/* Nom - légèrement réduit */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-black mb-4"
+          >
+            <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 bg-clip-text text-transparent">
               {t('hero.name')}
-            </h1>
+            </span>
+          </motion.h1>
+
+          {/* Rôles */}
+          <div className="h-16 md:h-20 flex justify-center items-center mb-6">
+            <AnimatePresence mode="wait">
+              <motion.h2
+                key={currentRole}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.5 }}
+                className="text-2xl md:text-4xl font-bold text-emerald-500"
+              >
+                {roles[currentRole]}
+              </motion.h2>
+            </AnimatePresence>
           </div>
 
-          {/* Dynamic Role */}
-          <div className="animate-scale-in mb-6">
-            <div className="h-10 md:h-16 flex items-center justify-center">
-              <h2 className="text-lg md:text-2xl lg:text-3xl font-semibold text-primary">
-                {displayedText}
-                <span className="animate-pulse ml-1">|</span>
-              </h2>
-            </div>
-          </div>
+          {/* Description - plus courte */}
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="max-w-xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed mb-8"
+          >
+            {t('hero.description')}
+          </motion.p>
 
-          {/* Description : max-w-sm sur mobile pour forcer le texte à rester centré sans déborder */}
-          <div className="animate-fade-in mb-8 max-w-sm md:max-w-2xl px-2">
-            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
-              {t('hero.description')}
-            </p>
-          </div>
-
-          {/* CTA Buttons : Gap réduit */}
-          <div className="animate-slide-up flex flex-col sm:flex-row gap-3 md:gap-4 mb-10">
-            <Button 
-              size="lg" 
-              className="gradient-primary text-white font-semibold px-8 py-6 md:py-3 hover:scale-105 transition-all duration-200"
+          {/* Boutons - plus compacts */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+            className="flex flex-col sm:flex-row justify-center gap-4 mb-10"
+          >
+            <Button
+              size="lg"
               onClick={() => scrollToSection('projects')}
+              className="group px-8 py-6 text-base rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 active:scale-95 transition-all duration-300 shadow-lg shadow-emerald-500/30"
             >
               {t('hero.viewWork')}
-              <ArrowDown className="ml-2 h-5 w-5" />
+              <ArrowDown className="ml-2 group-hover:translate-y-1 transition-transform" />
             </Button>
-            
-            <Button 
-              variant="outline" 
+
+            <Button
+              variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary/10 font-semibold px-8 py-6 md:py-3 hover:scale-105 transition-all duration-200"
               onClick={() => scrollToSection('contact')}
+              className="px-8 py-6 text-base rounded-2xl border-emerald-500/30 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-300"
             >
               {t('hero.contact')}
-              <Mail className="ml-2 h-5 w-5" />
+              <Mail className="ml-2" />
             </Button>
-          </div>
+          </motion.div>
 
-          {/* Social Links : Taille ajustée */}
-          <div className="animate-fade-in flex items-center gap-6 mb-12">
-            <a href="https://github.com/OthmaneAbder2303" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-all hover-lift">
-              <Github className="h-7 w-7 md:h-8 md:w-8" />
+          {/* Liens sociaux */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1 }}
+            className="flex justify-center items-center gap-7"
+          >
+            <a
+              href="https://github.com/OthmaneAbder2303"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 hover:text-emerald-500 transition-all duration-300"
+            >
+              <Github className="w-7 h-7" />
             </a>
-            <a href="https://www.linkedin.com/in/oa23/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-7 h-7 md:w-8 md:h-8" />
-            </a>
-            <a href="https://leetcode.com/u/othmane232004/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg" alt="LeetCode" className="w-7 h-7 md:w-8 md:h-8" />
-            </a>
-            <a href="https://g.dev/Othmane-Abderrazik" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-all hover-lift">
-              <img src="https://cdn-icons-png.flaticon.com/512/2702/2702602.png" alt="Google Dev" className="w-7 h-7 md:w-8 md:h-8" />
-            </a>
-          </div>
 
+            <a
+              href="https://www.linkedin.com/in/oa23/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-all duration-300"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                alt="LinkedIn"
+                className="w-7 h-7"
+              />
+            </a>
+
+            <a
+              href="https://leetcode.com/u/othmane232004/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-all duration-300"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/leetcode/leetcode-original.svg"
+                alt="LeetCode"
+                className="w-7 h-7"
+              />
+            </a>
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator - Caché sur très petits écrans si besoin */}
-      <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="h-6 w-6 text-muted-foreground/50" />
-      </div>
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10"
+      >
+        <ArrowDown className="w-6 h-6 text-emerald-500/60" />
+      </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
