@@ -192,6 +192,20 @@ const Hero = () => {
                 className="w-7 h-7"
               />
             </a>
+
+            <a
+              href="https://huggingface.co/OthmaneAbder2303"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-all duration-300"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/huggingface.svg"
+                alt="Hugging Face"
+                className="w-7 h-7"
+                
+              />
+            </a>
           </motion.div>
         </div>
       </div>

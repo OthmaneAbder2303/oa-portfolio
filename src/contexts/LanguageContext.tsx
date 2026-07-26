@@ -62,7 +62,7 @@ const translations = {
     'experience.seeDetails': 'See Details',
     'experience.noImages': 'No images available for this experience.',
     
-    // Professional Experience - Superprof
+    // Professional Experience - UCAM
     'experience.ucam.title': 'Backend Developer',
     'experience.ucam.company': 'Cadi Ayyad University - Information Systems Department (DSI)',
     'experience.ucam.location': 'Marrakech, Morocco',
@@ -88,7 +88,19 @@ const translations = {
     'experience.dell.image1': 'Working at DELL Technologies office in Casablanca',
     'experience.dell.image2': 'DELL Technologies facility and workspace',
     'experience.dell.image3': 'Internship report cover page - comprehensive project documentation',
-    
+
+    // Professional Experience - DOFIC
+    'experience.dofic.title': 'AI Applications Development Engineer',
+    'experience.dofic.company': 'DOFIC',
+    'experience.dofic.location': 'Paris, France',
+    'experience.dofic.period': 'May 2026 – July 2026',
+    'experience.dofic.type': 'Internship · Hybrid',
+    'experience.dofic.description': 'Working as an AI Applications Development Engineer intern at DOFIC, contributing to the development of AI-powered applications, including cross-platform mobile features, while applying project management and prompt engineering practices.',
+    'experience.dofic.achievement1': 'Developed and containerized application components using Docker',
+    'experience.dofic.achievement2': 'Built cross-platform mobile features with React Native',
+    'experience.dofic.achievement3': 'Managed tasks and workflows using Jira and GitLab',
+    'experience.dofic.achievement4': 'Applied prompt engineering techniques to design and optimize AI-driven features',
+        
     // Extracurricular Activities - JLM
     'experience.jlm.title': 'Head of the Social Action Cell',
     'experience.jlm.organization': 'JLM ENSA Marrakech',
@@ -274,7 +286,7 @@ const translations = {
     'experience.seeDetails': 'Voir les détails',
     'experience.noImages': 'Aucune image disponible pour cette expérience.',
     
-    // Professional Experience - Superprof
+    // Professional Experience - UCAM
     'experience.ucam.title': 'Développeur Backend',
     'experience.ucam.company': 'Université Cadi Ayyad - Direction des Systèmes d’Information (DSI)',
     'experience.ucam.location': 'Marrakech, Maroc',
@@ -300,7 +312,19 @@ const translations = {
     'experience.dell.image1': 'En mission au bureau DELL Technologies de Casablanca',
     'experience.dell.image2': 'Installations et espaces de travail DELL Technologies',
     'experience.dell.image3': 'Couverture du rapport de stage - documentation complète du projet',
-    
+
+    // Professional Experience - DOFIC
+    'experience.dofic.title': 'Ingénieur en Développement d\'Applications IA',
+    'experience.dofic.company': 'DOFIC',
+    'experience.dofic.location': 'Paris, France',
+    'experience.dofic.period': 'Mai 2026 – Juillet 2026',
+    'experience.dofic.type': 'Stage · Hybride',
+    'experience.dofic.description': 'Stagiaire Ingénieur en Développement d\'Applications IA chez DOFIC, contribuant au développement d\'applications basées sur l\'IA, y compris des fonctionnalités mobiles multiplateformes, tout en appliquant des pratiques de gestion de projet et de prompt engineering.',
+    'experience.dofic.achievement1': 'Développement et conteneurisation de composants applicatifs avec Docker',
+    'experience.dofic.achievement2': 'Création de fonctionnalités mobiles multiplateformes avec React Native',
+    'experience.dofic.achievement3': 'Gestion des tâches et des workflows avec Jira et GitLab',
+    'experience.dofic.achievement4': 'Application de techniques de prompt engineering pour concevoir et optimiser des fonctionnalités basées sur l\'IA',
+        
     // Extracurricular Activities - JLM
     'experience.jlm.title': 'Responsable de la Cellule Action Sociale',
     'experience.jlm.organization': 'JLM ENSA Marrakech',
@@ -486,7 +510,7 @@ const translations = {
     'experience.seeDetails': 'عرض التفاصيل',
     'experience.noImages': 'لا توجد صور متاحة لهذه التجربة.',
     
-    // Professional Experience - Superprof
+    // Professional Experience - UCAM
     'experience.ucam.title': 'مطور باك-إند',
     'experience.ucam.company': 'جامعة القاضي عياض - مديرية أنظمة المعلومات (DSI)',
     'experience.ucam.location': 'مراكش، المغرب',
@@ -512,7 +536,19 @@ const translations = {
     'experience.dell.image1': 'العمل في مكتب DELL Technologies بالدار البيضاء',
     'experience.dell.image2': 'منشآت ومساحات العمل في DELL Technologies',
     'experience.dell.image3': 'غلاف تقرير التدريب - توثيق شامل للمشروع',
-    
+
+    // Professional Experience - DOFIC
+    'experience.dofic.title': 'مهندس تطوير تطبيقات الذكاء الاصطناعي',
+    'experience.dofic.company': 'DOFIC',
+    'experience.dofic.location': 'باريس، فرنسا',
+    'experience.dofic.period': 'ماي 2026 – يوليوز 2026',
+    'experience.dofic.type': 'تدريب · مختلطة',
+    'experience.dofic.description': 'أعمل كمتدرب مهندس تطوير تطبيقات الذكاء الاصطناعي في DOFIC، حيث أساهم في تطوير تطبيقات مدعومة بالذكاء الاصطناعي، بما في ذلك ميزات متعددة المنصات للهاتف، مع تطبيق ممارسات إدارة المشاريع وهندسة الأوامر (Prompt Engineering).',
+    'experience.dofic.achievement1': 'تطوير وتغليف مكونات التطبيقات باستخدام Docker',
+    'experience.dofic.achievement2': 'بناء ميزات متعددة المنصات للهاتف باستخدام React Native',
+    'experience.dofic.achievement3': 'إدارة المهام وسير العمل باستخدام Jira و GitLab',
+    'experience.dofic.achievement4': 'تطبيق تقنيات هندسة الأوامر لتصميم وتحسين ميزات مدعومة بالذكاء الاصطناعي',
+        
     // Extracurricular Activities - JLM
     'experience.jlm.title': 'مسؤول خلية العمل الاجتماعي',
     'experience.jlm.organization': 'JLM ENSA مراكش',

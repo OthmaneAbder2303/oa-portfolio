@@ -81,72 +81,72 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto">
 
           {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
               {t('contact.title')}
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto text-sm">
               {t('contact.description')}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8">
 
             {/* Contact Information */}
             <div>
-              <h3 className="text-2xl font-bold mb-8">Let's Connect</h3>
+              <h3 className="text-lg font-bold mb-4">Let's Connect</h3>
 
               {/* Contact Methods */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-3 mb-5">
                 {contactInfo.map((contact, idx) => (
                   <a
                     key={idx}
                     href={contact.href}
-                    className={`flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group ${contact.bgColor}`}
+                    className={`flex items-center space-x-3 p-3 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md group ${contact.bgColor}`}
                   >
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${contact.bgColor}`}>
-                      <contact.icon className={`h-6 w-6 ${contact.textColor}`} />
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${contact.bgColor}`}>
+                      <contact.icon className={`h-4 w-4 ${contact.textColor}`} />
                     </div>
                     <div>
-                      <div className={`font-semibold text-card-foreground group-hover:text-primary transition-colors ${contact.textColor}`}>
+                      <div className={`font-semibold text-sm text-card-foreground group-hover:text-primary transition-colors ${contact.textColor}`}>
                         {contact.label}
                       </div>
-                      <div className="text-muted-foreground">{contact.value}</div>
+                      <div className="text-muted-foreground text-sm">{contact.value}</div>
                     </div>
                   </a>
                 ))}
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-4 gap-2 mb-5">
                 {quickStats.map((stat, idx) => (
-                  <div key={idx} className="project-card p-4 text-center">
-                    <stat.icon className="w-6 h-6 mx-auto mb-2 text-primary" />
-                    <div className="font-bold text-card-foreground">{stat.value}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  <div key={idx} className="project-card p-2.5 text-center">
+                    <stat.icon className="w-4 h-4 mx-auto mb-1 text-primary" />
+                    <div className="font-bold text-card-foreground text-sm">{stat.value}</div>
+                    <div className="text-[10px] leading-tight text-muted-foreground">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Available for */}
-              <div className="project-card p-6">
-                <h4 className="font-bold mb-4">Available for:</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+              <div className="project-card p-4">
+                <h4 className="font-bold text-sm mb-2">Available for:</h4>
+                <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                     <span>Full-time opportunities</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                     <span>Internship programs</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                     <span>Freelance projects</span>
                   </li>
                   <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                     <span>Collaboration opportunities</span>
                   </li>
                 </ul>
@@ -155,51 +155,52 @@ const Contact = () => {
 
             {/* Social Links & Quick Contact */}
             <div>
-              <h3 className="text-2xl font-bold mb-8">Find Me Online</h3>
+              <h3 className="text-lg font-bold mb-4">Find Me Online</h3>
 
               {/* Social Links Grid */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-3 mb-5">
                 {socialLinks.map((social, idx) => (
                   <a
                     key={idx}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-4 p-4 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group ${social.bgColor}`}
+                    className={`flex items-center space-x-3 p-3 rounded-lg border hover:border-primary/40 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md group ${social.bgColor}`}
                   >
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${social.bgColor}`}>
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${social.bgColor}`}>
                       <img 
                         src={social.logo} 
                         alt={social.label}
-                        className="w-6 h-6 object-contain"
+                        className="w-5 h-5 object-contain"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                           (e.currentTarget.nextElementSibling as HTMLElement)!.style.display = 'flex';
                         }}
                       />
-                      <social.icon className={`h-6 w-6 ${social.textColor} hidden`} />
+                      <social.icon className={`h-4 w-4 ${social.textColor} hidden`} />
                     </div>
                     <div className="flex-1">
-                      <div className={`font-semibold text-card-foreground group-hover:text-primary transition-colors ${social.textColor}`}>
+                      <div className={`font-semibold text-sm text-card-foreground group-hover:text-primary transition-colors ${social.textColor}`}>
                         {social.label}
                       </div>
-                      <div className="text-muted-foreground text-sm">{social.value}</div>
+                      <div className="text-muted-foreground text-xs">{social.value}</div>
                     </div>
-                    <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
 
               {/* Quick Contact Card */}
-              <div className="project-card p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Send className="h-8 w-8 text-primary" />
+              <div className="project-card p-4 text-center">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Send className="h-5 w-5 text-primary" />
                 </div>
-                <h4 className="font-bold text-card-foreground mb-2">Ready to Connect?</h4>
-                <p className="text-muted-foreground mb-6 text-sm">
+                <h4 className="font-bold text-sm text-card-foreground mb-1.5">Ready to Connect?</h4>
+                <p className="text-muted-foreground mb-4 text-xs">
                   Send me an email and let's discuss how we can work together on exciting projects.
                 </p>
                 <Button 
+                  size="sm"
                   className="gradient-primary text-white w-full"
                   onClick={() => window.open('mailto:othmane232004@gmail.com', '_blank')}
                 >
@@ -212,8 +213,8 @@ const Contact = () => {
           </div>
 
           {/* Footer Note */}
-          <div className="text-center mt-16 pt-8 border-t border-border">
-            <p className="text-muted-foreground">
+          <div className="text-center mt-10 pt-6 border-t border-border">
+            <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} Othmane Abderrazik. Built with React, TypeScript, and Tailwind CSS.
             </p>
           </div>
