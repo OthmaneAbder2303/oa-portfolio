@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import profilePicture from '@/assets/profile_picture.jpeg'
+import profilePicture from '@/assets/pdp_othmane_sans_background.png'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)

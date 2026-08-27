@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-import profilePicture from '@/assets/profile_picture.jpeg';
+// import profilePicture from '@/assets/profile_picture.jpeg';
+import profilePicture from '@/assets/pdp_othmane_sans_background.png';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -59,20 +60,21 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 min-h-screen flex items-center justify-center">
         <div className="text-center">
 
-          {/* Photo de profil - plus petite */}
+          {/* Photo de profil */}
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1}}
             className="relative mb-6"
           >
-            <div className="relative mx-auto w-32 h-32 md:w-40 md:h-40">
+            <div className="relative mx-auto w-40 h-46 md:w-52 md:h-60">
               <img
                 src={profilePicture}
                 alt="Othmane Abder"
-                className="w-full h-full rounded-full object-cover shadow-2xl shadow-emerald-500/40 border-[5px] border-background"
+                className="w-full h-full object-cover drop-shadow-2xl"
               />
-              <div className="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-ping" />
+
+              <div className="absolute inset-0 rounded-full border-4 border-emerald-500/30 animate-ping pointer-events-none" />
             </div>
           </motion.div>
 
