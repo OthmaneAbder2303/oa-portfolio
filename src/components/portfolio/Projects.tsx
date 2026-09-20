@@ -14,7 +14,6 @@ import logClassificationDiagram from '@/assets/projects/log_class-docker.png'
 
 const Projects = () => {
   const { t } = useLanguage()
-  const [selectedProject, setSelectedProject] = useState<any>(null)
   const [imageLoaded, setImageLoaded] = useState<{[key: number]: boolean}>({})
   const [imageError, setImageError] = useState<{[key: number]: boolean}>({})
   
@@ -23,10 +22,10 @@ const Projects = () => {
       id: 1,
       title: t('projects.smartroute'),
       description: t('projects.smartroute.description'),
-      period: 'Mar 2025 – May 2025',
+      period: t('projects.smartroute.period'),
       institution: 'ENSA Marrakech',
       technologies: ['Spring Boot', 'Angular', 'Python', 'Machine Learning', 'Graph Algorithms', 'XgBoost', 'Random Forest', 'Weather API', 'Flask', 'PostgreSQL'],
-      category: 'Web Development & Machine Learning',
+      category: t('projects.category.webMl'),
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/SmartRoute',
       demoUrl: '#',
@@ -49,12 +48,12 @@ const Projects = () => {
       id: 2,
       title: t('projects.hackathon'),
       description: t('projects.hackathon.description'),
-      period: 'May 2025',
+      period: t('projects.hackathon.period'),
       institution: 'UM6P - 1337',
       technologies: ['AI Agents', 'NLP', 'Speech Recognition', 'Generative AI', 'Web Search', 'Google Gemini'],
-      category: 'AI & NLP',
+      category: t('projects.category.aiNlp'),
       featured: true,
-      achievement: '7th Place',
+      achievement: t('projects.hackathon.rank'),
       githubUrl: 'https://github.com/zakariaayl/HackAi_ZHO_logs',
       demoUrl: '#',
       imageSrc: hackathonDiagram,
@@ -74,12 +73,12 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'E-Banking Management System',
-      description: 'A web-based banking platform for managing customers, accounts, and financial transactions with secure authentication.',
-      period: 'May 2025 – Jun 2025',
+      title: t('projects.banking.title'),
+      description: t('projects.banking.description'),
+      period: t('projects.banking.period'),
       institution: 'ENSA Marrakech',
       technologies: ['JEE', 'Spring', 'Angular', 'REST API', 'PostgreSQL', 'Dialogflow'],
-      category: 'Web Development',
+      category: t('projects.category.web'),
       featured: true,
       githubUrl: 'https://github.com/Elamghar/e-banking.git',
       imageSrc: ebankingDiagram,
@@ -99,13 +98,13 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: "LogPulse: Hybrid Log Analytics", // Updated name for more "brand" feel
+      title: t('projects.log.title'),
       description: t('projects.log_classification.description'),
-      period: 'May 2025 – Jun 2025',
-      institution: 'Personal Project',
+      period: t('projects.log.period'),
+      institution: t('projects.personal'),
       // Added Docker and Sentence-Transformers to technologies
       technologies: ['Python', 'BERT', 'Groq LLM', 'FastAPI', 'Docker', 'NLP', 'Regex'],
-      category: 'AI & NLP',
+      category: t('projects.category.aiNlp'),
       featured: true,
       githubUrl: 'https://github.com/OthmaneAbder2303/log_classification_system',
       demoUrl: '#',
@@ -128,10 +127,10 @@ const Projects = () => {
       id: 5,
       title: t('projects.chatbot'),
       description: t('projects.chatbot.description'),
-      period: 'Apr 2025 – May 2025',
-      institution: 'Personal Project',
+      period: t('projects.chatbot.period'),
+      institution: t('projects.personal'),
       technologies: ['Python', 'NLP', 'Dialogflow', 'FastAPI'],
-      category: 'AI & Chatbots',
+      category: t('projects.category.aiChatbots'),
       featured: false,
       githubUrl: 'https://github.com/OthmaneAbder2303/chatbot_food_business',
       imageSrc: chatbotDiagram,
@@ -153,10 +152,10 @@ const Projects = () => {
       id: 6,
       title: t('projects.puzzle'),
       description: t('projects.puzzle.description'),
-      period: 'Mar 2024 – Jun 2024',
+      period: t('projects.puzzle.period'),
       institution: 'ENSA Marrakech',
       technologies: ['Computer Vision', 'OpenCV', 'Python', 'Image Processing', 'AI', 'Transformers'],
-      category: 'Computer Vision',
+      category: t('projects.category.computerVision'),
       featured: false,
       githubUrl: 'https://github.com/NadaMaliki/puzzle-solver',
       imageSrc: puzzleDiagram,
@@ -178,10 +177,10 @@ const Projects = () => {
       id: 7,
       title: t('projects.lis'),
       description: t('projects.lis.description'),
-      period: 'Nov 2024 – Jan 2025',
+      period: t('projects.lis.period'),
       institution: 'ENSA Marrakech',
       technologies: ['Java', 'JavaFX', 'ESP32', 'Real-time Systems', 'MySQL'],
-      category: 'Web Development',
+      category: t('projects.category.web'),
       featured: true,
       githubUrl: 'https://github.com/Elamghar/LIS',
       imageSrc: lisDiagram,
@@ -234,44 +233,35 @@ const Projects = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Innovative solutions spanning AI, web development, and embedded systems
+              {t('projects.subtitle')}
             </p>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,19rem),1fr))] gap-5 md:gap-7 mb-12">
             {projects.map((project) => (
               <div 
                 key={project.id} 
                 className="project-card p-6 hover-lift relative overflow-hidden group"
-                style={{ 
-                  background: project.brandColors.background,
-                  borderLeft: `4px solid ${project.brandColors.primary}`
-                }}
+                style={{ borderLeft: '4px solid hsl(var(--primary))' }}
               >
                 <div className="relative z-10">
                   {/* Project Image Preview */}
                   {project.imageSrc && (
                     <div className="mb-6 rounded-lg overflow-hidden relative bg-black/5">
                       {!imageLoaded[project.id] && !imageError[project.id] && (
-                        <div 
-                          className="w-full h-48 flex items-center justify-center"
-                          style={{ backgroundColor: project.brandColors.accent }}
-                        >
+                        <div className="w-full h-48 flex items-center justify-center bg-primary/5">
                           <div className="animate-pulse flex flex-col items-center space-y-2">
-                            <ImageIcon className="h-8 w-8" style={{ color: project.brandColors.primary }} />
-                            <span className="text-sm" style={{ color: project.brandColors.primary }}>Loading preview...</span>
+                            <ImageIcon className="h-8 w-8 text-primary" />
+                            <span className="text-sm text-primary">{t('projects.loading')}</span>
                           </div>
                         </div>
                       )}
                       {imageError[project.id] ? (
-                        <div 
-                          className="w-full h-48 flex items-center justify-center"
-                          style={{ backgroundColor: project.brandColors.accent }}
-                        >
+                        <div className="w-full h-48 flex items-center justify-center bg-primary/5">
                           <div className="flex flex-col items-center space-y-2 text-muted-foreground">
                             <ImageIcon className="h-8 w-8" />
-                            <span className="text-sm">Diagram preview</span>
+                            <span className="text-sm">{t('projects.preview')}</span>
                           </div>
                         </div>
                       ) : (
@@ -299,7 +289,7 @@ const Projects = () => {
                           <h3 className="text-lg font-bold text-card-foreground mb-1">
                             {project.title}
                           </h3>
-                          <p className="font-semibold text-sm" style={{ color: project.brandColors.primary }}>
+                          <p className="font-semibold text-sm text-primary">
                             {project.institution}
                           </p>
                         </div>
@@ -316,10 +306,7 @@ const Projects = () => {
                   </div>
 
                   {/* Category Badge */}
-                  <div 
-                    className="inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium mb-4"
-                    style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}
-                  >
+                  <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
                     <span>{project.category}</span>
                   </div>
 
@@ -331,7 +318,7 @@ const Projects = () => {
                   {/* Technologies - GARDÉ ICI */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.slice(0, 5).map((tech, index) => (
-                      <span key={index} className="px-3 py-1 text-xs rounded-full font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
+                      <span key={index} className="px-3 py-1 text-xs rounded-full font-medium bg-primary/10 text-primary">
                         {tech}
                       </span>
                     ))}
@@ -348,36 +335,34 @@ const Projects = () => {
                       <Button 
                         variant="outline" 
                         size="sm"
-                        onClick={() => setSelectedProject(project)}
-                        className="w-full text-sm hover:opacity-90"
-                        style={{ borderColor: project.brandColors.primary, color: project.brandColors.primary }}
+                        className="w-full text-sm border-primary/50 text-primary hover:bg-primary/5"
                       >
                         <Eye className="h-4 w-4 mr-2" />
-                        View Details
+                        {t('projects.viewDetails')}
                       </Button>
                     </DialogTrigger>
                     
                     <DialogContent className="w-full max-w-[90vw] sm:max-w-3xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
                       <DialogHeader>
                         <DialogTitle className="flex items-center space-x-3 text-base sm:text-lg">
-                          <Code className="w-6 h-6 sm:w-8 sm:h-8" style={{ color: project.brandColors.primary }} />
+                          <Code className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                           <span>{project.title}</span>
                         </DialogTitle>
                       </DialogHeader>
                       <div className="space-y-4">
                         {project.imageSrc && !imageError[project.id] && (
-                          <div className="rounded-lg overflow-hidden border-2" style={{ borderColor: project.brandColors.border }}>
+                          <div className="rounded-lg overflow-hidden border-2 border-primary/20">
                             <img src={project.imageSrc} alt={project.title} className="w-full h-auto object-contain max-h-96" />
                           </div>
                         )}
 
                         {/* Achievements - AFFICHÉS UNIQUEMENT ICI */}
                         <div>
-                          <h4 className="font-semibold mb-2">Key Achievements:</h4>
+                          <h4 className="font-semibold mb-2">{t('projects.achievements')}</h4>
                           <ul className="space-y-1 text-sm text-muted-foreground">
                             {project.achievements.map((achievement, index) => (
                               <li key={index} className="flex items-start space-x-2">
-                                <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: project.brandColors.primary }} />
+                                <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-primary" />
                                 <span>{achievement}</span>
                               </li>
                             ))}
@@ -385,10 +370,10 @@ const Projects = () => {
                         </div>
 
                         <div>
-                          <h4 className="font-semibold mb-2">Full Tech Stack:</h4>
+                          <h4 className="font-semibold mb-2">{t('projects.techStack')}</h4>
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, index) => (
-                              <span key={index} className="px-3 py-1 text-xs rounded-full font-medium" style={{ backgroundColor: project.brandColors.accent, color: project.brandColors.primary }}>
+                              <span key={index} className="px-3 py-1 text-xs rounded-full font-medium bg-primary/10 text-primary">
                                 {tech}
                               </span>
                             ))}
@@ -397,9 +382,9 @@ const Projects = () => {
 
                         <div className="flex space-x-2 pt-4">
                           {project.githubUrl && (
-                            <Button onClick={() => handleGithubClick(project.githubUrl)} className="flex-1" style={{ backgroundColor: project.brandColors.primary, color: 'white' }}>
+                            <Button onClick={() => handleGithubClick(project.githubUrl)} className="flex-1 gradient-primary text-primary-foreground">
                               <Github className="h-4 w-4 mr-2" />
-                              View Code
+                              {t('projects.viewCode')}
                             </Button>
                           )}
                         </div>
@@ -415,13 +400,13 @@ const Projects = () => {
           <div className="text-center mt-16">
             <div className="inline-flex items-center space-x-4 bg-gradient-card border rounded-lg p-6">
               <div>
-                <h3 className="font-bold mb-2">Interested in my work?</h3>
+                <h3 className="font-bold mb-2">{t('projects.cta.title')}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Check out my GitHub for more projects and contributions
+                  {t('projects.cta.description')}
                 </p>
                 <Button className="gradient-primary text-white" onClick={() => window.open('https://github.com/OthmaneAbder2303', '_blank', 'noopener,noreferrer')}>
                   <Github className="h-4 w-4 mr-2" />
-                  View GitHub Profile
+                  {t('projects.cta.button')}
                 </Button>
               </div>
             </div>

@@ -22,7 +22,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: t('contact.location'),
-      value: 'Calais, France',
+      value: t('contact.locationValue'),
       href: '#',
       bgColor: 'bg-blue-200 dark:bg-blue-900',
       textColor: 'text-blue-800 dark:text-blue-200'
@@ -69,10 +69,10 @@ const Contact = () => {
   ]
 
   const quickStats = [
-    { label: 'Response Time', value: '< 24h', icon: Rocket },
-    { label: 'Languages', value: '3', icon: Globe2 },
-    { label: 'Time Zone', value: 'GMT+1', icon: Clock3 },
-    { label: 'Available', value: 'Yes', icon: BadgeCheck }
+    { label: t('contact.responseTime'), value: '< 24h', icon: Rocket },
+    { label: t('contact.languages'), value: '3', icon: Globe2 },
+    { label: t('contact.timeZone'), value: 'GMT+1', icon: Clock3 },
+    { label: t('contact.available'), value: t('contact.yes'), icon: BadgeCheck }
   ]
 
   return (
@@ -95,7 +95,7 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div>
-              <h3 className="text-lg font-bold mb-4">Let's Connect</h3>
+              <h3 className="text-lg font-bold mb-4">{t('contact.connect')}</h3>
 
               {/* Contact Methods */}
               <div className="space-y-3 mb-5">
@@ -119,7 +119,7 @@ const Contact = () => {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-4 gap-2 mb-5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
                 {quickStats.map((stat, idx) => (
                   <div key={idx} className="project-card p-2.5 text-center">
                     <stat.icon className="w-4 h-4 mx-auto mb-1 text-primary" />
@@ -131,23 +131,23 @@ const Contact = () => {
 
               {/* Available for */}
               <div className="project-card p-4">
-                <h4 className="font-bold text-sm mb-2">Available for:</h4>
+                <h4 className="font-bold text-sm mb-2">{t('contact.availableFor')}</h4>
                 <ul className="space-y-1.5 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    <span>Full-time opportunities</span>
+                    <span>{t('contact.fullTime')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    <span>Internship programs</span>
+                    <span>{t('contact.internship')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    <span>Freelance projects</span>
+                    <span>{t('contact.freelance')}</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    <span>Collaboration opportunities</span>
+                    <span>{t('contact.collaboration')}</span>
                   </li>
                 </ul>
               </div>
@@ -155,7 +155,7 @@ const Contact = () => {
 
             {/* Social Links & Quick Contact */}
             <div>
-              <h3 className="text-lg font-bold mb-4">Find Me Online</h3>
+              <h3 className="text-lg font-bold mb-4">{t('contact.findOnline')}</h3>
 
               {/* Social Links Grid */}
               <div className="space-y-3 mb-5">
@@ -195,9 +195,9 @@ const Contact = () => {
                 <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
                   <Send className="h-5 w-5 text-primary" />
                 </div>
-                <h4 className="font-bold text-sm text-card-foreground mb-1.5">Ready to Connect?</h4>
+                <h4 className="font-bold text-sm text-card-foreground mb-1.5">{t('contact.ready')}</h4>
                 <p className="text-muted-foreground mb-4 text-xs">
-                  Send me an email and let's discuss how we can work together on exciting projects.
+                  {t('contact.readyDescription')}
                 </p>
                 <Button 
                   size="sm"
@@ -205,7 +205,7 @@ const Contact = () => {
                   onClick={() => window.open('mailto:othmane232004@gmail.com', '_blank')}
                 >
                   <Mail className="h-4 w-4 mr-2" />
-                  Send Email
+                  {t('contact.sendEmail')}
                 </Button>
               </div>
             </div>
@@ -215,7 +215,7 @@ const Contact = () => {
           {/* Footer Note */}
           <div className="text-center mt-10 pt-6 border-t border-border">
             <p className="text-muted-foreground text-sm">
-              © {new Date().getFullYear()} Othmane Abderrazik. Built with React, TypeScript, and Tailwind CSS.
+              © {new Date().getFullYear()} Othmane Abderrazik. {t('contact.footer')}
             </p>
           </div>
 

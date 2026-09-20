@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -19,7 +20,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
+				'inter': ['IBM Plex Sans', 'IBM Plex Sans Arabic', 'sans-serif'],
 				'mono': ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
@@ -147,5 +148,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;

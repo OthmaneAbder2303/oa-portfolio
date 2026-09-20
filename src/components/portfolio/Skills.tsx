@@ -189,7 +189,7 @@ const Skills = () => {
                     {category.skills.map((skill, skillIndex) => (
                       <div
                         key={skillIndex}
-                        className="flex-shrink-0 w-32 h-32
+                        className="flex-shrink-0 w-28 sm:w-32 aspect-square
                           bg-white dark:bg-gray-800
                           border border-gray-200 dark:border-gray-700
                           rounded-xl transition-all duration-300

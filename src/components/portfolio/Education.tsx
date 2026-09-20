@@ -45,17 +45,17 @@ const Education = () => {
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              My educational journey in computer engineering and software development
+              {t('education.subtitle')}
             </p>
           </div>
 
           {/* Education Timeline */}
           <div className="relative">
             {/* Animated Timeline Line with Gradient */}
-            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full opacity-30"></div>
+            <div className="absolute left-4 sm:left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-primary/20 via-primary to-primary/20 rounded-full"></div>
             
             {/* Flowing Animation Line */}
-            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-1 rounded-full overflow-hidden">
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-px top-0 bottom-0 w-1 rounded-full overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary to-transparent animate-pulse opacity-60"></div>
               <div className="absolute w-full h-20 bg-gradient-to-b from-blue-400 to-purple-500 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
             </div>
@@ -70,7 +70,7 @@ const Education = () => {
                     <>
                       {/* Curved Connection Line */}
                       <svg 
-                        className={`absolute top-16 w-32 h-32 z-5 ${
+                        className={`hidden md:block absolute top-16 w-32 h-32 z-5 ${
                           index % 2 === 0 
                             ? 'left-12 md:left-1/2 md:-translate-x-16' 
                             : 'left-12 md:left-1/2 md:translate-x-16'
@@ -109,7 +109,7 @@ const Education = () => {
                       </svg>
 
                       {/* Progress Arrow */}
-                      <div className={`absolute top-24 z-10 ${
+                      <div className={`hidden md:block absolute top-24 z-10 ${
                         index % 2 === 0 
                           ? 'left-20 md:left-1/2 md:-translate-x-8' 
                           : 'left-20 md:left-1/2 md:translate-x-8'
@@ -123,7 +123,7 @@ const Education = () => {
                   )}
 
                   {/* Enhanced Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="absolute left-4 sm:left-8 md:left-1/2 transform -translate-x-1/2 z-20">
                     {/* Outer Ring with Pulse */}
                     <div className="w-8 h-8 rounded-full border-4 border-background shadow-xl relative">
                       <div className={`w-full h-full rounded-full ${
@@ -151,13 +151,13 @@ const Education = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}`}>
+                  <div className={`w-full md:w-5/12 ml-10 sm:ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-auto md:text-right' : 'md:ml-auto md:text-left'}`}>
                     <div className="project-card p-6 hover-lift">
                       
                       {/* Institution Header */}
-                      <div className={`flex items-center space-x-4 mb-4 ${index % 2 === 0 ? 'md:flex-row-reverse md:space-x-reverse' : ''}`}>
+                      <div className={`flex items-center space-x-3 sm:space-x-4 mb-4 ${index % 2 === 0 ? 'md:flex-row-reverse md:space-x-reverse' : ''}`}>
                         {/* Enhanced Logo Container */}
-                        <div className="relative w-20 h-20 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-3 shadow-lg border border-gray-200/50">
+                        <div className="relative w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-2 sm:p-3 shadow-lg border border-gray-200/50">
                           <img 
                             src={edu.logo} 
                             alt={`${edu.institution} logo`}
@@ -226,7 +226,7 @@ const Education = () => {
                           <span className={`w-2 h-2 rounded-full mr-2 ${
                             edu.status === 'current' ? 'bg-green-500 animate-pulse' : 'bg-gray-400'
                           }`}></span>
-                          {edu.status === 'current' ? 'Currently Enrolled' : 'Completed'}
+                          {edu.gpa}
                         </span>
                       </div>
                     </div>

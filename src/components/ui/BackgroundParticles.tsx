@@ -18,14 +18,14 @@ const BackgroundParticles: React.FC = () => {
         detectRetina: true,
         particles: {
           number: { value: 38, density: { enable: true, area: 900 } },
-          color: { value: '#6366F1' },
-          opacity: { value: 0.06 },
+          color: { value: '#16a36a' },
+          opacity: { value: 0.045 },
           size: { value: { min: 1, max: 3 } },
           links: {
             enable: true,
             distance: 120,
-            color: '#6366F1',
-            opacity: 0.04,
+            color: '#16a36a',
+            opacity: 0.035,
             width: 1
           },
           move: {

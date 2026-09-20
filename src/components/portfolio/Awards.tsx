@@ -81,7 +81,7 @@ const Awards = () => {
           </div>
 
           {/* Awards Grid */}
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-5 md:gap-7 mb-16">
             {awards.map((award) => (
               <div key={award.id} className="project-card p-6 hover-lift">
                 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
@@ -57,9 +58,6 @@ const Header = () => {
           ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-lg transform translate-y-0' 
           : 'bg-transparent transform translate-y-0'
       }`}
-      style={{
-        animation: 'slideInFromTop 0.6s ease-out'
-      }}
     >
       <nav className="container-responsive">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -94,28 +92,19 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="relative px-4 py-2 text-foreground/80 hover:text-primary transition-all duration-300 font-medium group overflow-hidden rounded-lg"
-                style={{
-                  animationDelay: `${index * 100}ms`
-                }}
+                className="relative px-3 py-2 text-sm text-foreground/70 hover:text-foreground transition-colors duration-200 font-medium group rounded-lg"
               >
                 {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></div>
+                <div className="absolute inset-0 bg-primary/[0.07] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg"></div>
                 
                 {/* Sliding underline */}
-                <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary to-primary/60 w-0 group-hover:w-full transition-all duration-300"></div>
+                <div className="absolute bottom-0 left-3 right-3 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
                 
                 {/* Text with subtle animation */}
                 <span className="relative z-10 group-hover:translate-y-[-1px] transition-transform duration-200">
                   {item.label}
                 </span>
                 
-                {/* Sparkle effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-primary rounded-full animate-ping" style={{animationDelay: '0ms'}}></div>
-                  <div className="absolute top-1/4 right-1/4 w-0.5 h-0.5 bg-primary/60 rounded-full animate-ping" style={{animationDelay: '200ms'}}></div>
-                  <div className="absolute bottom-1/4 left-1/4 w-0.5 h-0.5 bg-primary/40 rounded-full animate-ping" style={{animationDelay: '400ms'}}></div>
-                </div>
               </button>
             ))}
           </div>
@@ -165,18 +154,15 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
+        <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border shadow-lg overflow-hidden">
+          <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }} className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border shadow-lg overflow-hidden">
             <div className="py-4 space-y-1">
               {navItems.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="block w-full text-left px-6 py-4 text-foreground/80 hover:text-primary hover:bg-gradient-to-r hover:from-primary/10 hover:to-transparent transition-all duration-300 relative group overflow-hidden transform hover:translate-x-2"
-                  style={{
-                    animationDelay: `${index * 50}ms`,
-                    animation: isMobileMenuOpen ? 'slideInFromRight 0.3s ease-out forwards' : ''
-                  }}
                 >
                   {/* Mobile menu item glow effect */}
                   <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-primary to-primary/60 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center"></div>
@@ -191,8 +177,9 @@ const Header = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </nav>
     </header>
   )

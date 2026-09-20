@@ -8,20 +8,20 @@ const About = () => {
   const highlights = [
     {
       icon: Brain,
-      title: 'AI & Machine Learning',
-      description: 'Exploring intelligent systems and neural networks',
+      title: t('about.highlight.ai.title'),
+      description: t('about.highlight.ai.description'),
       image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Code,
-      title: 'Full-Stack Development',
-      description: 'Building end-to-end applications with modern technologies',
+      title: t('about.highlight.fullstack.title'),
+      description: t('about.highlight.fullstack.description'),
       image: 'https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop&crop=center'
     },
     {
       icon: Target,
-      title: 'Problem Solving',
-      description: 'Tackling complex challenges with innovative approaches',
+      title: t('about.highlight.problem.title'),
+      description: t('about.highlight.problem.description'),
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&crop=center'
     }
   ]
@@ -48,30 +48,21 @@ const About = () => {
                 {t('about.description')}
               </p>
               
-              <p className="text-muted-foreground leading-relaxed">
-                Passionate computer science student driven by a strong interest in 
-                <span className="font-medium text-primary"> Artificial Intelligence</span>, 
-                <span className="font-medium text-primary"> Data Science</span>, and 
-                <span className="font-medium text-primary"> Full-Stack Development</span>.  
-                I also enjoy exploring <span className="font-medium text-primary">Natural Language Processing</span>, 
-                and sharpening my abilities in <span className="font-medium text-primary">Problem Solving</span> and 
-                <span className="font-medium text-primary"> Algorithmics</span>.  
-                My goal is to design impactful, innovative solutions that connect cutting-edge research with real-world applications.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">{t('about.detail')}</p>
 
 
               <div className="flex flex-wrap gap-6 pt-6">
                 <div className="text-center flex-1">
                   <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">Projects</div>
+                  <div className="text-sm text-muted-foreground">{t('about.stat.projects')}</div>
                 </div>
                 <div className="text-center flex-1">
                   <div className="text-3xl font-bold text-primary">3</div>
-                  <div className="text-sm text-muted-foreground">Awards</div>
+                  <div className="text-sm text-muted-foreground">{t('about.stat.awards')}</div>
                 </div>
                 <div className="text-center flex-1">
                   <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">Certifications</div>
+                  <div className="text-sm text-muted-foreground">{t('about.stat.certifications')}</div>
                 </div>
               </div>
             </div>
@@ -107,7 +98,7 @@ const About = () => {
           <div className="mt-16 text-center">
             <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-6 py-3">
               <div className="w-3 h-3 bg-success rounded-full animate-pulse" />
-              <span className="text-sm font-medium">Available for exciting opportunities</span>
+              <span className="text-sm font-medium">{t('about.available')}</span>
             </div>
           </div>
         </div>
