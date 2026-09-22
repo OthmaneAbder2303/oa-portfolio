@@ -71,7 +71,7 @@ const Contact = () => {
   const quickStats = [
     { label: t('contact.responseTime'), value: '< 24h', icon: Rocket },
     { label: t('contact.languages'), value: '3', icon: Globe2 },
-    { label: t('contact.timeZone'), value: 'GMT+1', icon: Clock3 },
+    { label: t('contact.timeZone'), value: 'GMT+2', icon: Clock3 },
     { label: t('contact.available'), value: t('contact.yes'), icon: BadgeCheck }
   ]
 
@@ -192,7 +192,7 @@ const Contact = () => {
 
               {/* Quick Contact Card */}
               <div className="project-card p-4 text-center">
-                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-6 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
                   <Send className="h-5 w-5 text-primary" />
                 </div>
                 <h4 className="font-bold text-sm text-card-foreground mb-1.5">{t('contact.ready')}</h4>
