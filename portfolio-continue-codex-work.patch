@@ -1,0 +1,203 @@
+diff --git a/src/components/portfolio/Contact.tsx b/src/components/portfolio/Contact.tsx
+index 48fe48b..f95fb29 100644
+--- a/src/components/portfolio/Contact.tsx
++++ b/src/components/portfolio/Contact.tsx
+@@ -71,7 +71,7 @@ const Contact = () => {
+   const quickStats = [
+     { label: t('contact.responseTime'), value: '< 24h', icon: Rocket },
+     { label: t('contact.languages'), value: '3', icon: Globe2 },
+-    { label: t('contact.timeZone'), value: 'GMT+2', icon: Clock3 },
++    { label: t('contact.timeZone'), value: 'GMT+1', icon: Clock3 },
+     { label: t('contact.available'), value: t('contact.yes'), icon: BadgeCheck }
+   ]
+ 
+@@ -192,7 +192,7 @@ const Contact = () => {
+ 
+               {/* Quick Contact Card */}
+               <div className="project-card p-4 text-center">
+-                <div className="w-12 h-6 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
++                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
+                   <Send className="h-5 w-5 text-primary" />
+                 </div>
+                 <h4 className="font-bold text-sm text-card-foreground mb-1.5">{t('contact.ready')}</h4>
+diff --git a/src/components/portfolio/Projects.tsx b/src/components/portfolio/Projects.tsx
+index d41ad25..13e87f6 100644
+--- a/src/components/portfolio/Projects.tsx
++++ b/src/components/portfolio/Projects.tsx
+@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
+ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+ import { useLanguage } from '@/contexts/LanguageContext'
+ import { useState } from 'react'
++import Reveal from '@/components/ui/Reveal'
+ 
+ import smartrouteDiagram from '@/assets/projects/info_itin.jpg'
+ import hackathonDiagram from '@/assets/projects/lm9dem-platform.png'
+@@ -239,10 +240,10 @@ const Projects = () => {
+ 
+           {/* Projects Grid */}
+           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,19rem),1fr))] gap-5 md:gap-7 mb-12">
+-            {projects.map((project) => (
+-              <div 
+-                key={project.id} 
+-                className="project-card p-6 hover-lift relative overflow-hidden group"
++            {projects.map((project, index) => (
++              <Reveal key={project.id} index={index} y={40} scale={0.92} delayStep={0.07} maxDelay={0.28}>
++              <div
++                className="project-card p-6 hover-lift relative overflow-hidden group h-full"
+                 style={{ borderLeft: '4px solid hsl(var(--primary))' }}
+               >
+                 <div className="relative z-10">
+@@ -393,6 +394,7 @@ const Projects = () => {
+                   </Dialog>
+                 </div>
+               </div>
++              </Reveal>
+             ))}
+           </div>
+ 
+diff --git a/src/components/portfolio/Skills.tsx b/src/components/portfolio/Skills.tsx
+index 4c0675d..f55469b 100644
+--- a/src/components/portfolio/Skills.tsx
++++ b/src/components/portfolio/Skills.tsx
+@@ -2,6 +2,7 @@ import { Brain, Layers, Cloud, Wrench, Cpu, Sparkles } from 'lucide-react'
+ import { useLanguage } from '@/contexts/LanguageContext'
+ import { useRef, useEffect, useMemo } from 'react'
+ import chromadbLogo from '@/assets/logos/tech/chromadb.png'
++import Reveal from '@/components/ui/Reveal'
+ 
+ const Skills = () => {
+   const { t } = useLanguage()
+@@ -161,7 +162,16 @@ const Skills = () => {
+           {/* Carousels */}
+           <div className="space-y-12 mb-16">
+             {duplicatedCategories.map((category, categoryIndex) => (
+-              <div key={categoryIndex} className="space-y-6">
++              <Reveal
++                key={categoryIndex}
++                index={categoryIndex}
++                y={26}
++                scale={0.97}
++                blur={6}
++                delayStep={0.08}
++                maxDelay={0.4}
++                className="space-y-6"
++              >
+ 
+                 {/* Category header */}
+                 <div className="flex items-center space-x-4">
+@@ -214,7 +224,7 @@ const Skills = () => {
+                   </div>
+                 </div>
+ 
+-              </div>
++              </Reveal>
+             ))}
+           </div>
+ 
+diff --git a/src/components/ui/Reveal.tsx b/src/components/ui/Reveal.tsx
+new file mode 100644
+index 0000000..f2a4d2a
+--- /dev/null
++++ b/src/components/ui/Reveal.tsx
+@@ -0,0 +1,70 @@
++import { m, useInView, useReducedMotion } from 'framer-motion'
++import type { CSSProperties, ReactNode } from 'react'
++import { useRef } from 'react'
++
++interface RevealProps {
++  children: ReactNode
++  index?: number
++  delayStep?: number
++  maxDelay?: number
++  y?: number
++  scale?: number
++  blur?: number
++  once?: boolean
++  amount?: number
++  className?: string
++  style?: CSSProperties
++}
++
++/**
++ * Reveals its children with a staggered depth/opacity transition once they
++ * scroll into view. Built on framer-motion's `useInView` hook (plain
++ * IntersectionObserver under the hood) rather than the `whileInView` prop,
++ * so it works with the app's existing `LazyMotion features={domAnimation}`
++ * bundle, which doesn't include the separate "inView" feature.
++ */
++const Reveal = ({
++  children,
++  index = 0,
++  delayStep = 0.06,
++  maxDelay = 0.36,
++  y = 32,
++  scale = 0.94,
++  blur = 0,
++  once = true,
++  amount = 0.2,
++  className,
++  style,
++}: RevealProps) => {
++  const ref = useRef<HTMLDivElement>(null)
++  const reduceMotion = useReducedMotion()
++  const isInView = useInView(ref, { once, amount })
++  const delay = Math.min(index * delayStep, maxDelay)
++
++  if (reduceMotion) {
++    return (
++      <div ref={ref} className={className} style={style}>
++        {children}
++      </div>
++    )
++  }
++
++  return (
++    <m.div
++      ref={ref}
++      className={className}
++      style={style}
++      initial={{ opacity: 0, y, scale, filter: blur ? `blur(${blur}px)` : 'blur(0px)' }}
++      animate={
++        isInView
++          ? { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }
++          : undefined
++      }
++      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
++    >
++      {children}
++    </m.div>
++  )
++}
++
++export default Reveal
+diff --git a/src/contexts/LanguageContext.tsx b/src/contexts/LanguageContext.tsx
+index dd6c650..bf29291 100644
+--- a/src/contexts/LanguageContext.tsx
++++ b/src/contexts/LanguageContext.tsx
+@@ -274,7 +274,7 @@ const translations = {
+     'contact.readyDescription': "Send me an email and let's discuss how we can work together on exciting projects.",
+     'contact.sendEmail': 'Send Email',
+     'contact.footer': 'Built with React, TypeScript, and Tailwind CSS.',
+-    'contact.locationValue': 'France',
++    'contact.locationValue': 'Calais, France',
+     'notFound.message': 'Oops! Page not found',
+     'notFound.home': 'Return to Home',
+     'projects.smartroute.period': 'Mar 2025 – May 2025',
+@@ -561,7 +561,7 @@ const translations = {
+     'contact.readyDescription': 'Envoyez-moi un e-mail et discutons de la manière dont nous pouvons collaborer sur des projets stimulants.',
+     'contact.sendEmail': 'Envoyer un e-mail',
+     'contact.footer': 'Créé avec React, TypeScript et Tailwind CSS.',
+-    'contact.locationValue': 'France',
++    'contact.locationValue': 'Calais, France',
+     'notFound.message': 'Oups ! Page introuvable',
+     'notFound.home': 'Retour à l’accueil',
+     'projects.smartroute.period': 'Mars 2025 – Mai 2025',
+@@ -848,7 +848,7 @@ const translations = {
+     'contact.readyDescription': 'أرسل لي بريداً إلكترونياً ولنناقش كيف يمكننا العمل معاً على مشاريع مميزة.',
+     'contact.sendEmail': 'إرسال بريد إلكتروني',
+     'contact.footer': 'بُني باستخدام React وTypeScript وTailwind CSS.',
+-    'contact.locationValue': 'فرنسا',
++    'contact.locationValue': 'كاليه، فرنسا',
+     'notFound.message': 'عذراً! الصفحة غير موجودة',
+     'notFound.home': 'العودة إلى الرئيسية',
+     'projects.smartroute.period': 'مارس 2025 – مايو 2025',

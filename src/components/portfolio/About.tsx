@@ -1,6 +1,6 @@
 import { Code, Brain, Target } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 const About = () => {
   const { t } = useLanguage()
@@ -26,52 +26,74 @@ const About = () => {
     }
   ]
 
+  // Ajout explicite du type Variants pour éviter l'erreur TypeScript sur 'ease'
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: 'easeOut' },
+    },
+  }
+
   return (
     <section id="about" className="section-padding bg-surface-muted">
       <div className="container-responsive">
         <div className="max-w-5xl mx-auto">
           
           {/* Section Title */}
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
               {t('about.title')}
             </h2>
             <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full" />
-          </div>
+          </motion.div>
 
           {/* Main Content */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
-            {/* Left Column */}
-            <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            {/* Left Column - Dynamic Line-by-Line Animation */}
+            <motion.div 
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="space-y-6"
+            >
+              <motion.p variants={itemVariants} className="text-lg text-muted-foreground leading-relaxed">
                 {t('about.description')}
-              </p>
+              </motion.p>
               
-              <p className="text-muted-foreground leading-relaxed">{t('about.detail')}</p>
-
-
-              <div className="flex flex-wrap gap-6 pt-6">
-                <div className="text-center flex-1">
-                  <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">{t('about.stat.projects')}</div>
-                </div>
-                <div className="text-center flex-1">
-                  <div className="text-3xl font-bold text-primary">3</div>
-                  <div className="text-sm text-muted-foreground">{t('about.stat.awards')}</div>
-                </div>
-                <div className="text-center flex-1">
-                  <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">{t('about.stat.certifications')}</div>
-                </div>
-              </div>
-            </div>
+              <motion.p variants={itemVariants} className="text-muted-foreground leading-relaxed">
+                {t('about.detail')}
+              </motion.p>
+            </motion.div>
 
             {/* Right Column - Creative Highlights Grid */}
             <div className="grid grid-cols-2 gap-6">
               {highlights.map((item, index) => (
                 <motion.div
                   key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.15 }}
                   whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? -1 : 1 }}
                   className={`relative rounded-2xl overflow-hidden shadow-lg group 
                   ${index === 0 ? "col-span-2 h-48" : "h-40"}`}
@@ -95,12 +117,18 @@ const About = () => {
           </div>
 
           {/* Additional Info */}
-          <div className="mt-16 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-16 text-center"
+          >
             <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-6 py-3">
               <div className="w-3 h-3 bg-success rounded-full animate-pulse" />
               <span className="text-sm font-medium">{t('about.available')}</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
